@@ -68,10 +68,10 @@ const App: FC = () => {
                 minHeight: 280,
               }}
             >
-              Content
+              <Paragraph>Use the panel on the right to add color and/or images to your background</Paragraph>
             </Content>
           </Layout>
-          <Sider width={200} className="site-layout-background">
+          <Sider width={"16.67%"} className="site-layout-background" style={{overflowY: "hidden", overflowX: "hidden", position: "fixed", top: "5vh", right: "0", bottom: "0"}}>
             <Menu
               mode="inline"
               defaultSelectedKeys={['1']}
@@ -82,7 +82,12 @@ const App: FC = () => {
                 <Menu.Item key="1">Hex #</Menu.Item>
               </SubMenu>
               <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background Image">
-                <Menu.Item key="5">select image</Menu.Item>
+                <Menu.Item key="5" style={{ height: "10%"}}>
+                  <Space direction='vertical'>
+                    <PictureOutlined style={{ width: "100%" }} />
+                    <Link>select image</Link>
+                  </Space>
+                </Menu.Item>
               </SubMenu>
             </Menu>
           </Sider>
