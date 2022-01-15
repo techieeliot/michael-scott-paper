@@ -10,7 +10,7 @@ const { Header, Content, Sider } = Layout;
 const App: FC = () => {
   return (
     <div className="App">
-      <Layout>
+      <Layout style={{height: "100vh"}}>
         <Header className="header">
           <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{margin: "0px, auto"}}>
             <Item style={{textAlign:"center"}}>Untitled Page</Item>
