@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import { Layout, Menu, Breadcrumb, Card, Avatar } from 'antd';
+import { Layout, Menu, Card } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined, EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
 
 import './App.css';
