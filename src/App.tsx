@@ -11,10 +11,10 @@ const { Paragraph, Link } = Typography;
 const App: FC = () => {
   return (
     <div className="App">
-      <Layout style={{height: "100vh"}}>
-        <Header className="header">
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{margin: "0px, auto"}}>
-            <Item style={{textAlign:"center"}}>Untitled Page</Item>
+      <Layout style={{height: "100%"}}>
+        <Header className="header" style={{ position: "fixed", zIndex: 1, width: "100%", height: "5vh" }}>
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']} style={{ height: "5vh", 	display: "flex", justifyContent: "center", alignItems: "center"}}>
+            <Item style={{textAlign:"center", height: "5vh", display: "flex", justifyContent: "center", alignItems: "center"}}>Untitled Page</Item>
           </Menu>
         </Header>
         <Layout>
