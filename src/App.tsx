@@ -1,11 +1,12 @@
 import {FC} from 'react';
-import { Layout, Menu, Card } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined, EditOutlined, EllipsisOutlined, SettingOutlined } from '@ant-design/icons';
+import { Layout, Menu, Card, Space, Typography, Checkbox} from 'antd';
+import { UserOutlined, LaptopOutlined, EditOutlined, PictureOutlined } from '@ant-design/icons';
 
 import './App.css';
 
 const { SubMenu, Item } = Menu;
 const { Header, Content, Sider } = Layout;
+const { Paragraph, Link } = Typography;
 
 const App: FC = () => {
   return (
