@@ -17,8 +17,8 @@ const App: FC = () => {
             <Item style={{textAlign:"center", height: "5vh", display: "flex", justifyContent: "center", alignItems: "center"}}>Untitled Page</Item>
           </Menu>
         </Header>
-        <Layout>
-          <Sider width={200} className="site-layout-background">
+        <Layout style={{ marginTop: "5vh", height: "95vh"}}>
+          <Sider width={"16.67%"} className="site-layout-background" style={{overflowY: "hidden", overflowX: "hidden", position: "fixed", top: "5vh", left: "0", bottom: "0"}}>
             <Menu
               mode="inline"
               defaultSelectedKeys={['1']}
@@ -26,26 +26,36 @@ const App: FC = () => {
               style={{ height: '100%', borderRight: 0 }}
             >
               <SubMenu key="sub1" icon={<UserOutlined />} title="Header - Two Columns">
-                <Card
-                  style={{ width: '100%' }}
-                  cover={
-                    <img
-                      alt="example"
-                      src="https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"
-                    />
-                  }
-                  actions={[
-                    <SettingOutlined key="setting" />,
-                    <EditOutlined key="edit" />,
-                    <EllipsisOutlined key="ellipsis" />,
-                  ]}
-                >
-                </Card>
+                  <Card
+                    style={{ width: '100%' }}
+                    cover={
+                      <img
+                        alt="example"
+                        src={"https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"}
+                      />
+                    }
+                    actions={[
+                      <EditOutlined key="edit" />,
+                    ]}
+                  >
+                  </Card>
               </SubMenu>
               <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background">
-                <Item key="9">Header</Item>
-                <Item key="10">Column 2</Item>
-                <Item key="11">Column 2</Item>
+                <Item key="9">
+                  <Space>
+                    <Checkbox >Header</Checkbox>
+                    </Space>
+                </Item>
+                <Item key="10">
+                  <Space>
+                    <Checkbox >Column 1</Checkbox>
+                  </Space>
+                </Item>
+                <Item key="11">
+                  <Space>
+                    <Checkbox >Column 2</Checkbox>
+                </Space>
+                </Item>
               </SubMenu>
             </Menu>
           </Sider>
