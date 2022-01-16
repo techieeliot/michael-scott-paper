@@ -31,7 +31,7 @@ const App: FC = () => {
                     cover={
                       <img
                         alt="example"
-                        src={"https://gw.alipayobjects.com/zos/rmsportal/JiqGstEfoWAOHiTxclqi.png"}
+                        src={"https://github.com/techieeliot/michael-scott-paper/blob/main/src/layout1.png"}
                       />
                     }
                     actions={[
