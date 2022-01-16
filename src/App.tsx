@@ -1,12 +1,12 @@
 import {FC} from 'react';
-import { Layout, Menu, Card, Space, Typography, Radio} from 'antd';
+import { Layout, Menu, Card, Space, Typography, Radio, Row, Col} from 'antd';
 import { UserOutlined, LaptopOutlined, EditOutlined, PictureOutlined } from '@ant-design/icons';
 
 import './App.css';
 
 const { SubMenu, Item } = Menu;
-const { Header, Content, Sider } = Layout;
-const { Paragraph, Link } = Typography;
+const { Header, Content, Sider, Footer } = Layout;
+const { Paragraph, Link, Text, Title} = Typography;
 
 const App: FC = () => {
   const options = [
@@ -59,16 +59,42 @@ const App: FC = () => {
               </SubMenu>
             </Menu>
           </Sider>
-          <Layout style={{ padding: '0 24px 24px' }}>
+          <Layout style={{ padding: '24px 16.67%' }}>
             <Content
               className="site-layout-background"
               style={{
                 padding: 24,
                 margin: 0,
-                minHeight: 280,
+                minHeight: "95%"
               }}
             >
-              <Paragraph>Use the panel on the right to add color and/or images to your background</Paragraph>
+              {/* conditionally render the text or the layout - set not to show right now*/}
+              {false && <Paragraph>Use the panel on the right to add color and/or images to your background</Paragraph>}
+              {/* beginning of component for layout 1 - two-column */}
+              <Layout className="layout" style={{position: "relative", display: "inline-block", width: "100%", height: "100%"}}>
+                <Header style={{background: "#fff", height: "45%", padding: "0"}}>
+                  <Row style={{padding: "36px 15%", height: "100%"}}>
+                    <Col span={24} style={{ background: "#F0F2F5", padding: "24px" }}>
+                      <Title>Header</Title>
+                    </Col>
+                  </Row>
+                </Header>
+                <Content style={{height: "45%", background: "#fff", paddingTop: "24px"}}>
+                  <Row justify="space-between" style={{padding: "0 15%", height: "100%"}}>
+                    <Col span={11} style={{ background: "#F0F2F5", padding: "24px"}}>
+                      <Text>Column 1</Text>
+                    </Col>
+                    <Col span={11} style={{ background: "#F0F2F5", padding: "24px"}}>
+                      <Text>Column 2</Text>
+                    </Col>
+                  </Row>
+                </Content>
+                <Footer style={{ textAlign: 'center', background: "#fff" }}> {/* placing an empty footer for later use */}
+                  <Row>
+                    <Col></Col>
+                  </Row>
+                </Footer>
+              </Layout>
             </Content>
           </Layout>
           <Sider width={"16.67%"} className="site-layout-background" style={{overflowY: "hidden", overflowX: "hidden", position: "fixed", top: "5vh", right: "0", bottom: "0"}}>
