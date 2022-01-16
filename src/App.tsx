@@ -30,8 +30,10 @@ const App: FC = () => {
                     style={{ width: '100%' }}
                     cover={
                       <img
-                        alt="example"
-                        src={"https://github.com/techieeliot/michael-scott-paper/blob/main/src/layout1.png"}
+                        alt="layout"
+                        src={"https://user-images.githubusercontent.com/19453294/149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"} // layout1
+                        // src={"https://user-images.githubusercontent.com/19453294/149674073-f950522d-62ca-442d-9de9-e2731efff94b.png"} // layout2
+                        // src={"https://user-images.githubusercontent.com/19453294/149674075-d4493e60-d7a3-4286-9287-9819129c8c75.png"} // layout3
                       />
                     }
                     actions={[
