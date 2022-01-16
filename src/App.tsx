@@ -1,5 +1,5 @@
 import {FC} from 'react';
-import { Layout, Menu, Card, Space, Typography, Checkbox} from 'antd';
+import { Layout, Menu, Card, Space, Typography, Radio} from 'antd';
 import { UserOutlined, LaptopOutlined, EditOutlined, PictureOutlined } from '@ant-design/icons';
 
 import './App.css';
@@ -9,6 +9,11 @@ const { Header, Content, Sider } = Layout;
 const { Paragraph, Link } = Typography;
 
 const App: FC = () => {
+  const options = [
+  { label: 'Header', value: 'Header' },
+  { label: 'Column 1', value: 'Column 1' },
+  { label: 'Column 2', value: 'Column 2' },
+];
   return (
     <div className="App">
       <Layout style={{height: "100%"}}>
@@ -43,20 +48,13 @@ const App: FC = () => {
                   </Card>
               </SubMenu>
               <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background">
-                <Item key="9">
-                  <Space>
-                    <Checkbox >Header</Checkbox>
-                    </Space>
-                </Item>
-                <Item key="10">
-                  <Space>
-                    <Checkbox >Column 1</Checkbox>
-                  </Space>
-                </Item>
-                <Item key="11">
-                  <Space>
-                    <Checkbox >Column 2</Checkbox>
-                </Space>
+                <Item key="9" style={{height: 'auto'}}>
+                  <Radio.Group
+                    style={{  display: "flex", flexDirection: "column", margin: "20px 0 20px 0"}}
+                    options={options}
+                    // onChange={onChange}
+                    // value={value1}
+                  />
                 </Item>
               </SubMenu>
             </Menu>
@@ -76,8 +74,8 @@ const App: FC = () => {
           <Sider width={"16.67%"} className="site-layout-background" style={{overflowY: "hidden", overflowX: "hidden", position: "fixed", top: "5vh", right: "0", bottom: "0"}}>
             <Menu
               mode="inline"
-              defaultSelectedKeys={['1']}
-              defaultOpenKeys={['sub1']}
+              // defaultSelectedKeys={['1']}
+              // defaultOpenKeys={['sub1']}
               style={{ height: '100%', borderRight: 0 }}
             >
               <SubMenu key="sub1" icon={<UserOutlined />} title="Background Color">
