@@ -71,6 +71,7 @@ const Selector: FC = () => (
                 cover={(
                   <img
                     alt="example"
+                    // eslint-disable-next-line max-len
                     src="https://user-images.githubusercontent.com/19453294/149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"
                   />
                   )}
@@ -84,6 +85,7 @@ const Selector: FC = () => (
                 cover={(
                   <img
                     alt="example"
+                    // eslint-disable-next-line max-len
                     src="https://user-images.githubusercontent.com/19453294/149674073-f950522d-62ca-442d-9de9-e2731efff94b.png"
                   />
   )}
@@ -97,6 +99,7 @@ const Selector: FC = () => (
                 cover={(
                   <img
                     alt="example"
+                    // eslint-disable-next-line max-len
                     src="https://user-images.githubusercontent.com/19453294/149674075-d4493e60-d7a3-4286-9287-9819129c8c75.png"
                   />
                   )}

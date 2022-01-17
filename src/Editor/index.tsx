@@ -82,6 +82,7 @@ const Editor: FC = () => {
                 cover={(
                   <img
                     alt="layout"
+                    // eslint-disable-next-line max-len
                     src="https://user-images.githubusercontent.com/19453294/149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"
                   />
                 )}
