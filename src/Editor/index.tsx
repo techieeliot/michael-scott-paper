@@ -1,4 +1,5 @@
-import {FC} from 'react';
+import { FC } from 'react';
+import { Link } from "react-router-dom";
 import { Layout, Menu, Card, Space, Typography, Radio, Row, Col} from 'antd';
 import { UserOutlined, LaptopOutlined, EditOutlined, PictureOutlined } from '@ant-design/icons';
 
@@ -6,7 +7,7 @@ import './index.css';
 
 const { SubMenu, Item } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
-const { Paragraph, Link, Text, Title} = Typography;
+const { Paragraph, Text, Title} = Typography;
 
 const Editor: FC = () => {
   const options = [
@@ -40,9 +41,13 @@ const Editor: FC = () => {
                     // src={"https://user-images.githubusercontent.com/19453294/149674075-d4493e60-d7a3-4286-9287-9819129c8c75.png"} // layout3
                   />
                 }
-                actions={[
-                  <EditOutlined key="edit" />,
-                ]}
+                extra={
+                  <div>
+                    <Link to="/">
+                      <EditOutlined key="edit" />
+                    </Link>
+                  </div>
+                }
               >
               </Card>
           </SubMenu>
@@ -110,7 +115,7 @@ const Editor: FC = () => {
             <Menu.Item key="5" style={{ height: "10%"}}>
               <Space direction='vertical'>
                 <PictureOutlined style={{ width: "100%" }} />
-                <Link>select image</Link>
+                <Typography.Link>select image</Typography.Link>
               </Space>
             </Menu.Item>
           </SubMenu>
