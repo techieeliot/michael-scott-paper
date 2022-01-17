@@ -1,15 +1,13 @@
 import { FC } from 'react';
 import { Link } from "react-router-dom";
-import { Layout, Menu, Card, Space, Typography, Radio, Row, Col, Input} from 'antd';
+import { Layout, Menu, Card, Typography, Radio, Row, Col, Input, Empty, Button} from 'antd';
 import { UserOutlined, LaptopOutlined, EditOutlined, PictureOutlined } from '@ant-design/icons';
 
 import './index.css';
-import { callbackify } from 'util';
 
 const { SubMenu, Item } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
 const { Paragraph, Text, Title } = Typography;
-const {Search} = Input
 
 const Editor: FC = () => {
   const options = [
@@ -121,11 +119,16 @@ const Editor: FC = () => {
             </Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background Image">
-            <Menu.Item key="5" style={{ height: "10%"}}>
-              <Space direction='vertical'>
-                <PictureOutlined style={{ width: "100%" }} />
-                <Typography.Link>select image</Typography.Link>
-              </Space>
+              <Menu.Item key="5" style={{ height: "auto"}} >
+              <Button type="link" style={{height: "fit-content", width: "fit-content", background: "#fafafa", border: "1px dashed #d9d9d9" }}>
+              <Empty
+                  image={<PictureOutlined style={{ fontSize: "75px" }} />}
+                  description="select image"
+                imageStyle={{
+                  height: 60,
+                }}
+              />
+                </Button>
             </Menu.Item>
           </SubMenu>
         </Menu>
