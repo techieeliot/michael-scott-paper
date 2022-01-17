@@ -67,7 +67,8 @@
             "namedComponents": "arrow-function",
             "unnamedComponents": "arrow-function"
             }
-        ]
+        ],
+        "typescript-eslint/explicit-function-return-type": "off"
     },
     "settings": {
         "import/resolver": {
