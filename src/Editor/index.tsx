@@ -27,7 +27,7 @@ const Editor: FC = () => {
         <Menu
           mode="inline"
           defaultSelectedKeys={['1']}
-          defaultOpenKeys={['sub1']}
+          defaultOpenKeys={['sub1', 'sub2']}
           style={{ height: '100%', borderRight: 0 }}
         >
           <SubMenu key="sub1" icon={<UserOutlined />} title="Header - Two Columns">
@@ -52,7 +52,7 @@ const Editor: FC = () => {
               </Card>
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background">
-            <Item key="9" style={{height: 'auto'}}>
+            <Item key="1" style={{height: 'auto'}}>
               <Radio.Group
                 style={{  display: "flex", flexDirection: "column", margin: "20px 0 20px 0"}}
                 options={options}
@@ -105,10 +105,10 @@ const Editor: FC = () => {
         <Menu
           mode="inline"
           // defaultSelectedKeys={['1']}
-          // defaultOpenKeys={['sub1']}
+          defaultOpenKeys={['sub3','sub4']}
           style={{ height: '100%', borderRight: 0 }}
         >
-          <SubMenu key="sub1" icon={<UserOutlined />} title="Background Color">
+          <SubMenu key="sub3" icon={<UserOutlined />} title="Background Color">
               <Menu.Item key="1">
                 <Input
                   placeholder="input colors"
@@ -118,8 +118,8 @@ const Editor: FC = () => {
                 />
             </Menu.Item>
           </SubMenu>
-          <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background Image">
-              <Menu.Item key="5" style={{ height: "auto"}} >
+          <SubMenu key="sub3" icon={<LaptopOutlined />} title="Background Image">
+              <Menu.Item key="2" style={{ height: "auto"}} >
               <Button type="link" style={{height: "fit-content", width: "fit-content", background: "#fafafa", border: "1px dashed #d9d9d9" }}>
               <Empty
                   image={<PictureOutlined style={{ fontSize: "75px" }} />}
