@@ -1,13 +1,15 @@
 import { FC } from 'react';
 import { Link } from "react-router-dom";
-import { Layout, Menu, Card, Space, Typography, Radio, Row, Col} from 'antd';
+import { Layout, Menu, Card, Space, Typography, Radio, Row, Col, Input} from 'antd';
 import { UserOutlined, LaptopOutlined, EditOutlined, PictureOutlined } from '@ant-design/icons';
 
 import './index.css';
+import { callbackify } from 'util';
 
 const { SubMenu, Item } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
-const { Paragraph, Text, Title} = Typography;
+const { Paragraph, Text, Title } = Typography;
+const {Search} = Input
 
 const Editor: FC = () => {
   const options = [
@@ -109,7 +111,14 @@ const Editor: FC = () => {
           style={{ height: '100%', borderRight: 0 }}
         >
           <SubMenu key="sub1" icon={<UserOutlined />} title="Background Color">
-            <Menu.Item key="1">Hex #</Menu.Item>
+              <Menu.Item key="1">
+                <Input
+                  placeholder="input colors"
+                  addonBefore={<div>hex #</div>}
+                  addonAfter={<div></div>}
+                  // onPressEnter={callback()}
+                />
+            </Menu.Item>
           </SubMenu>
           <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background Image">
             <Menu.Item key="5" style={{ height: "10%"}}>
