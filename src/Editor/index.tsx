@@ -34,7 +34,7 @@ const Editor: FC = () => {
           mode="horizontal"
           defaultSelectedKeys={['2']}
           style={{
-            height: '5vh', 	display: 'flex', justifyContent: 'center', alignItems: 'center',
+            height: '5vh', display: 'flex', justifyContent: 'center', alignItems: 'center',
           }}
         >
           <Item style={{
