@@ -11,19 +11,27 @@ const { Meta } = Card;
 
 const Selector: FC = () => {
   return (
-    <Row style={{ textAlign: "left", height: "100vh"}}>
+    <Row style={{ textAlign: "left", height: "100vh", background: "#fff"}}>
       <Col span={24} style={{ height: "100vh"}}>
-          <Header style={{ position: 'fixed', zIndex: 1, width: '100%', background: "#fff", height: "5vh", padding: 48  }}>
-            <Title>Select a layout for your single page website</Title>
-          </Header>
-          <Content className="site-layout" style={{ padding: '24px 50px', marginTop: 64 }}>
-              <div className="site-layout-background"
+        <Header style={{ background: "#fff", margin: "5vh auto 0 auto", height: "auto", width: "100%"}}>
+          <div
                 style={{
-                  padding: 24,
-                  margin: 0,
-                  minHeight: "95%"
+                  padding: "24px 24px 0 24px",
+                  margin: "0 auto",
+                  width: "80%"
                 }}>
-                <Row>
+          <Title>Select a layout for your single page website</Title>
+          </div>
+          </Header>
+          <Content className="site-layout" style={{ padding: '24px 50px', background: "#fff" }}>
+              <div 
+                style={{
+                  padding: "12px 24px 24px 24px",
+                  margin: "0 auto",
+                  minHeight: "95%",
+                  width: "80%"
+                }}>
+                <Row style={{margin: "0 auto 24px auto"}}>
                   <Col>
                 <Paragraph>When choosing your layout there are several things you can customize</Paragraph>
                 <ul>
@@ -34,8 +42,8 @@ const Selector: FC = () => {
                   </Col>
                 </Row>
               
-              <Row gutter={[48,48]}>
-                <Col>
+            <Row gutter={[12, 48]} justify='space-between' style={{margin:"5vh auto"}}>
+                <Col flex="1 1 25%">
                 <Card
                   style={{ width: 290 }}
                   cover={<img alt="example" src={"https://user-images.githubusercontent.com/19453294/149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"} />}
@@ -43,7 +51,7 @@ const Selector: FC = () => {
                   <Meta description="Header - Two Columns" />
                     </Card>
                     </Col>
-                  <Col>
+                <Col flex="1 1 25%">
                           <Card
                   style={{ width: 290 }}
                   cover={<img alt="example" src={"https://user-images.githubusercontent.com/19453294/149674073-f950522d-62ca-442d-9de9-e2731efff94b.png"} />}
@@ -51,7 +59,7 @@ const Selector: FC = () => {
                   <Meta description="Header - Three Columns" />
                     </Card>
                     </Col>
-                  <Col>
+                <Col flex="1 1 25%">
                           <Card
                   style={{ width: 290 }}
                   cover={<img alt="example" src={"https://user-images.githubusercontent.com/19453294/149674075-d4493e60-d7a3-4286-9287-9819129c8c75.png"} />}
@@ -62,13 +70,22 @@ const Selector: FC = () => {
                 </Row>
               </div>
             </Content>
-            <Divider />
-          <Footer style={{textAlign: "right", padding: 24}}>
+        <Footer style={{ textAlign: "right", padding: 24, background: "#fff" }}>
+             <div
+                style={{
+                  padding: "24px",
+                  margin: "0 auto",
+                  minHeight: "95%",
+                  width: "80%"
+                }}>
+              <Divider />
+            
             <Button type="primary" shape="round" size="large">
               <Link to="/editor">
                 Next
               </Link>
             </Button>
+                </div>
           </Footer>
         </Col>
     </Row>
