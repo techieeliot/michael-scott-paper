@@ -34,12 +34,20 @@ const Editor: FC = () => {
           mode="horizontal"
           defaultSelectedKeys={['2']}
           style={{
-            height: '5vh', display: 'flex', justifyContent: 'center', alignItems: 'center',
+            height: '5vh',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
           }}
         >
-          <Item style={{
-            textAlign: 'center', height: '5vh', display: 'flex', justifyContent: 'center', alignItems: 'center',
-          }}
+          <Item
+            style={{
+              textAlign: 'center',
+              height: '5vh',
+              display: 'flex',
+              justifyContent: 'center',
+              alignItems: 'center',
+            }}
           >
             Untitled Page
           </Item>
@@ -50,7 +58,12 @@ const Editor: FC = () => {
           width="16.67%"
           className="site-layout-background"
           style={{
-            overflowY: 'hidden', overflowX: 'hidden', position: 'fixed', top: '5vh', left: '0', bottom: '0',
+            overflowY: 'hidden',
+            overflowX: 'hidden',
+            position: 'fixed',
+            top: '5vh',
+            left: '0',
+            bottom: '0',
           }}
         >
           <Menu
@@ -59,7 +72,11 @@ const Editor: FC = () => {
             defaultOpenKeys={['sub1', 'sub2']}
             style={{ height: '100%', borderRight: 0 }}
           >
-            <SubMenu key="sub1" icon={<UserOutlined />} title="Header - Two Columns">
+            <SubMenu
+              key="sub1"
+              icon={<UserOutlined />}
+              title="Header - Two Columns"
+            >
               <Card
                 style={{ width: '100%' }}
                 cover={(
@@ -80,7 +97,11 @@ const Editor: FC = () => {
             <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background">
               <Item key="1" style={{ height: 'auto' }}>
                 <Radio.Group
-                  style={{ display: 'flex', flexDirection: 'column', margin: '20px 0 20px 0' }}
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    margin: '20px 0 20px 0',
+                  }}
                   options={options}
                 />
               </Item>
@@ -96,28 +117,62 @@ const Editor: FC = () => {
               minHeight: '95%',
             }}
           >
-            {/* conditionally render the text or the layout - set not to show right now */}
-            {false && <Paragraph>Use the panel on the right to add color and/or images to your background</Paragraph>}
+            {/* conditionally render the text or the layout
+            - set not to show right now */}
+            {false
+              && (
+              <Paragraph>
+                Use the panel on the right to add color
+                and/or images to your background
+              </Paragraph>
+              )}
             {/* beginning of component for layout 1 - two-column */}
             <Layout
               className="layout"
               style={{
-                position: 'relative', display: 'inline-block', width: '100%', height: '100%',
+                position: 'relative',
+                display: 'inline-block',
+                width: '100%',
+                height: '100%',
               }}
             >
-              <Header style={{ background: '#fff', height: '45%', padding: '0' }}>
-                <Row style={{ padding: '36px 15%', height: '100%' }}>
-                  <Col span={24} style={{ background: '#F0F2F5', padding: '24px' }}>
+              <Header
+                style={{ background: '#fff', height: '45%', padding: '0' }}
+              >
+                <Row style={{
+                  padding: '36px 15%',
+                  height: '100%',
+                }}
+                >
+                  <Col
+                    span={24}
+                    style={{ background: '#F0F2F5', padding: '24px' }}
+                  >
                     <Title>Header</Title>
                   </Col>
                 </Row>
               </Header>
-              <Content style={{ height: '45%', background: '#fff', paddingTop: '24px' }}>
-                <Row justify="space-between" style={{ padding: '0 15%', height: '100%' }}>
-                  <Col span={11} style={{ background: '#F0F2F5', padding: '24px' }}>
+              <Content
+                style={{
+                  height: '45%',
+                  background: '#fff',
+                  paddingTop: '24px',
+                }}
+              >
+                <Row
+                  justify="space-between"
+                  style={{ padding: '0 15%', height: '100%' }}
+                >
+                  <Col
+                    span={11}
+                    style={{ background: '#F0F2F5', padding: '24px' }}
+                  >
                     <Text>Column 1</Text>
                   </Col>
-                  <Col span={11} style={{ background: '#F0F2F5', padding: '24px' }}>
+                  <Col
+                    span={11}
+                    style={{ background: '#F0F2F5', padding: '24px' }}
+                  >
                     <Text>Column 2</Text>
                   </Col>
                 </Row>
@@ -136,7 +191,12 @@ const Editor: FC = () => {
           width="16.67%"
           className="site-layout-background"
           style={{
-            overflowY: 'hidden', overflowX: 'hidden', position: 'fixed', top: '5vh', right: '0', bottom: '0',
+            overflowY: 'hidden',
+            overflowX: 'hidden',
+            position: 'fixed',
+            top: '5vh',
+            right: '0',
+            bottom: '0',
           }}
         >
           <Menu
@@ -145,7 +205,11 @@ const Editor: FC = () => {
             defaultOpenKeys={['sub3', 'sub4']}
             style={{ height: '100%', borderRight: 0 }}
           >
-            <SubMenu key="sub3" icon={<UserOutlined />} title="Background Color">
+            <SubMenu
+              key="sub3"
+              icon={<UserOutlined />}
+              title="Background Color"
+            >
               <Menu.Item key="1">
                 <Input
                   placeholder="input colors"
@@ -154,12 +218,19 @@ const Editor: FC = () => {
                 />
               </Menu.Item>
             </SubMenu>
-            <SubMenu key="sub3" icon={<LaptopOutlined />} title="Background Image">
+            <SubMenu
+              key="sub3"
+              icon={<LaptopOutlined />}
+              title="Background Image"
+            >
               <Menu.Item key="2" style={{ height: 'auto' }}>
                 <Button
                   type="link"
                   style={{
-                    height: 'fit-content', width: 'fit-content', background: '#fafafa', border: '1px dashed #d9d9d9',
+                    height: 'fit-content',
+                    width: 'fit-content',
+                    background: '#fafafa',
+                    border: '1px dashed #d9d9d9',
                   }}
                 >
                   <Empty
