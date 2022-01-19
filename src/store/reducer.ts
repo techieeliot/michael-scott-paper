@@ -23,7 +23,7 @@ const reducer = (
       };
       return {
         ...state,
-        websites: state.websites.concat(newWebsite),
+        website: state.websites.concat(newWebsite),
       };
       break;
 
@@ -34,7 +34,7 @@ const reducer = (
       );
       return {
         ...state,
-        websites: updatedWebsites,
+        website: updatedWebsites,
       };
       break;
 
