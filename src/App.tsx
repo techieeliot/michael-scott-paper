@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "antd";
-import Selector from "./Selector";
-import Editor from "./Editor";
+import Selector from "./components/Selector";
+import Editor from "./components/Editor";
 
 import "./App.css";
 
