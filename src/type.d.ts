@@ -3,6 +3,7 @@
 // these types can be used now in other files without importing
 
 interface Website {
+  [x: string]: any;
   id: number;
   layout: string;
   title: string;
@@ -18,4 +19,4 @@ type WebsiteAction = {
 };
 
 // eslint-disable-next-line @typescript-eslint/no-unused-vars
-type = DispatchType = (args: WebsiteAction) => WebsiteAction;
+type DispatchType = (args: WebsiteAction) => WebsiteAction;
