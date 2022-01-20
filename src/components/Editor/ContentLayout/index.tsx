@@ -5,6 +5,7 @@ import "./index.css";
 
 const { Header, Content, Footer } = Layout;
 const { Paragraph, Text, Title } = Typography;
+
 const ContentLayout: FC = () => {
   return (
     <Content
