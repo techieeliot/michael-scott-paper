@@ -90,7 +90,12 @@ const Selector: FC = () => {
                 // onChange={onChange}
                 // value={value}
               >
-                <Row style={{ margin: "0 auto 24px auto" }}>
+                <Row
+                  style={{
+                    margin: "0 auto 24px auto",
+                    fontSize: "initial",
+                  }}
+                >
                   <Col>
                     <Paragraph>
                       When choosing your layout there are several things you can
