@@ -10,6 +10,7 @@ import {
   Card,
   Form,
   Radio,
+  Tooltip,
 } from "antd";
 
 import "./index.css";
@@ -126,6 +127,7 @@ const Selector: FC = () => {
                     <Radio
                       value="Header - Two Columns"
                       className="select-column"
+                      checked // removed auto checked later
                     >
                       <Card
                         style={{ width: 290 }}
@@ -142,42 +144,50 @@ const Selector: FC = () => {
                     </Radio>
                   </Col>
                   <Col flex="1 1 25%">
-                    <Radio
-                      value="Header - Three Columns"
-                      className="select-column"
-                    >
-                      <Card
-                        style={{ width: 290 }}
-                        cover={
-                          <img
-                            alt="example"
-                            // eslint-disable-next-line max-len
-                            src="https://user-images.githubusercontent.com/19453294/149674073-f950522d-62ca-442d-9de9-e2731efff94b.png"
-                          />
-                        }
+                    <Tooltip title="Unavailable—check back soon!">
+                      {/* remove this tooltip later */}
+                      <Radio
+                        value="Header - Three Columns"
+                        className="select-column"
+                        disabled
                       >
-                        <Meta description="Header - Three Columns" />
-                      </Card>
-                    </Radio>
+                        <Card
+                          style={{ width: 290 }}
+                          cover={
+                            <img
+                              alt="example"
+                              // eslint-disable-next-line max-len
+                              src="https://user-images.githubusercontent.com/19453294/149674073-f950522d-62ca-442d-9de9-e2731efff94b.png"
+                            />
+                          }
+                        >
+                          <Meta description="Header - Three Columns" />
+                        </Card>
+                      </Radio>
+                    </Tooltip>
                   </Col>
                   <Col flex="1 1 25%">
-                    <Radio
-                      value="Header/Footer - Two Columns"
-                      className="select-column"
-                    >
-                      <Card
-                        style={{ width: 290 }}
-                        cover={
-                          <img
-                            alt="example"
-                            // eslint-disable-next-line max-len
-                            src="https://user-images.githubusercontent.com/19453294/149674075-d4493e60-d7a3-4286-9287-9819129c8c75.png"
-                          />
-                        }
+                    <Tooltip title="Unavailable—check back soon!">
+                      {/* remove tooltip later */}
+                      <Radio
+                        value="Header/Footer - Two Columns"
+                        className="select-column"
+                        disabled
                       >
-                        <Meta description="Header/Footer - Two Columns" />
-                      </Card>
-                    </Radio>
+                        <Card
+                          style={{ width: 290 }}
+                          cover={
+                            <img
+                              alt="example"
+                              // eslint-disable-next-line max-len
+                              src="https://user-images.githubusercontent.com/19453294/149674075-d4493e60-d7a3-4286-9287-9819129c8c75.png"
+                            />
+                          }
+                        >
+                          <Meta description="Header/Footer - Two Columns" />
+                        </Card>
+                      </Radio>
+                    </Tooltip>
                   </Col>
                 </Row>
               </Radio.Group>
