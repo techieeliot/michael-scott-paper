@@ -21,12 +21,14 @@ const { Meta } = Card;
 const Selector: FC = () => {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const onFinish = (values: unknown) => {
-    console.log("Success:", values);
+    // console.log("Success:", values);
+    return values; // set State later
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const onFinishFailed = (errorInfo: unknown) => {
-    console.log("Failed:", errorInfo);
+    // console.log("Failed:", errorInfo);
+    return errorInfo; // set state later
   };
 
   // const onChange = (e: { target: { value: string } }) => {
