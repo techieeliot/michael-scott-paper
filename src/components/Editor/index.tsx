@@ -1,36 +1,20 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
-import {
-  Layout,
-  Menu,
-  Typography,
-  Radio,
-  Row,
-  Col,
-  Input,
-  Empty,
-  Button,
-} from "antd";
+import { Layout, Menu, Typography, Row, Col, Input, Empty, Button } from "antd";
 import {
   UserOutlined,
   LaptopOutlined,
   PictureOutlined,
 } from "@ant-design/icons";
 import HeaderMenu from "./HeaderMenu";
-import LayoutMenu from "./LayoutMenu";
+import SelectionMenu from "./SelectionMenu";
 
 import "./index.css";
 
-const { SubMenu, Item } = Menu;
+const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
 const { Paragraph, Text, Title } = Typography;
 
 const Editor: FC = () => {
-  const options = [
-    { label: "Header", value: "Header" },
-    { label: "Column 1", value: "Column 1" },
-    { label: "Column 2", value: "Column 2" },
-  ];
   return (
     <>
       <Header
@@ -57,26 +41,7 @@ const Editor: FC = () => {
             bottom: "0",
           }}
         >
-          <Menu
-            mode="inline"
-            defaultSelectedKeys={["1"]}
-            defaultOpenKeys={["sub1", "sub2"]}
-            style={{ height: "100%", borderRight: 0 }}
-          >
-            <LayoutMenu />
-            <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background">
-              <Item key="1" style={{ height: "auto" }}>
-                <Radio.Group
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    margin: "20px 0 20px 0",
-                  }}
-                  options={options}
-                />
-              </Item>
-            </SubMenu>
-          </Menu>
+          <SelectionMenu />
         </Sider>
         <Layout style={{ padding: "24px 16.67%" }}>
           <Content
