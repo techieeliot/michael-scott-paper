@@ -1,18 +1,25 @@
 import * as actionTypes from "./actionTypes";
 
 const initialState: WebsiteState = {
-  websites: {
-    id: 1,
-    layout: "Header - Two Columns",
-    title: "Untitled Page",
-  },
+  websites: [
+    {
+      id: 1,
+      layout: "Header - Two Columns",
+      title: "Untitled Page",
+    },
+    {
+      id: 2,
+      layout: "Header - Three Columns",
+      title: "Michael",
+    },
+  ],
 };
 
 const reducer = (
   // eslint-disable-next-line default-param-last
   state: WebsiteState = initialState,
   action: WebsiteAction
-): WebsiteAction => {
+): WebsiteState => {
   switch (action.type) {
     case actionTypes.ADD_WEBSITE:
       // eslint-disable-next-line no-case-declarations
@@ -23,7 +30,7 @@ const reducer = (
       };
       return {
         ...state,
-        website: state.websites.concat(newWebsite),
+        websites: state.websites.concat(newWebsite),
       };
       break;
 
@@ -34,7 +41,7 @@ const reducer = (
       );
       return {
         ...state,
-        website: updatedWebsites,
+        websites: updatedWebsites,
       };
       break;
 

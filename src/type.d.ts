@@ -10,7 +10,7 @@ interface Website {
 }
 
 type WebsiteState = {
-  websites: Website;
+  websites: Website[];
 };
 
 type WebsiteAction = {
