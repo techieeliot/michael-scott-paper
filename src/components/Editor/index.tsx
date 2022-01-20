@@ -102,7 +102,7 @@ const Editor: FC = () => {
                 extra={
                   <div>
                     <Link to="/">
-                      <EditOutlined key="edit" />
+                      Reselect Layout <EditOutlined key="edit" />
                     </Link>
                   </div>
                 }

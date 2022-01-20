@@ -120,9 +120,13 @@ const Selector: FC = () => {
                   gutter={[12, 48]}
                   justify="space-between"
                   style={{ margin: "5vh auto" }}
+                  className="select-row"
                 >
                   <Col flex="1 1 25%">
-                    <Radio value="Header - Two Columns">
+                    <Radio
+                      value="Header - Two Columns"
+                      className="select-column"
+                    >
                       <Card
                         style={{ width: 290 }}
                         cover={
@@ -138,7 +142,10 @@ const Selector: FC = () => {
                     </Radio>
                   </Col>
                   <Col flex="1 1 25%">
-                    <Radio value="Header - Three Columns">
+                    <Radio
+                      value="Header - Three Columns"
+                      className="select-column"
+                    >
                       <Card
                         style={{ width: 290 }}
                         cover={
@@ -154,7 +161,10 @@ const Selector: FC = () => {
                     </Radio>
                   </Col>
                   <Col flex="1 1 25%">
-                    <Radio value="Header/Footer - Two Columns">
+                    <Radio
+                      value="Header/Footer - Two Columns"
+                      className="select-column"
+                    >
                       <Card
                         style={{ width: 290 }}
                         cover={

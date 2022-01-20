@@ -1,5 +1,5 @@
 /* HIDE RADIO */
-.ant-radio {
+.select-column .ant-radio {
   position: absolute;
   opacity: 0;
   width: 0;
@@ -12,7 +12,7 @@
 }
 
 /* CHECKED STYLES */
-.ant-radio-wrapper-checked .ant-card {
+.select-row .ant-radio-wrapper-checked .ant-card {
   outline: 2px solid #1890ff;
   margin: 0;
 }
