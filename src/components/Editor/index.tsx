@@ -3,7 +3,6 @@ import { Link } from "react-router-dom";
 import {
   Layout,
   Menu,
-  Card,
   Typography,
   Radio,
   Row,
@@ -15,10 +14,10 @@ import {
 import {
   UserOutlined,
   LaptopOutlined,
-  EditOutlined,
   PictureOutlined,
 } from "@ant-design/icons";
 import HeaderMenu from "./HeaderMenu";
+import LayoutMenu from "./LayoutMenu";
 
 import "./index.css";
 
@@ -64,29 +63,7 @@ const Editor: FC = () => {
             defaultOpenKeys={["sub1", "sub2"]}
             style={{ height: "100%", borderRight: 0 }}
           >
-            <SubMenu
-              key="sub1"
-              icon={<UserOutlined />}
-              title="Header - Two Columns"
-            >
-              <Card
-                style={{ width: "100%" }}
-                cover={
-                  <img
-                    alt="layout"
-                    // eslint-disable-next-line max-len
-                    src="https://user-images.githubusercontent.com/19453294/149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"
-                  />
-                }
-                extra={
-                  <div>
-                    <Link to="/">
-                      Reselect Layout <EditOutlined key="edit" />
-                    </Link>
-                  </div>
-                }
-              />
-            </SubMenu>
+            <LayoutMenu />
             <SubMenu key="sub2" icon={<LaptopOutlined />} title="Background">
               <Item key="1" style={{ height: "auto" }}>
                 <Radio.Group
