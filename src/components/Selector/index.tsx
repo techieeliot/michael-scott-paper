@@ -12,11 +12,12 @@ import {
   Radio,
   Tooltip,
 } from "antd";
+import SelectorHeader from "./SelectorHeader";
 
 import "./index.css";
 
-const { Header, Content, Footer } = Layout;
-const { Title, Paragraph } = Typography;
+const { Content, Footer } = Layout;
+const { Paragraph } = Typography;
 const { Meta } = Card;
 
 const Selector: FC = () => {
@@ -48,25 +49,8 @@ const Selector: FC = () => {
           autoComplete="off"
           style={{ width: "100%" }}
         >
-          <Form.Item name="header">
-            <Header
-              style={{
-                background: "#fff",
-                margin: "5vh auto 0 auto",
-                height: "auto",
-                width: "100%",
-              }}
-            >
-              <div
-                style={{
-                  padding: "24px 24px 0 24px",
-                  margin: "0 auto",
-                  width: "80%",
-                }}
-              >
-                <Title>Select a layout for your single page website</Title>
-              </div>
-            </Header>
+          <Form.Item id="form-item-header" name="header">
+            <SelectorHeader />
           </Form.Item>
           <Form.Item
             name="columns"
