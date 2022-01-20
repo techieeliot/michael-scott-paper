@@ -15,6 +15,7 @@ const SelectionMenu: FC = () => {
   ];
   return (
     <Menu
+      id="selection-menu"
       mode="inline"
       defaultSelectedKeys={["1"]}
       defaultOpenKeys={["sub1", "sub2"]}

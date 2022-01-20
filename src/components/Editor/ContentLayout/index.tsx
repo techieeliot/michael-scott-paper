@@ -8,6 +8,7 @@ const { Paragraph, Text, Title } = Typography;
 const ContentLayout: FC = () => {
   return (
     <Content
+      id="content-layout"
       className="site-layout-background"
       style={{
         padding: 24,
@@ -18,14 +19,14 @@ const ContentLayout: FC = () => {
       {/* conditionally render the text or the layout
             - set not to show right now */}
       {false && (
-        <Paragraph>
+        <Paragraph id="empty-content">
           Use the panel on the right to add color and/or images to your
           background
         </Paragraph>
       )}
       {/* beginning of component for layout 1 - two-column */}
       <Layout
-        className="layout"
+        className="two-column-layout-layout-one"
         style={{
           position: "relative",
           display: "inline-block",
@@ -33,7 +34,10 @@ const ContentLayout: FC = () => {
           height: "100%",
         }}
       >
-        <Header style={{ background: "#fff", height: "45%", padding: "0" }}>
+        <Header
+          id="content-header-layout-one"
+          style={{ background: "#fff", height: "45%", padding: "0" }}
+        >
           <Row
             style={{
               padding: "36px 15%",
@@ -56,10 +60,18 @@ const ContentLayout: FC = () => {
             justify="space-between"
             style={{ padding: "0 15%", height: "100%" }}
           >
-            <Col span={11} style={{ background: "#F0F2F5", padding: "24px" }}>
+            <Col
+              id="content-column-one-layout-one"
+              span={11}
+              style={{ background: "#F0F2F5", padding: "24px" }}
+            >
               <Text>Column 1</Text>
             </Col>
-            <Col span={11} style={{ background: "#F0F2F5", padding: "24px" }}>
+            <Col
+              id="content-column-two-layout-one"
+              span={11}
+              style={{ background: "#F0F2F5", padding: "24px" }}
+            >
               <Text>Column 2</Text>
             </Col>
           </Row>
