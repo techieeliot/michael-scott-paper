@@ -18,6 +18,7 @@ import {
   EditOutlined,
   PictureOutlined,
 } from "@ant-design/icons";
+import HeaderMenu from "./HeaderMenu";
 
 import "./index.css";
 
@@ -42,29 +43,7 @@ const Editor: FC = () => {
           height: "5vh",
         }}
       >
-        <Menu
-          theme="dark"
-          mode="horizontal"
-          defaultSelectedKeys={["2"]}
-          style={{
-            height: "5vh",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-          }}
-        >
-          <Item
-            style={{
-              textAlign: "center",
-              height: "5vh",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-            }}
-          >
-            Untitled Page
-          </Item>
-        </Menu>
+        <HeaderMenu />
       </Header>
       <Layout style={{ marginTop: "5vh", height: "95vh" }}>
         <Sider
