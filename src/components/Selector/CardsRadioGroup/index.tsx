@@ -1,9 +1,9 @@
 import { FC } from "react";
-import { Typography, Row, Col, Card, Radio, Tooltip } from "antd";
+import { Row, Col, Card, Radio, Tooltip } from "antd";
+import Information from "./Information";
 
 import "./index.css";
 
-const { Paragraph } = Typography;
 const { Meta } = Card;
 
 const CardsRadioGroup: FC = () => {
@@ -18,27 +18,7 @@ const CardsRadioGroup: FC = () => {
       // onChange={onChange}
       // value={value}
     >
-      <Row
-        style={{
-          margin: "0 auto 24px auto",
-          fontSize: "initial",
-        }}
-      >
-        <Col>
-          <Paragraph>
-            When choosing your layout there are several things you can customize
-          </Paragraph>
-          <ul>
-            <li>
-              The background color, or you can use a large image as the
-              background
-            </li>
-            <li>Each container block can contain images or custom text</li>
-            <li>Any text block can contain a background image or color</li>
-          </ul>
-        </Col>
-      </Row>
-
+      <Information />
       <Row
         gutter={[12, 48]}
         justify="space-between"

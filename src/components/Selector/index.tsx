@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
-import { Layout, Row, Col, Button, Divider, Form } from "antd";
+import { Layout, Row, Col, Form } from "antd";
 import SelectorHeader from "./SelectorHeader";
 import CardsRadioGroup from "./CardsRadioGroup";
+import SelectorFooter from "./SelectorFooter";
 
 import "./index.css";
 
-const { Content, Footer } = Layout;
+const { Content } = Layout;
 
 const Selector: FC = () => {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -57,29 +57,7 @@ const Selector: FC = () => {
             </Content>
           </Form.Item>
           <Form.Item name="footer">
-            <Footer
-              style={{ textAlign: "right", padding: 24, background: "#fff" }}
-            >
-              <div
-                style={{
-                  padding: "24px",
-                  margin: "0 auto",
-                  minHeight: "95%",
-                  width: "80%",
-                }}
-              >
-                <Divider />
-
-                <Button
-                  type="primary"
-                  htmlType="submit"
-                  shape="round"
-                  size="large"
-                >
-                  <Link to="/editor">Next</Link>
-                </Button>
-              </div>
-            </Footer>
+            <SelectorFooter />
           </Form.Item>
         </Form>
       </Col>
