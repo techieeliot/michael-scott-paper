@@ -1,8 +1,8 @@
 import { render, screen } from "@testing-library/react";
-import Editor from ".";
+import BackgroundMenu from ".";
 
 test("renders learn react link", () => {
-  render(<Editor />);
+  render(<BackgroundMenu />);
   const linkElement = screen.getByText(/learn react/i);
   expect(linkElement).toBeInTheDocument();
 });
