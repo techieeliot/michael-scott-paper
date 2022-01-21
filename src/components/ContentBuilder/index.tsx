@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Layout } from "antd";
+import { Layout, Grid } from "antd";
 import HeaderMenu from "./HeaderMenu";
 import SelectionMenu from "./SelectionMenu";
 import ContentViewer from "./ContentViewer";
@@ -8,8 +8,10 @@ import BackgroundMenu from "./BackgroundMenu";
 import "./index.css";
 
 const { Header, Sider } = Layout;
+const { useBreakpoint } = Grid;
 
-const Editor: FC = () => {
+const ContentBuilder: FC = () => {
+  const screens = useBreakpoint();
   return (
     <>
       <Header
@@ -36,6 +38,9 @@ const Editor: FC = () => {
             left: "0",
             bottom: "0",
           }}
+          breakpoint="lg"
+          collapsible={screens.lg}
+          collapsedWidth={40}
         >
           <SelectionMenu />
         </Sider>
@@ -54,6 +59,10 @@ const Editor: FC = () => {
             right: "0",
             bottom: "0",
           }}
+          breakpoint="lg"
+          collapsible={screens.lg}
+          collapsedWidth={40}
+          reverseArrow
         >
           <BackgroundMenu />
         </Sider>
@@ -62,4 +71,4 @@ const Editor: FC = () => {
   );
 };
 
-export default Editor;
+export default ContentBuilder;
