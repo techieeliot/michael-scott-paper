@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Layout, Row, Col, Form } from "antd";
-import SelectorHeader from "./SelectorHeader";
-import CardsRadioGroup from "./CardsRadioGroup";
-import SelectorFooter from "./SelectorFooter";
+import SelectLayoutHeader from "./SelectLayoutHeader";
+import LayoutSelection from "./LayoutSelection";
+import NextButtonFooter from "./NextButtonFooter";
 
 import "./index.css";
 
@@ -38,7 +38,7 @@ const Selector: FC = () => {
           style={{ width: "100%" }}
         >
           <Form.Item id="form-item-header" name="header">
-            <SelectorHeader />
+            <SelectLayoutHeader />
           </Form.Item>
           <Form.Item
             name="columns"
@@ -53,11 +53,11 @@ const Selector: FC = () => {
               className="site-layout"
               style={{ padding: "24px 50px", background: "#fff" }}
             >
-              <CardsRadioGroup />
+              <LayoutSelection />
             </Content>
           </Form.Item>
           <Form.Item name="footer">
-            <SelectorFooter />
+            <NextButtonFooter />
           </Form.Item>
         </Form>
       </Col>

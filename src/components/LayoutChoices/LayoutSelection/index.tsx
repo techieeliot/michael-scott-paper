@@ -6,7 +6,7 @@ import "./index.css";
 
 const { Meta } = Card;
 
-const CardsRadioGroup: FC = () => {
+const LayoutSelection: FC = () => {
   return (
     <Radio.Group
       style={{
@@ -96,4 +96,4 @@ const CardsRadioGroup: FC = () => {
   );
 };
 
-export default CardsRadioGroup;
+export default LayoutSelection;

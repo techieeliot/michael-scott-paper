@@ -6,7 +6,7 @@ import "./index.css";
 
 const { Footer } = Layout;
 
-const SelectorHeader: FC = () => {
+const NextButtonFooter: FC = () => {
   return (
     <Footer style={{ textAlign: "right", padding: 24, background: "#fff" }}>
       <div
@@ -27,4 +27,4 @@ const SelectorHeader: FC = () => {
   );
 };
 
-export default SelectorHeader;
+export default NextButtonFooter;

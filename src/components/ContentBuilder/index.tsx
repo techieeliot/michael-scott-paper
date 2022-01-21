@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Layout } from "antd";
 import HeaderMenu from "./HeaderMenu";
 import SelectionMenu from "./SelectionMenu";
-import ContentLayout from "./ContentLayout";
+import ContentViewer from "./ContentViewer";
 import BackgroundMenu from "./BackgroundMenu";
 
 import "./index.css";
@@ -40,7 +40,7 @@ const Editor: FC = () => {
           <SelectionMenu />
         </Sider>
         <Layout id="center-content" style={{ padding: "24px 16.67%" }}>
-          <ContentLayout />
+          <ContentViewer />
         </Layout>
         <Sider
           width="16.67%"

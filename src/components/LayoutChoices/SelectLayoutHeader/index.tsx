@@ -6,7 +6,7 @@ import "./index.css";
 const { Header } = Layout;
 const { Title } = Typography;
 
-const SelectorHeader: FC = () => {
+const SelectLayoutHeader: FC = () => {
   return (
     <Header
       id="selection-header"
@@ -30,4 +30,4 @@ const SelectorHeader: FC = () => {
   );
 };
 
-export default SelectorHeader;
+export default SelectLayoutHeader;
