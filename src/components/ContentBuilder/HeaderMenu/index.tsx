@@ -19,6 +19,7 @@ const HeaderMenu: FC = () => {
       }}
     >
       <Item
+        key="1"
         style={{
           textAlign: "center",
           height: "5vh",
