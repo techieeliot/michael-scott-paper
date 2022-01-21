@@ -36,7 +36,7 @@ const BackgroundMenu: FC = () => {
       </SubMenu>
       <SubMenu
         className="image-submenu"
-        key="sub3"
+        key="sub4"
         icon={<LaptopOutlined />}
         title="Background Image"
       >
