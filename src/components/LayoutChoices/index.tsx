@@ -59,7 +59,7 @@ const LayoutChoices: FC<Props> = ({ saveWebsite }) => {
             </Content>
           </Form.Item>
           <Form.Item name="footer">
-            <NextButtonFooter article={article} />
+            <NextButtonFooter website={website} />
           </Form.Item>
         </Form>
       </Col>

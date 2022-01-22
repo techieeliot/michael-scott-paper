@@ -6,11 +6,55 @@ const initialState: WebsiteState = {
       id: 1,
       layout: "Header - Two Columns",
       title: "Untitled Page",
+      content: {
+        header: {
+          content: {},
+          background: "",
+        },
+        column1: {
+          content: {},
+          background: "",
+        },
+        column2: {
+          content: {},
+          background: "",
+        },
+        column3: {
+          content: {},
+          background: "",
+        },
+        footer: {
+          content: {},
+          background: "",
+        },
+      },
     },
     {
       id: 2,
       layout: "Header - Three Columns",
       title: "Michael",
+      content: {
+        header: {
+          content: {},
+          background: "",
+        },
+        column1: {
+          content: {},
+          background: "",
+        },
+        column2: {
+          content: {},
+          background: "",
+        },
+        column3: {
+          content: {},
+          background: "",
+        },
+        footer: {
+          content: {},
+          background: "",
+        },
+      },
     },
   ],
 };
