@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Menu, Input, Empty, Button } from "antd";
+import { FC, useState } from "react";
+import { Menu, Input, Empty, Button, Tooltip } from "antd";
 import {
   LaptopOutlined,
   UserOutlined,
@@ -11,6 +11,7 @@ import "./index.css";
 const { SubMenu } = Menu;
 
 const BackgroundMenu: FC = () => {
+  const [hexValue, setHexValue] = useState("blue");
   return (
     <Menu
       id="background-menu"
@@ -30,7 +31,18 @@ const BackgroundMenu: FC = () => {
             id="hex-input"
             placeholder="input colors"
             addonBefore={<div>hex #</div>}
-            addonAfter={<div />}
+            addonAfter={
+              <div
+                style={{
+                  width: "20px",
+                  height: "20px",
+                  background: `${hexValue}`,
+                }}
+              />
+            }
+            onPressEnter={(e) =>
+              setHexValue(`#${(e.target as HTMLInputElement).value}`)
+            }
           />
         </Menu.Item>
       </SubMenu>
