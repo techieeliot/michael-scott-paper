@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC, useState, useEffect } from "react";
 import { Menu, Input, Empty, Button, Tooltip } from "antd";
 import {
   LaptopOutlined,
@@ -11,7 +11,13 @@ import "./index.css";
 const { SubMenu } = Menu;
 
 const BackgroundMenu: FC = () => {
-  const [hexValue, setHexValue] = useState("blue");
+  const initialHexValue = window.localStorage.getItem("hexValue") || "#000";
+  const [hexValue, setHexValue] = useState<string>(initialHexValue);
+
+  useEffect(() => {
+    return window.localStorage.setItem("hexValue", hexValue);
+  }, [hexValue]);
+
   return (
     <Menu
       id="background-menu"
@@ -27,23 +33,33 @@ const BackgroundMenu: FC = () => {
         title="Background Color"
       >
         <Menu.Item key="1">
-          <Input
-            id="hex-input"
-            placeholder="input colors"
-            addonBefore={<div>hex #</div>}
-            addonAfter={
-              <div
-                style={{
-                  width: "20px",
-                  height: "20px",
-                  background: `${hexValue}`,
-                }}
-              />
-            }
-            onPressEnter={(e) =>
-              setHexValue(`#${(e.target as HTMLInputElement).value}`)
-            }
-          />
+          <Tooltip
+            trigger={["focus"]}
+            title="Acceptable formats: #fff, #ffffff, white"
+            placement="topLeft"
+            overlayClassName="numeric-input"
+          >
+            <Input
+              id="hex-input"
+              placeholder="input colors"
+              addonBefore={<div>hex #</div>}
+              addonAfter={
+                <div
+                  style={{
+                    width: "20px",
+                    height: "20px",
+                    background: `${hexValue}`,
+                  }}
+                />
+              }
+              onPressEnter={(e) =>
+                setHexValue((e.target as HTMLInputElement).value)
+              }
+              allowClear
+              showCount
+              maxLength={20}
+            />
+          </Tooltip>
         </Menu.Item>
       </SubMenu>
       <SubMenu
