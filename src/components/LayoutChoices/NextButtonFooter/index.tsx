@@ -6,7 +6,7 @@ import "./index.css";
 
 const { Footer } = Layout;
 
-const NextButtonFooter: FC = () => {
+const NextButtonFooter: FC = ({ article }) => {
   return (
     <Footer style={{ textAlign: "right", padding: 24, background: "#fff" }}>
       <div
@@ -19,7 +19,13 @@ const NextButtonFooter: FC = () => {
       >
         <Divider />
 
-        <Button type="primary" htmlType="submit" shape="round" size="large">
+        <Button
+          type="primary"
+          htmlType="submit"
+          shape="round"
+          size="large"
+          disabled={article === undefined}
+        >
           <Link to="/editor">Next</Link>
         </Button>
       </div>
