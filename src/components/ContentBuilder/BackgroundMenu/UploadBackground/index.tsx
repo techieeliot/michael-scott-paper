@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC, SetStateAction, useEffect, useState } from "react";
+import { FC, SetStateAction, useState } from "react";
 import { Empty, Upload } from "antd";
 import { UploadFile } from "antd/lib/upload/interface";
 import ImgCrop from "antd-img-crop";
