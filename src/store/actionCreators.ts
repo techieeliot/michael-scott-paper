@@ -7,7 +7,7 @@ export function addWebsite(website: Website) {
     type: actionTypes.ADD_WEBSITE,
     website,
   };
-  return fakeHttpRequest(action);
+  return action;
 }
 
 export function removeWebsite(website: Website) {
@@ -15,13 +15,5 @@ export function removeWebsite(website: Website) {
     type: actionTypes.REMOVE_WEBSITE,
     website,
   };
-  return fakeHttpRequest(action);
-}
-
-export function fakeHttpRequest(action: WebsiteAction) {
-  return (dispatch: DispatchType) => {
-    setTimeout(() => {
-      dispatch(action);
-    }, 500);
-  };
+  return action;
 }
