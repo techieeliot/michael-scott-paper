@@ -1,5 +1,6 @@
 import { FC, useState, FormEvent } from "react";
 import { Layout, Row, Col, Form } from "antd";
+import { IWebsite } from "../../interfaces/IWebsite";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutSelection from "./LayoutSelection";
 import NextButtonFooter from "./NextButtonFooter";
@@ -9,11 +10,11 @@ import "./index.css";
 const { Content } = Layout;
 
 type Props = {
-  saveWebsite: (website: Website | any) => void;
+  saveWebsite: (website: IWebsite | any) => void;
 };
 
 const LayoutChoices: FC<Props> = ({ saveWebsite }) => {
-  const [website, setWebsite] = useState<Website | {}>();
+  const [website, setWebsite] = useState<IWebsite | {}>();
 
   const handleWebsiteData = (e: FormEvent<HTMLInputElement>) => {
     setWebsite({

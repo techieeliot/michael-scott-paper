@@ -1,3 +1,5 @@
+import { IWebsite } from "../interfaces/IWebsite";
+import { WebsiteAction, WebsiteState } from "../types/type";
 import * as actionTypes from "./actionTypes";
 
 const initialState: WebsiteState = {
@@ -67,7 +69,7 @@ const reducer = (
   switch (action.type) {
     case actionTypes.ADD_WEBSITE:
       // eslint-disable-next-line no-case-declarations
-      const newWebsite: Website = {
+      const newWebsite: IWebsite = {
         id: Math.random(),
         layout: action.website.layout,
         title: action.website.title,
@@ -80,7 +82,7 @@ const reducer = (
 
     case actionTypes.REMOVE_WEBSITE:
       // eslint-disable-next-line no-case-declarations
-      const updatedWebsites: Website[] = state.websites.filter(
+      const updatedWebsites: IWebsite[] = state.websites.filter(
         (website: { id: number }) => website.id !== action.website.id
       );
       return {
