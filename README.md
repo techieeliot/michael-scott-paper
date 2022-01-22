@@ -1,46 +1,84 @@
-# Getting Started with Create React App
+# Michael Scott Paper Company
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Frontend CMS "lite" MVP Project by Eliot Sanford
 
-## Available Scripts
+- The app is a React MVP app that gives the user a way to create an HTML layout with text and background images or colors.
 
-In the project directory, you can run:
+### [Live link to the deployed application](https://michael-scott-paper.netlify.app/)
 
-### `yarn start`
+---
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### How to install and run the project locally
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+#### 1. Clone the repo
 
-### `yarn test`
+- `git clone git@github.com:techieeliot/michael-scott-paper.git`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+#### 2. Change directory to Michael Scott Paper
 
-### `yarn build`
+- `cd michael-scott-paper`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+#### 3. Install your packages
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+- `yarn`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### 4. Start your app in your local environment
 
-### `yarn eject`
+- `yarn start`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+#### 5. View your app in the browser
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### Checklist of requirements
 
-## Learn More
+- [ ] [feature: select from one of three different single page layouts](https://github.com/techieeliot/michael-scott-paper/issues/16)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- [ ] [feature: customize layout background with color or image](https://github.com/techieeliot/michael-scott-paper/issues/10)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- [ ] [feature: customize a section background with a color or image](https://github.com/techieeliot/michael-scott-paper/issues/11)
+
+- [ ] [feature: add text to a section within a layout](https://github.com/techieeliot/michael-scott-paper/issues/12)
+
+- [ ] [feature: add some basic text formatting (i.e. bold, italics, underline, etc.)](https://github.com/techieeliot/michael-scott-paper/issues/13)
+
+- [ ] [feature: pop out to a "preview" mode where they can see their layout outside of the editor.](https://github.com/techieeliot/michael-scott-paper/issues/14)
+
+- [ ] [feature: responsive layout for moble or tablet devices](https://github.com/techieeliot/michael-scott-paper/issues/15)
+
+- [x] Use React (Nice to haves: Redux, TypeScript, and Testing)
+
+- [x] Create a readme with getting started instructions
+
+---
+
+### Technologies Used
+
+#### Languages and Frameworks
+
+    	* React
+    	* Redux
+    	* TypeScript
+    	* React Router
+    	* Ant Design
+    	* CSS
+
+#### API (none used)
+
+    	* API n/a
+
+---
+
+### Parting Words
+
+Thank you for reviewing my readme all the way to this point.
+
+Thank you to my code reviewers for taking valuable company time out of your day to review my project.
+
+Please report any feedback to me via Pull Request and/or [Twitter dm @techieeliot](https://twitter.com/techieEliot).
+
+All the best,
+
+Eliot Sanford
