@@ -4,7 +4,7 @@
 
 - The app is a React MVP app that gives the user a way to create an HTML layout with text and background images or colors.
 
-[Live link](https://michael-scott-paper.netlify.app/)
+### [Live link to the deployed application](https://michael-scott-paper.netlify.app/)
 
 ---
 
