@@ -59,9 +59,9 @@
 #### Languages and Frameworks
 
     	* React
-      * React-Router
-      * Redux
+    	* Redux
     	* TypeScript
+    	* React Router
     	* Ant Design
     	* CSS
 
