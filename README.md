@@ -48,9 +48,9 @@
 
 - [ ] [feature: responsive layout for moble or tablet devices](https://github.com/techieeliot/michael-scott-paper/issues/15)
 
-- [ X ] Use React (Nice to haves: Redux, TypeScript, and Testing)
+- [x] Use React (Nice to haves: Redux, TypeScript, and Testing)
 
-- [ X ] Create a readme with getting started instructions
+- [x] Create a readme with getting started instructions
 
 ---
 
