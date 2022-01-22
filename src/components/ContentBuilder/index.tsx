@@ -25,7 +25,7 @@ const ContentBuilder: FC = () => {
       >
         <HeaderMenu />
       </Header>
-      <Layout id="layout" style={{ marginTop: "5vh", height: "95vh" }}>
+      <Layout id="layout" style={{ margin: "5vh 5px 0 5px", height: "95vh" }}>
         <Sider
           width="16.67%"
           id="left-sidebar"
