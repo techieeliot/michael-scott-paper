@@ -1,5 +1,6 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FC } from "react";
+import { Link } from "react-router-dom";
 import { Layout, Row, Col, Typography, Table, Button, Space } from "antd";
 
 import "./index.css";
@@ -27,7 +28,6 @@ const columns = [
     key: "action",
     render: () => (
       <Space size="middle">
-        <a>Edit</a>
         <a>Delete</a>
       </Space>
     ),
@@ -69,9 +69,11 @@ const PagesTable: FC = () => {
         <Content style={{ width: "100%", margin: "20vh 0" }}>
           <Row justify="center" style={{ width: "100%" }}>
             <Col span={10}>
-              <Button type="primary" size="large" style={{ width: "100%" }}>
-                Add Website
-              </Button>
+              <Link to="/layout">
+                <Button type="primary" size="large" style={{ width: "100%" }}>
+                  Add Website
+                </Button>
+              </Link>
             </Col>
           </Row>
           <Row justify="center" style={{ width: "100%", margin: "20vh 0" }}>

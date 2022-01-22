@@ -18,9 +18,8 @@ const NextButtonFooter: FC = () => {
         }}
       >
         <Divider />
-
         <Button type="primary" htmlType="submit" shape="round" size="large">
-          <Link to="/editor">Next</Link>
+          <Link to="/content">Next</Link>
         </Button>
       </div>
     </Footer>

@@ -1,6 +1,6 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { Menu, Radio, Card } from "antd";
+import { Menu, Radio, Card, Space } from "antd";
 import { LaptopOutlined, UserOutlined, EditOutlined } from "@ant-design/icons";
 
 import "./index.css";
@@ -32,11 +32,14 @@ const SelectionMenu: FC = () => {
             />
           }
           extra={
-            <div>
+            <Space>
               <Link to="/">
-                Reselect Layout <EditOutlined key="edit" />
+                New Page <EditOutlined key="edit" />
               </Link>
-            </div>
+              <Link to="/layout">
+                Edit Layout <EditOutlined key="edit" />
+              </Link>
+            </Space>
           }
         />
       </SubMenu>{" "}
