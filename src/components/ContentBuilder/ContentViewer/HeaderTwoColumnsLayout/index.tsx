@@ -22,11 +22,12 @@ const HeaderTwoColumnsLayout: FC = () => {
         style={{ background: "#fff", height: "45%", padding: "0" }}
       >
         <Row
+          justify="center"
           style={{
             height: "100%",
           }}
         >
-          <Col span={24} style={{ background: "#F0F2F5", padding: "24px" }}>
+          <Col span={24}>
             <Title>Header</Title>
           </Col>
         </Row>
@@ -43,13 +44,6 @@ const HeaderTwoColumnsLayout: FC = () => {
             <Text>Column 1</Text>
           </Col>
           <Col id="content-column-two-layout-one" span={12}>
-            <Text>Column 2</Text>
-          </Col>
-          <Col
-            id="content-column-two-layout-one"
-            span={11}
-            style={{ background: "#F0F2F5", padding: "24px" }}
-          >
             <Text>Column 2</Text>
           </Col>
         </Row>

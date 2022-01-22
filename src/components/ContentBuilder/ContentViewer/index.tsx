@@ -28,9 +28,9 @@ const ContentLayout: FC = () => {
           background
         </Paragraph>
       )}
-      {true && <HeaderTwoColumnsLayout />}
+      {false && <HeaderTwoColumnsLayout />}
       {false && <HeaderThreeColumnsLayout />}
-      {false && <HeaderFooterTwoColumnsLayout />}
+      {true && <HeaderFooterTwoColumnsLayout />}
     </Content>
   );
 };
