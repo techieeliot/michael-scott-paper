@@ -1,11 +1,19 @@
-import { FC } from "react";
-import { Menu } from "antd";
+import { FC, SetStateAction, useState, useEffect } from "react";
+import { Menu, Input } from "antd";
 
 import "./index.css";
 
 const { Item } = Menu;
 
 const HeaderMenu: FC = () => {
+  const initialTitle = window.localStorage.getItem("title") || "Untitled Page";
+
+  const [title, setTitle] = useState<string>(initialTitle);
+
+  useEffect(() => {
+    return window.localStorage.setItem("title", title);
+  }, [title]);
+
   return (
     <Menu
       theme="dark"
@@ -17,6 +25,7 @@ const HeaderMenu: FC = () => {
         justifyContent: "center",
         alignItems: "center",
       }}
+      selectable={false}
     >
       <Item
         key="1"
@@ -28,7 +37,12 @@ const HeaderMenu: FC = () => {
           alignItems: "center",
         }}
       >
-        Untitled Page
+        <Input
+          onChange={(e: { target: { value: SetStateAction<string> } }) => {
+            setTitle(typeof e.target.value === "string" ? e.target.value : "");
+          }}
+          value={title}
+        />
       </Item>
     </Menu>
   );
