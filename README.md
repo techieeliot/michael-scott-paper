@@ -2,7 +2,7 @@
 
 ## Frontend CMS "lite" MVP Project by Eliot Sanford
 
-- The app is a React MVP app that gives the user a way to create a an HTML layout with text and background images or colors.
+- The app is a React MVP app that gives the user a way to create an HTML layout with text and background images or colors.
 
 [Live link](https://michael-scott-paper.netlify.app/)
 
