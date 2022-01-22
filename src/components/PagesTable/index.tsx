@@ -70,7 +70,12 @@ const PagesTable: FC = () => {
           <Row justify="center" style={{ width: "100%" }}>
             <Col span={10}>
               <Link to="/layout">
-                <Button type="primary" size="large" style={{ width: "100%" }}>
+                <Button
+                  type="primary"
+                  shape="round"
+                  size="large"
+                  style={{ width: "100%" }}
+                >
                   Add Website
                 </Button>
               </Link>

@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Layout, Row, Col, Form } from "antd";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutSelection from "./LayoutSelection";
-import NextButtonFooter from "./NextButtonFooter";
+import ButtonsFooter from "./ButtonsFooter";
 
 import "./index.css";
 
@@ -57,7 +57,7 @@ const LayoutChoices: FC = () => {
             </Content>
           </Form.Item>
           <Form.Item name="footer">
-            <NextButtonFooter />
+            <ButtonsFooter />
           </Form.Item>
         </Form>
       </Col>
