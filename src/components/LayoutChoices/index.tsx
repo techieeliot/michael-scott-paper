@@ -8,7 +8,7 @@ import "./index.css";
 
 const { Content } = Layout;
 
-const Selector: FC = () => {
+const LayoutChoices: FC = () => {
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const onFinish = (values: unknown) => {
     // console.log("Success:", values);
@@ -65,4 +65,4 @@ const Selector: FC = () => {
   );
 };
 
-export default Selector;
+export default LayoutChoices;
