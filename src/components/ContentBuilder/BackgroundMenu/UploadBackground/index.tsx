@@ -1,10 +1,11 @@
 /* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC, SetStateAction, useState } from "react";
-import { Upload } from "antd";
+import { FC, SetStateAction, useEffect, useState } from "react";
+import { Empty, Upload } from "antd";
 import { UploadFile } from "antd/lib/upload/interface";
 import ImgCrop from "antd-img-crop";
+import { PictureOutlined } from "@ant-design/icons";
 
 const UploadBackground: FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
@@ -41,7 +42,15 @@ const UploadBackground: FC = () => {
         onChange={onChange}
         onPreview={onPreview}
       >
-        {fileList.length < 1 && "+ Upload"}
+        {fileList.length < 1 && (
+          <Empty
+            image={<PictureOutlined style={{ fontSize: "75px" }} />}
+            description="select image"
+            imageStyle={{
+              height: 60,
+            }}
+          />
+        )}
       </Upload>
     </ImgCrop>
   );
