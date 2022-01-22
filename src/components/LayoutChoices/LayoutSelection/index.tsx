@@ -6,7 +6,7 @@ import "./index.css";
 
 const { Meta } = Card;
 
-const LayoutSelection: FC = () => {
+const LayoutSelection: FC = ({ handleWebsiteData }) => {
   return (
     <Radio.Group
       style={{
@@ -15,8 +15,7 @@ const LayoutSelection: FC = () => {
         minHeight: "95%",
         width: "80%",
       }}
-      // onChange={onChange}
-      // value={value}
+      onChange={handleWebsiteData}
     >
       <Information />
       <Row

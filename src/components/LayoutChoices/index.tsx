@@ -1,4 +1,4 @@
-import { FC } from "react";
+import { FC, useState, FormEvent } from "react";
 import { Layout, Row, Col, Form } from "antd";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutSelection from "./LayoutSelection";
@@ -8,22 +8,25 @@ import "./index.css";
 
 const { Content } = Layout;
 
-const LayoutChoices: FC = () => {
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const onFinish = (values: unknown) => {
-    // console.log("Success:", values);
-    return values; // set State later
+type Props = {
+  saveWebsite: (website: Website | any) => void;
+};
+
+const LayoutChoices: FC<Props> = ({ saveWebsite }) => {
+  const [website, setWebsite] = useState<Website | {}>();
+
+  const handleWebsiteData = (e: FormEvent<HTMLInputElement>) => {
+    setWebsite({
+      ...website,
+      [e.currentTarget.id]: e.currentTarget.value,
+    });
   };
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const onFinishFailed = (errorInfo: unknown) => {
-    // console.log("Failed:", errorInfo);
-    return errorInfo; // set state later
+  const addNewWebsite = (e: FormEvent) => {
+    e.preventDefault();
+    saveWebsite(website);
   };
 
-  // const onChange = (e: { target: { value: string } }) => {
-  //   console.log("radio checked", e.target.value);
-  // };
   return (
     <Row style={{ textAlign: "left", height: "100vh", background: "#fff" }}>
       <Col span={24} style={{ height: "100vh" }}>
@@ -32,8 +35,7 @@ const LayoutChoices: FC = () => {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
-          onFinish={onFinish}
-          onFinishFailed={onFinishFailed}
+          onFinish={addNewWebsite}
           autoComplete="off"
           style={{ width: "100%" }}
         >
@@ -53,11 +55,11 @@ const LayoutChoices: FC = () => {
               className="site-layout"
               style={{ padding: "24px 50px", background: "#fff" }}
             >
-              <LayoutSelection />
+              <LayoutSelection handleWebsiteData={handleWebsiteData} />
             </Content>
           </Form.Item>
           <Form.Item name="footer">
-            <NextButtonFooter />
+            <NextButtonFooter article={article} />
           </Form.Item>
         </Form>
       </Col>
