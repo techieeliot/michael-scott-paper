@@ -1,5 +1,5 @@
 export interface IWebsite {
-  [x: string]: any;
+  [x: string]: unknown;
   id: number;
   layout: string;
   title: string;

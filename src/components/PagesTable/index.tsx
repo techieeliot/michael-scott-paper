@@ -3,23 +3,30 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Row, Col, Typography, Table, Button, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { WebsiteAction, WebsiteState } from "../../type";
+import { DispatchType, WebsiteState } from "../../type";
 import { addWebsite, removeWebsite } from "../../store/ducks/websiteBuilder";
 import "./index.css";
+import { IWebsite } from "../../interfaces/IWebsite";
 
 const { Content, Header } = Layout;
 const { Title } = Typography;
 
 const PagesTable: FC = () => {
   const websites = useSelector<WebsiteState>((state) => state.websites);
-  const dispatch = useDispatch<WebsiteAction>();
+  const dispatch = useDispatch<DispatchType>();
 
-  const handleAddSite = () => {
-    dispatch(addWebsite());
+  const newWebsite = {
+    id: 1,
+    layout: "Header - Two Columns",
+    title: "Untitled Page",
   };
-  const handleRemoveSite = () => {
-    dispatch(removeWebsite());
+
+  const handleAddSite = (): object => {
+    return dispatch(addWebsite(newWebsite));
   };
+  // const handleRemoveSite = (website: IWebsite): object => {
+  //   return dispatch(removeWebsite(website));
+  // };
 
   const columns = [
     {
@@ -40,9 +47,14 @@ const PagesTable: FC = () => {
     {
       title: "Action",
       key: "action",
-      render: () => (
+      // eslint-disable-next-line @typescript-eslint/no-unused-vars
+      render: (_text: unknown, record: { id: IWebsite }) => (
         <Space size="middle">
-          <Button type="link" size="small">
+          <Button
+            type="link"
+            size="small"
+            // onClick={handleRemoveSite(record.id)}
+          >
             Delete
           </Button>
         </Space>
@@ -72,7 +84,12 @@ const PagesTable: FC = () => {
           <Row justify="center" style={{ width: "100%" }}>
             <Col span={10}>
               <Link to="/layout">
-                <Button type="primary" size="large" style={{ width: "100%" }}>
+                <Button
+                  type="primary"
+                  size="large"
+                  onClick={handleAddSite}
+                  style={{ width: "100%" }}
+                >
                   Add Website
                 </Button>
               </Link>
