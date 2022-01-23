@@ -14,11 +14,9 @@ const PagesTable: FC = () => {
   const websites = useSelector<WebsiteState>((state) => state.websites);
   const dispatch = useDispatch<WebsiteAction>();
 
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleAddSite = () => {
     dispatch(addWebsite());
   };
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
   const handleRemoveSite = () => {
     dispatch(removeWebsite());
   };
