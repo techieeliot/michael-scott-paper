@@ -3,7 +3,8 @@ import { Layout, Row, Col, Form } from "antd";
 import { IWebsite } from "../../interfaces/IWebsite";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutSelection from "./LayoutSelection";
-import NextButtonFooter from "./NextButtonFooter";
+import ButtonsFooter from "./ButtonsFooter";
+
 import "./index.css";
 
 const { Content } = Layout;
@@ -59,7 +60,7 @@ const LayoutChoices: FC<Props> = ({ saveWebsite }) => {
             </Content>
           </Form.Item>
           <Form.Item name="footer">
-            <NextButtonFooter website={website} />
+            <ButtonsFooter />
           </Form.Item>
         </Form>
       </Col>

@@ -1,10 +1,7 @@
 import { FC, useState, useEffect } from "react";
-import { Menu, Input, Empty, Button, Tooltip } from "antd";
-import {
-  LaptopOutlined,
-  UserOutlined,
-  PictureOutlined,
-} from "@ant-design/icons";
+import { Menu, Input, Tooltip } from "antd";
+import { LaptopOutlined, UserOutlined } from "@ant-design/icons";
+import UploadBackground from "./UploadBackground";
 
 import "./index.css";
 
@@ -63,30 +60,17 @@ const BackgroundMenu: FC = () => {
         </Menu.Item>
       </SubMenu>
       <SubMenu
-        className="image-submenu"
+        className="background-menu-image-submenu"
         key="sub4"
         icon={<LaptopOutlined />}
         title="Background Image"
       >
-        <Menu.Item key="2" style={{ height: "auto" }}>
-          <Button
-            id="select-image-btn"
-            type="link"
-            style={{
-              height: "fit-content",
-              width: "fit-content",
-              background: "#fafafa",
-              border: "1px dashed #d9d9d9",
-            }}
-          >
-            <Empty
-              image={<PictureOutlined style={{ fontSize: "75px" }} />}
-              description="select image"
-              imageStyle={{
-                height: 60,
-              }}
-            />
-          </Button>
+        <Menu.Item
+          key="2"
+          id="background-menu-menu-item-image-uploader"
+          style={{ height: "auto" }}
+        >
+          <UploadBackground />
         </Menu.Item>
       </SubMenu>
     </Menu>
