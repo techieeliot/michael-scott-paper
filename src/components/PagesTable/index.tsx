@@ -12,6 +12,7 @@ import {
   Tooltip,
 } from "antd";
 import { useDispatch, useSelector } from "react-redux";
+import uuid from "react-uuid";
 import { DispatchType, WebsiteState } from "../../type";
 import { addWebsite } from "../../store/ducks/websiteBuilder";
 import "./index.css";
@@ -25,7 +26,7 @@ const PagesTable: FC = () => {
   const dispatch = useDispatch<DispatchType>();
 
   const newWebsite = {
-    id: 1,
+    id: uuid(),
     layout: "Header - Two Columns",
     title: "Untitled Page",
   };
