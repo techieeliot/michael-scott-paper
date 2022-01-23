@@ -13,16 +13,19 @@ import {
 } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
-import { DispatchType, WebsiteState } from "../../type";
-import { addWebsite } from "../../store/ducks/websiteBuilder";
+import { DispatchType } from "../../type";
+import { addWebsite, removeWebsite } from "../../store/ducks/websiteBuilder";
 import "./index.css";
 import { IWebsite } from "../../interfaces/IWebsite";
+import { RootState } from "../../store/configureStore";
 
 const { Content, Header } = Layout;
 const { Title } = Typography;
 
 const PagesTable: FC = () => {
-  const websites = useSelector<WebsiteState>((state) => state.websites);
+  const websites = useSelector<RootState>(
+    (state) => state.websiteBuilder.websites
+  );
   const dispatch = useDispatch<DispatchType>();
 
   const newWebsite = {
@@ -35,9 +38,9 @@ const PagesTable: FC = () => {
     return dispatch(addWebsite(newWebsite));
   };
   // SEE ISSUE #35
-  // const handleRemoveSite = (website: IWebsite): object => {
-  //   return dispatch(removeWebsite(website));
-  // };
+  const handleRemoveSite = (website: IWebsite): object => {
+    return dispatch(removeWebsite(website));
+  };
 
   const columns = [
     {
@@ -97,16 +100,14 @@ const PagesTable: FC = () => {
         <Content style={{ width: "100%", margin: "20vh 0" }}>
           <Row justify="center" style={{ width: "100%" }}>
             <Col span={10}>
-              <Link to="/layout">
-                <Button
-                  type="primary"
-                  size="large"
-                  onClick={handleAddSite}
-                  style={{ width: "100%" }}
-                >
-                  Add Website
-                </Button>
-              </Link>
+              <Button
+                type="primary"
+                size="large"
+                onClick={handleAddSite}
+                style={{ width: "100%" }}
+              >
+                <Link to="/layout">Add Website</Link>
+              </Button>
             </Col>
           </Row>
           <Row justify="center" style={{ width: "100%", margin: "20vh 0" }}>

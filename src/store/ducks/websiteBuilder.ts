@@ -1,6 +1,6 @@
-import { WebsiteAction, WebsiteState } from "../../type";
 import * as actionTypes from "./actionTypes";
 import { IWebsite } from "../../interfaces/IWebsite";
+import { WebsiteAction, WebsiteState } from "../../type";
 
 export const addWebsite = (website: IWebsite): WebsiteAction => {
   return {
@@ -19,14 +19,14 @@ export const removeWebsite = (website: IWebsite): WebsiteAction => {
 const initialState: WebsiteState = {
   websites: [
     {
-      id: 1,
+      id: 98779877,
       layout: "Header - Two Columns",
       title: "Untitled Page",
     },
     {
-      id: 2,
+      id: 8976987667,
       layout: "Header - Three Columns",
-      title: "Michael",
+      title: "Michael's page",
     },
   ],
 };
@@ -38,15 +38,9 @@ const websiteBuilderReducer = (
 ): WebsiteState => {
   switch (action.type) {
     case actionTypes.ADD_WEBSITE:
-      // eslint-disable-next-line no-case-declarations
-      const newWebsite: IWebsite = {
-        id: Math.random(),
-        layout: action.website.layout,
-        title: action.website.title,
-      };
       return {
         ...state,
-        websites: state.websites.concat(newWebsite),
+        websites: state.websites.concat(action.website),
       };
       break;
 

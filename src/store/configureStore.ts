@@ -1,10 +1,11 @@
 import { createStore, combineReducers } from "redux";
-import websiteBuilderReducer from "./ducks/websiteBuilder";
+import websiteBuilder from "./ducks/websiteBuilder";
 
 const reducer = combineReducers({
-  websiteBuilderReducer,
+  websiteBuilder,
 });
 
 const store = createStore(reducer);
 
 export default store;
+export type RootState = ReturnType<typeof reducer>;
