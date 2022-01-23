@@ -1,4 +1,4 @@
-import IWebsite from "../interfaces/IWebsite";
+import IWebsite from "./interfaces/IWebsite";
 
 type WebsiteState = {
   websites: IWebsite[];

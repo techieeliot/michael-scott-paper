@@ -1,6 +1,20 @@
-import { WebsiteAction, WebsiteState } from "../../types/type";
-import * as actionTypes from "../actionTypes";
+import { WebsiteAction, WebsiteState } from "../../type";
+import * as actionTypes from "./actionTypes";
 import { IWebsite } from "../../interfaces/IWebsite";
+
+export const addWebsite = (website: IWebsite): WebsiteAction => {
+  return {
+    type: actionTypes.ADD_WEBSITE,
+    website,
+  };
+};
+
+export const removeWebsite = (website: IWebsite): WebsiteAction => {
+  return {
+    type: actionTypes.REMOVE_WEBSITE,
+    website,
+  };
+};
 
 const initialState: WebsiteState = {
   websites: [
@@ -17,7 +31,7 @@ const initialState: WebsiteState = {
   ],
 };
 
-const websiteReducer = (
+const websiteBuilderReducer = (
   // eslint-disable-next-line default-param-last
   state: WebsiteState = initialState,
   action: WebsiteAction
@@ -53,4 +67,4 @@ const websiteReducer = (
   return state;
 };
 
-export default websiteReducer;
+export default websiteBuilderReducer;

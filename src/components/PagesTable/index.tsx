@@ -2,52 +2,56 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Row, Col, Typography, Table, Button, Space } from "antd";
-
+import { useDispatch, useSelector } from "react-redux";
+import { WebsiteAction, WebsiteState } from "../../type";
+import { addWebsite, removeWebsite } from "../../store/ducks/websiteBuilder";
 import "./index.css";
 
 const { Content, Header } = Layout;
 const { Title } = Typography;
 
-const columns = [
-  {
-    title: "Title",
-    dataIndex: "title",
-    key: "title",
-    render: (
-      text: string
-      // eslint-disable-next-line jsx-a11y/anchor-is-valid
-    ) => <a>{text}</a>,
-  },
-  {
-    title: "Layout",
-    dataIndex: "layout",
-    key: "layout",
-  },
-  {
-    title: "Action",
-    key: "action",
-    render: () => (
-      <Space size="middle">
-        <a>Delete</a>
-      </Space>
-    ),
-  },
-];
-
-const websites = [
-  {
-    id: 1,
-    layout: "Header - Two Columns",
-    title: "Untitled Page",
-  },
-  {
-    id: 2,
-    layout: "Header - Three Columns",
-    title: "Michael",
-  },
-];
-
 const PagesTable: FC = () => {
+  const websites = useSelector<WebsiteState>((state) => state.websites);
+  const dispatch = useDispatch<WebsiteAction>();
+
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  const handleAddSite = () => {
+    dispatch(addWebsite());
+  };
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  const handleRemoveSite = () => {
+    dispatch(removeWebsite());
+  };
+
+  const columns = [
+    {
+      title: "Title",
+      dataIndex: "title",
+      key: "title",
+      render: (text: string) => (
+        <Button type="link" size="small">
+          {text}
+        </Button>
+      ),
+    },
+    {
+      title: "Layout",
+      dataIndex: "layout",
+      key: "layout",
+    },
+    {
+      title: "Action",
+      key: "action",
+      render: () => (
+        <Space size="middle">
+          <Button type="link" size="small">
+            Delete
+          </Button>
+        </Space>
+      ),
+    },
+  ];
+
   return (
     <Row style={{ textAlign: "left", height: "100vh", background: "#fff" }}>
       <Col span={24} style={{ height: "100vh" }}>
