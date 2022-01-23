@@ -97,7 +97,7 @@ const PagesTable: FC = () => {
           </Row>
           <Row justify="center" style={{ width: "100%", margin: "20vh 0" }}>
             <Col span={18}>
-              <Table columns={columns} dataSource={websites} />
+              <Table columns={columns} dataSource={websites as never} />
             </Col>
           </Row>
         </Content>
