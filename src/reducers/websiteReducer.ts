@@ -1,6 +1,6 @@
-import { IWebsite } from "../interfaces/IWebsite";
 import { WebsiteAction, WebsiteState } from "../types/type";
-import * as actionTypes from "./actionTypes";
+import * as actionTypes from "../actionTypes";
+import { IWebsite } from "../interfaces/IWebsite";
 
 const initialState: WebsiteState = {
   websites: [
@@ -8,60 +8,16 @@ const initialState: WebsiteState = {
       id: 1,
       layout: "Header - Two Columns",
       title: "Untitled Page",
-      content: {
-        header: {
-          content: {},
-          background: "",
-        },
-        column1: {
-          content: {},
-          background: "",
-        },
-        column2: {
-          content: {},
-          background: "",
-        },
-        column3: {
-          content: {},
-          background: "",
-        },
-        footer: {
-          content: {},
-          background: "",
-        },
-      },
     },
     {
       id: 2,
       layout: "Header - Three Columns",
       title: "Michael",
-      content: {
-        header: {
-          content: {},
-          background: "",
-        },
-        column1: {
-          content: {},
-          background: "",
-        },
-        column2: {
-          content: {},
-          background: "",
-        },
-        column3: {
-          content: {},
-          background: "",
-        },
-        footer: {
-          content: {},
-          background: "",
-        },
-      },
     },
   ],
 };
 
-const reducer = (
+const websiteReducer = (
   // eslint-disable-next-line default-param-last
   state: WebsiteState = initialState,
   action: WebsiteAction
@@ -97,4 +53,4 @@ const reducer = (
   return state;
 };
 
-export default reducer;
+export default websiteReducer;

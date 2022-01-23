@@ -9,5 +9,4 @@ type WebsiteAction = {
   website: IWebsite;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type DispatchType = (args: WebsiteAction) => WebsiteAction;

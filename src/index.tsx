@@ -6,12 +6,13 @@ import { Provider } from "react-redux";
 import thunk from "redux-thunk";
 import "./index.css";
 import App from "./App";
-import reducer from "./store/reducer";
+import rootReducer from "./reducers/rootReducer";
 import reportWebVitals from "./reportWebVitals";
+import { DispatchType, WebsiteAction, WebsiteState } from "./types/type";
 
 const store: Store<WebsiteState, WebsiteAction> & {
   dispatch: DispatchType;
-} = createStore(reducer, applyMiddleware(thunk));
+} = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>
