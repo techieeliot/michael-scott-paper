@@ -1,33 +1,14 @@
-import { FC, useState, FormEvent } from "react";
+import { FC } from "react";
 import { Layout, Row, Col, Form } from "antd";
 import { IWebsite } from "../../interfaces/IWebsite";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutSelection from "./LayoutSelection";
 import ButtonsFooter from "./ButtonsFooter";
-
 import "./index.css";
 
 const { Content } = Layout;
 
-type Props = {
-  saveWebsite: (website: IWebsite | any) => void;
-};
-
-const LayoutChoices: FC<Props> = ({ saveWebsite }) => {
-  const [website, setWebsite] = useState<IWebsite | {}>();
-
-  const handleWebsiteData = (e: FormEvent<HTMLInputElement>) => {
-    setWebsite({
-      ...website,
-      [e.currentTarget.id]: e.currentTarget.value,
-    });
-  };
-
-  const addNewWebsite = (e: FormEvent) => {
-    e.preventDefault();
-    saveWebsite(website);
-  };
-
+const LayoutChoices: FC = () => {
   return (
     <Row style={{ textAlign: "left", height: "100vh", background: "#fff" }}>
       <Col span={24} style={{ height: "100vh" }}>
@@ -36,7 +17,7 @@ const LayoutChoices: FC<Props> = ({ saveWebsite }) => {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
-          onFinish={addNewWebsite}
+          // onFinish={}
           autoComplete="off"
           style={{ width: "100%" }}
         >
@@ -56,7 +37,7 @@ const LayoutChoices: FC<Props> = ({ saveWebsite }) => {
               className="site-layout"
               style={{ padding: "24px 50px", background: "#fff" }}
             >
-              <LayoutSelection handleWebsiteData={handleWebsiteData} />
+              <LayoutSelection />
             </Content>
           </Form.Item>
           <Form.Item name="footer">

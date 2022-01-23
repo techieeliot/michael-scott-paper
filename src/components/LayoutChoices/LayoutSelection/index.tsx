@@ -1,12 +1,11 @@
 import { FC } from "react";
 import { Row, Col, Card, Radio, Tooltip } from "antd";
 import Information from "./Information";
-
 import "./index.css";
 
 const { Meta } = Card;
 
-const LayoutSelection: FC = ({ handleWebsiteData }) => {
+const LayoutSelection: FC = () => {
   return (
     <Radio.Group
       style={{
@@ -15,7 +14,7 @@ const LayoutSelection: FC = ({ handleWebsiteData }) => {
         minHeight: "95%",
         width: "80%",
       }}
-      onChange={handleWebsiteData}
+      // onChange={handleWebsiteData}
     >
       <Information />
       <Row
