@@ -1,18 +1,18 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import { createStore, applyMiddleware, Store } from "redux";
+// import { createStore, applyMiddleware, Store } from "redux";
 import { Provider } from "react-redux";
-import thunk from "redux-thunk";
 import "./index.css";
 import App from "./App";
-import rootReducer from "./reducers/rootReducer";
+import store from "./redux/configureStore";
+// import rootReducer from "./reducers/rootReducer";
 import reportWebVitals from "./reportWebVitals";
-import { DispatchType, WebsiteAction, WebsiteState } from "./types/type";
+// import { DispatchType, WebsiteAction, WebsiteState } from "./types/type";
 
-const store: Store<WebsiteState, WebsiteAction> & {
-  dispatch: DispatchType;
-} = createStore(rootReducer, applyMiddleware(thunk));
+// const store: Store<WebsiteState, WebsiteAction> & {
+//   dispatch: DispatchType;
+// } = createStore(rootReducer, applyMiddleware(thunk));
 
 ReactDOM.render(
   <React.StrictMode>

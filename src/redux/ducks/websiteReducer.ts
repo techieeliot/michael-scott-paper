@@ -1,6 +1,6 @@
-import { WebsiteAction, WebsiteState } from "../types/type";
+import { WebsiteAction, WebsiteState } from "../../types/type";
 import * as actionTypes from "../actionTypes";
-import { IWebsite } from "../interfaces/IWebsite";
+import { IWebsite } from "../../interfaces/IWebsite";
 
 const initialState: WebsiteState = {
   websites: [
