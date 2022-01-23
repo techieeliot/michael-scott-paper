@@ -1,7 +1,16 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { Layout, Row, Col, Typography, Table, Button, Space } from "antd";
+import {
+  Layout,
+  Row,
+  Col,
+  Typography,
+  Table,
+  Button,
+  Space,
+  Tooltip,
+} from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { DispatchType, WebsiteState } from "../../type";
 import { addWebsite, removeWebsite } from "../../store/ducks/websiteBuilder";
@@ -50,13 +59,16 @@ const PagesTable: FC = () => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       render: (_text: unknown, record: { id: IWebsite }) => (
         <Space size="middle">
-          <Button
-            type="link"
-            size="small"
-            // onClick={handleRemoveSite(record.id)}
-          >
-            Delete
-          </Button>
+          <Tooltip title="Currently unavailable">
+            <Button
+              type="link"
+              size="small"
+              // onClick={handleRemoveSite(record.id)}
+              disabled
+            >
+              Delete
+            </Button>
+          </Tooltip>
         </Space>
       ),
     },
