@@ -13,7 +13,7 @@ import {
 } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { DispatchType, WebsiteState } from "../../type";
-import { addWebsite, removeWebsite } from "../../store/ducks/websiteBuilder";
+import { addWebsite } from "../../store/ducks/websiteBuilder";
 import "./index.css";
 import { IWebsite } from "../../interfaces/IWebsite";
 
@@ -33,6 +33,7 @@ const PagesTable: FC = () => {
   const handleAddSite = (): object => {
     return dispatch(addWebsite(newWebsite));
   };
+  // SEE ISSUE #35
   // const handleRemoveSite = (website: IWebsite): object => {
   //   return dispatch(removeWebsite(website));
   // };
@@ -63,7 +64,7 @@ const PagesTable: FC = () => {
             <Button
               type="link"
               size="small"
-              // onClick={handleRemoveSite(record.id)}
+              // onClick={handleRemoveSite(record.id)} // SEE ISSUE #35
               disabled
             >
               Delete
@@ -109,6 +110,7 @@ const PagesTable: FC = () => {
           </Row>
           <Row justify="center" style={{ width: "100%", margin: "20vh 0" }}>
             <Col span={18}>
+              {/* SEE ISSUE #34 */}
               <Table columns={columns} dataSource={websites as never} />
             </Col>
           </Row>
