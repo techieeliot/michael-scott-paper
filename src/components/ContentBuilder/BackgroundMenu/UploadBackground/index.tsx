@@ -1,10 +1,7 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, SetStateAction, useState } from "react";
 import { Empty, Upload } from "antd";
 import { UploadFile } from "antd/lib/upload/interface";
-import ImgCrop from "antd-img-crop";
 import { PictureOutlined } from "@ant-design/icons";
 
 const UploadBackground: FC = () => {
@@ -33,26 +30,24 @@ const UploadBackground: FC = () => {
   };
 
   return (
-    <ImgCrop rotate>
-      <Upload
-        multiple={false}
-        maxCount={1}
-        listType="picture-card"
-        fileList={fileList}
-        onChange={onChange}
-        onPreview={onPreview}
-      >
-        {fileList.length < 1 && (
-          <Empty
-            image={<PictureOutlined style={{ fontSize: "75px" }} />}
-            description="select image"
-            imageStyle={{
-              height: 60,
-            }}
-          />
-        )}
-      </Upload>
-    </ImgCrop>
+    <Upload
+      multiple={false}
+      maxCount={1}
+      listType="picture-card"
+      fileList={fileList}
+      onChange={onChange}
+      onPreview={onPreview}
+    >
+      {fileList.length < 1 && (
+        <Empty
+          image={<PictureOutlined style={{ fontSize: "75px" }} />}
+          description="select image"
+          imageStyle={{
+            height: 60,
+          }}
+        />
+      )}
+    </Upload>
   );
 };
 
