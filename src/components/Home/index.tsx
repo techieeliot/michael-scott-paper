@@ -1,29 +1,31 @@
+/* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Col, Typography, Table, Button, Space, Tooltip } from "antd";
-import { useDispatch, useSelector } from "react-redux";
+import { connect, useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { DispatchType } from "../../type";
 import { addWebsite, removeWebsite } from "../../store/ducks/websiteBuilder";
 import { IWebsite } from "../../interfaces/IWebsite";
 import { RootState } from "../../store/configureStore";
 import { HomeRow, LayoutRow } from "./styles";
+import { ADD_WEBSITE } from "../../store/ducks/actionTypes";
 
 const { Content, Header } = Layout;
 const { Title } = Typography;
+
+const newWebsite = {
+  id: uuid(),
+  layout: "Header - Two Columns",
+  title: "Untitled Page",
+};
 
 const Home: FC = () => {
   const websites = useSelector<RootState>(
     (state) => state.websiteBuilder.websites
   );
   const dispatch = useDispatch<DispatchType>();
-
-  const newWebsite = {
-    id: uuid(),
-    layout: "Header - Two Columns",
-    title: "Untitled Page",
-  };
 
   const handleAddSite = (): object => {
     return dispatch(addWebsite(newWebsite));
@@ -113,4 +115,16 @@ const Home: FC = () => {
   );
 };
 
-export default Home;
+const mapDispatchToProps = (
+  dispatch: (arg0: {
+    type: string;
+    payload: { newWebsite: unknown };
+  }) => unknown
+) => {
+  return {
+    handleAddSite: () =>
+      dispatch({ type: ADD_WEBSITE, payload: { newWebsite } }),
+  };
+};
+
+export default connect(null, mapDispatchToProps)(Home);

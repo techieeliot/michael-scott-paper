@@ -1,5 +1,6 @@
 import { FC } from "react";
 import { Layout, Row, Col, Form } from "antd";
+import { connect } from "react-redux";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutSelection from "./LayoutOptions";
 import ButtonsFooter from "./ButtonsFooter";

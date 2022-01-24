@@ -10,14 +10,14 @@ import reportWebVitals from "./reportWebVitals";
 
 store.subscribe(() => {
   saveState({
-    id: store.getState().id,
+    websites: store.getState().websiteBuilder.websites,
   });
 });
 
 ReactDOM.render(
   <BrowserRouter>
     <Provider store={store}>
-      <App />
+      <App />;
     </Provider>
   </BrowserRouter>,
   document.getElementById("root")
