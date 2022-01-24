@@ -4,68 +4,42 @@ import HeaderMenu from "./HeaderMenu";
 import SelectionMenu from "./SelectionMenu";
 import ContentViewer from "./ContentViewer";
 import BackgroundMenu from "./BackgroundMenu";
+import { BlackHeader, LeftSideBar, RightSideBar } from "./style";
 
-import "./index.css";
-
-const { Header, Sider } = Layout;
 const { useBreakpoint } = Grid;
 
 const ContentBuilder: FC = () => {
   const screens = useBreakpoint();
   return (
     <>
-      <Header
-        id="header"
-        style={{
-          position: "fixed",
-          zIndex: 1,
-          width: "100%",
-          height: "5vh",
-        }}
-      >
+      <BlackHeader id="header">
         <HeaderMenu />
-      </Header>
+      </BlackHeader>
       <Layout id="layout" style={{ margin: "5vh 5px 0 5px", height: "95vh" }}>
-        <Sider
+        <LeftSideBar
           width="16.67%"
           id="left-sidebar"
           className="site-layout-background"
-          style={{
-            overflowY: "hidden",
-            overflowX: "hidden",
-            position: "fixed",
-            top: "5vh",
-            left: "0",
-            bottom: "0",
-          }}
           breakpoint="lg"
           collapsible={screens.lg}
           collapsedWidth={40}
         >
           <SelectionMenu />
-        </Sider>
+        </LeftSideBar>
         <Layout id="center-content" style={{ padding: "24px 16.67%" }}>
           <ContentViewer />
         </Layout>
-        <Sider
+        <RightSideBar
           width="16.67%"
           id="right-sidebar"
           className="site-layout-background"
-          style={{
-            overflowY: "hidden",
-            overflowX: "hidden",
-            position: "fixed",
-            top: "5vh",
-            right: "0",
-            bottom: "0",
-          }}
           breakpoint="lg"
           collapsible={screens.lg}
           collapsedWidth={40}
           reverseArrow
         >
           <BackgroundMenu />
-        </Sider>
+        </RightSideBar>
       </Layout>
     </>
   );
