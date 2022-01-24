@@ -38,9 +38,9 @@ const PagesTable: FC = () => {
     return dispatch(addWebsite(newWebsite));
   };
   // SEE ISSUE #35
-  const handleRemoveSite = (website: IWebsite): object => {
-    return dispatch(removeWebsite(website));
-  };
+  // const handleRemoveSite = (website: IWebsite): object => {
+  //   return dispatch(removeWebsite(website));
+  // };
 
   const columns = [
     {
