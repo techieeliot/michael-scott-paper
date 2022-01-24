@@ -1,6 +1,5 @@
 import { FC } from "react";
 import { Layout, Row, Col, Form } from "antd";
-import { IWebsite } from "../../interfaces/IWebsite";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutSelection from "./LayoutSelection";
 import ButtonsFooter from "./ButtonsFooter";
