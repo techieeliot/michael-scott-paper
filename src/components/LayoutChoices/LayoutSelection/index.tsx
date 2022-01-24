@@ -5,6 +5,7 @@ import { RootState } from "../../../store/configureStore";
 import { DispatchType } from "../../../type";
 import Information from "./Information";
 import "./index.css";
+import { RadioGroup } from "./styles";
 
 const { Meta } = Card;
 
@@ -20,15 +21,7 @@ const LayoutSelection: FC = () => {
   };
 
   return (
-    <Radio.Group
-      style={{
-        padding: "12px 24px 24px 24px",
-        margin: "0 auto",
-        minHeight: "95%",
-        width: "80%",
-      }}
-      onChange={handleWebsiteData}
-    >
+    <RadioGroup onChange={handleWebsiteData}>
       <Information />
       <Row
         gutter={[12, 48]}
@@ -99,7 +92,7 @@ const LayoutSelection: FC = () => {
           </Tooltip>
         </Col>
       </Row>
-    </Radio.Group>
+    </RadioGroup>
   );
 };
 
