@@ -1,12 +1,12 @@
 import { FC } from "react";
 import { Layout, Row, Col, Form } from "antd";
 import SelectLayoutHeader from "./SelectLayoutHeader";
-import LayoutSelection from "./LayoutSelection";
+import LayoutSelection from "./LayoutOptions";
 import ButtonsFooter from "./ButtonsFooter";
 
 const { Content } = Layout;
 
-const LayoutChoices: FC = () => {
+const LayoutOptions: FC = () => {
   return (
     <Row style={{ textAlign: "left", height: "100vh", background: "#fff" }}>
       <Col span={24} style={{ height: "100vh" }}>
@@ -47,4 +47,4 @@ const LayoutChoices: FC = () => {
   );
 };
 
-export default LayoutChoices;
+export default LayoutOptions;

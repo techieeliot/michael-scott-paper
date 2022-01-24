@@ -13,7 +13,7 @@ import { HomeRow, LayoutRow } from "./styles";
 const { Content, Header } = Layout;
 const { Title } = Typography;
 
-const PagesTable: FC = () => {
+const Home: FC = () => {
   const websites = useSelector<RootState>(
     (state) => state.websiteBuilder.websites
   );
@@ -113,4 +113,4 @@ const PagesTable: FC = () => {
   );
 };
 
-export default PagesTable;
+export default Home;

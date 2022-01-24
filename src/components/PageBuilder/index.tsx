@@ -8,7 +8,7 @@ import { BlackHeader, LeftSideBar, RightSideBar } from "./style";
 
 const { useBreakpoint } = Grid;
 
-const ContentBuilder: FC = () => {
+const PageBuilder: FC = () => {
   const screens = useBreakpoint();
   return (
     <>
@@ -45,4 +45,4 @@ const ContentBuilder: FC = () => {
   );
 };
 
-export default ContentBuilder;
+export default PageBuilder;
