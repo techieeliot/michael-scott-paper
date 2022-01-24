@@ -6,6 +6,11 @@ import "./index.css";
 const { Paragraph } = Typography;
 
 const Information: FC = () => {
+  const bullets = [
+    "The background color, or you can use a large image as the background",
+    "Each container block can contain images or custom text",
+    "Any text block can contain a background image or color",
+  ];
   return (
     <Row
       style={{
@@ -18,11 +23,9 @@ const Information: FC = () => {
           When choosing your layout there are several things you can customize
         </Paragraph>
         <ul>
-          <li>
-            The background color, or you can use a large image as the background
-          </li>
-          <li>Each container block can contain images or custom text</li>
-          <li>Any text block can contain a background image or color</li>
+          {bullets.map(() => (
+            <li> {bullets}</li>
+          ))}
         </ul>
       </Col>
     </Row>
