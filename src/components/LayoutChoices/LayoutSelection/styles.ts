@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { createGlobalStyled } from "styled-components";
 import { Radio } from "antd";
 
 // eslint-disable-next-line import/prefer-default-export
