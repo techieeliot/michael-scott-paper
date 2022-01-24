@@ -1,11 +1,24 @@
 import { FC } from "react";
 import { Row, Col, Card, Radio, Tooltip } from "antd";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store/configureStore";
+import { DispatchType } from "../../../type";
 import Information from "./Information";
 import "./index.css";
 
 const { Meta } = Card;
 
 const LayoutSelection: FC = () => {
+  const websites = useSelector<RootState>(
+    (state) => state.websiteBuilder.websites
+  );
+  const dispatch = useDispatch<DispatchType>();
+
+  const handleWebsiteData = (e: string) => {
+    console.log("radio checked", e.target.value);
+    setValue(e.target.value);
+  };
+
   return (
     <Radio.Group
       style={{
@@ -14,7 +27,7 @@ const LayoutSelection: FC = () => {
         minHeight: "95%",
         width: "80%",
       }}
-      // onChange={handleWebsiteData}
+      onChange={handleWebsiteData}
     >
       <Information />
       <Row
@@ -24,11 +37,7 @@ const LayoutSelection: FC = () => {
         className="select-row"
       >
         <Col flex="1 1 25%">
-          <Radio
-            value="Header - Two Columns"
-            className="select-column"
-            checked // removed auto checked later
-          >
+          <Radio value="Header - Two Columns" className="select-column">
             <Card
               style={{ width: 290 }}
               cover={
@@ -95,3 +104,14 @@ const LayoutSelection: FC = () => {
 };
 
 export default LayoutSelection;
+function useSelector<T>(arg0: (state: any) => any) {
+  throw new Error("Function not implemented.");
+}
+
+function useDispatch<T>() {
+  throw new Error("Function not implemented.");
+}
+
+function use(arg0: string): [any, any] {
+  throw new Error("Function not implemented.");
+}

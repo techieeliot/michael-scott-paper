@@ -15,6 +15,12 @@ export const removeWebsite = (website: IWebsite): WebsiteAction => {
     website,
   };
 };
+export const updateLayout = (website: IWebsite): WebsiteAction => {
+  return {
+    type: actionTypes.UPDATE_LAYOUT,
+    website,
+  };
+};
 
 const initialState: WebsiteState = {
   websites: [
@@ -54,6 +60,17 @@ const websiteBuilderReducer = (
         websites: updatedWebsites,
       };
       break;
+
+    // case actionTypes.UPDATE_LAYOUT:
+    //   // eslint-disable-next-line no-case-declarations
+    //   const updateLayout: IWebsite[] = state.websites.filter(
+    //     (website: { id: number }) => website.id !== action.website.id
+    //   );
+    //   return {
+    //     ...state,
+    //     websites: updatedWebsites,
+    //   };
+    //   break;
 
     default:
       break;
