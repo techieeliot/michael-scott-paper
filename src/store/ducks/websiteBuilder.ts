@@ -21,7 +21,7 @@ const initialState: WebsiteState = {
     {
       id: 98779877,
       layout: "Header - Two Columns",
-      title: "Untitled Page",
+      title: "Dwight's Page",
     },
     {
       id: 8976987667,
