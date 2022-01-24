@@ -18,6 +18,7 @@ import { addWebsite, removeWebsite } from "../../store/ducks/websiteBuilder";
 import "./index.css";
 import { IWebsite } from "../../interfaces/IWebsite";
 import { RootState } from "../../store/configureStore";
+import { HomeRow, LayoutRow } from "./styles";
 
 const { Content, Header } = Layout;
 const { Title } = Typography;
@@ -80,7 +81,7 @@ const PagesTable: FC = () => {
   ];
 
   return (
-    <Row style={{ textAlign: "left", height: "100vh", background: "#fff" }}>
+    <LayoutRow style={{}}>
       <Col span={24} style={{ height: "100vh" }}>
         <Header
           style={{
@@ -89,16 +90,16 @@ const PagesTable: FC = () => {
             width: "100%",
           }}
         >
-          <Row justify="center" style={{ width: "100%" }}>
+          <HomeRow>
             <Col style={{ padding: "2vh" }}>
               <Title style={{ color: "white", fontSize: "20px" }}>
                 Michael Scott Paper Company
               </Title>
             </Col>
-          </Row>
+          </HomeRow>
         </Header>
         <Content style={{ width: "100%", margin: "20vh 0" }}>
-          <Row justify="center" style={{ width: "100%" }}>
+          <HomeRow>
             <Col span={10}>
               <Button
                 type="primary"
@@ -109,16 +110,16 @@ const PagesTable: FC = () => {
                 <Link to="/layout">Add Website</Link>
               </Button>
             </Col>
-          </Row>
-          <Row justify="center" style={{ width: "100%", margin: "20vh 0" }}>
+          </HomeRow>
+          <HomeRow>
             <Col span={18}>
               {/* SEE ISSUE #34 */}
               <Table columns={columns} dataSource={websites as never} />
             </Col>
-          </Row>
+          </HomeRow>
         </Content>
       </Col>
-    </Row>
+    </LayoutRow>
   );
 };
 
