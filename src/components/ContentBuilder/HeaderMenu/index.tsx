@@ -1,8 +1,6 @@
 import { FC, SetStateAction, useState, useEffect } from "react";
 import { Menu, Input } from "antd";
 
-import "./index.css";
-
 const { Item } = Menu;
 
 const HeaderMenu: FC = () => {

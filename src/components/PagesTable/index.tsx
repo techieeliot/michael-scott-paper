@@ -1,21 +1,11 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import {
-  Layout,
-  Row,
-  Col,
-  Typography,
-  Table,
-  Button,
-  Space,
-  Tooltip,
-} from "antd";
+import { Layout, Col, Typography, Table, Button, Space, Tooltip } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { DispatchType } from "../../type";
 import { addWebsite, removeWebsite } from "../../store/ducks/websiteBuilder";
-import "./index.css";
 import { IWebsite } from "../../interfaces/IWebsite";
 import { RootState } from "../../store/configureStore";
 import { HomeRow, LayoutRow } from "./styles";

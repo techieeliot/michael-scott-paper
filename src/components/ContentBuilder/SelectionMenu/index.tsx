@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { Menu, Radio, Card, Space } from "antd";
 import { LaptopOutlined, UserOutlined, EditOutlined } from "@ant-design/icons";
 
-import "./index.css";
-
 const { SubMenu, Item } = Menu;
 
 const SelectionMenu: FC = () => {

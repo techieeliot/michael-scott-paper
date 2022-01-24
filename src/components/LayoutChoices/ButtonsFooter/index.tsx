@@ -2,8 +2,6 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Button, Divider, Space } from "antd";
 
-import "./index.css";
-
 const { Footer } = Layout;
 
 const ButtonsFooter: FC = () => {

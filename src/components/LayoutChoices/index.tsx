@@ -4,7 +4,6 @@ import { IWebsite } from "../../interfaces/IWebsite";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutSelection from "./LayoutSelection";
 import ButtonsFooter from "./ButtonsFooter";
-import "./index.css";
 
 const { Content } = Layout;
 

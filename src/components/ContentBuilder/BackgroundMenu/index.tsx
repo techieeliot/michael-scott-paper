@@ -3,8 +3,6 @@ import { Menu, Input, Tooltip } from "antd";
 import { LaptopOutlined, UserOutlined } from "@ant-design/icons";
 import UploadBackground from "./UploadBackground";
 
-import "./index.css";
-
 const { SubMenu } = Menu;
 
 const BackgroundMenu: FC = () => {

@@ -1,8 +1,6 @@
 import { FC } from "react";
 import { Typography, Row, Col } from "antd";
 
-import "./index.css";
-
 const { Paragraph } = Typography;
 
 const Information: FC = () => {

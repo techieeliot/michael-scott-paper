@@ -4,8 +4,6 @@ import HeaderFooterTwoColumnsLayout from "./HeaderFooterTwoColumnsLayout";
 import HeaderTwoColumnsLayout from "./HeaderTwoColumnsLayout";
 import HeaderThreeColumnsLayout from "./HeaderThreeColumnsLayout";
 
-import "./index.css";
-
 const { Content } = Layout;
 const { Paragraph } = Typography;
 

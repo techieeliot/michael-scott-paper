@@ -1,8 +1,6 @@
 import { FC } from "react";
 import { Layout, Row, Col, Typography } from "antd";
 
-import "./index.css";
-
 const { Header, Content } = Layout;
 const { Text, Title } = Typography;
 
