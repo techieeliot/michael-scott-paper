@@ -5,16 +5,21 @@ import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
 import store from "./store/configureStore";
+import { saveState } from "./localStorage";
 import reportWebVitals from "./reportWebVitals";
 
+store.subscribe(() => {
+  saveState({
+    id: store.getState().id,
+  });
+});
+
 ReactDOM.render(
-  <React.StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
-  </React.StrictMode>,
+  <BrowserRouter>
+    <Provider store={store}>
+      <App />
+    </Provider>
+  </BrowserRouter>,
   document.getElementById("root")
 );
 

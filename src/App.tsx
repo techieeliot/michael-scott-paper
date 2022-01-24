@@ -4,7 +4,6 @@ import { Layout } from "antd";
 import LayoutSelector from "./components/LayoutSelector";
 import PageBuilder from "./components/PageBuilder";
 import Home from "./components/Home";
-
 import "./App.css";
 
 const App: FC = () => (

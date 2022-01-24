@@ -1,6 +1,7 @@
 import * as actionTypes from "./actionTypes";
 import { IWebsite } from "../../interfaces/IWebsite";
 import { WebsiteAction, WebsiteState } from "../../type";
+import { initialState } from "../configureStore";
 
 export const addWebsite = (website: IWebsite): WebsiteAction => {
   return {
@@ -20,21 +21,6 @@ export const updateLayout = (website: IWebsite): WebsiteAction => {
     type: actionTypes.UPDATE_LAYOUT,
     website,
   };
-};
-
-const initialState: WebsiteState = {
-  websites: [
-    {
-      id: 98779877,
-      layout: "Header - Two Columns",
-      title: "Dwight's Page",
-    },
-    {
-      id: 8976987667,
-      layout: "Header - Three Columns",
-      title: "Michael's page",
-    },
-  ],
 };
 
 const websiteBuilderReducer = (
