@@ -14,12 +14,6 @@ import { ADD_WEBSITE, REMOVE_WEBSITE } from "../../store/actionTypes";
 const { Content, Header } = Layout;
 const { Title } = Typography;
 
-const newWebsite = {
-  id: uuid(),
-  layout: "Header - Two Columns",
-  title: "Untitled Page",
-};
-
 const Home: FC = () => {
   const websites = useSelector<RootState>(
     (state) => state.rootReducer.websiteBuilder.websites
@@ -27,6 +21,11 @@ const Home: FC = () => {
   const dispatch = useDispatch<DispatchType>();
 
   const handleAddSite = (): object => {
+    const newWebsite = {
+      id: uuid(),
+      layout: "Header - Two Columns",
+      title: "Untitled Page",
+    };
     return dispatch({
       type: ADD_WEBSITE,
       website: newWebsite,
