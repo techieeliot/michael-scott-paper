@@ -50,7 +50,7 @@ const Home: FC = () => {
       key: "title",
       render: (text: string, record: IWebsite) => (
         <Button type="link" size="small">
-          <Link to={`/layout/${record.id}`}>{text}</Link>
+          <Link to={`/content/${record.id}`}>{text}</Link>
         </Button>
       ),
     },
@@ -66,6 +66,9 @@ const Home: FC = () => {
       render: (_text: unknown, record: IWebsite) => (
         <Space size="middle">
           <Tooltip title="Currently unavailable">
+            <Button type="link" size="small">
+              <Link to={`/layout/${record.id}`}>Layout</Link>
+            </Button>
             <Button
               type="link"
               size="small"
