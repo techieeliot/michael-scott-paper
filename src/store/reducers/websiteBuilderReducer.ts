@@ -5,14 +5,24 @@ import { WebsiteAction, WebsiteState } from "../../type";
 export const initialState: WebsiteState = {
   websites: [
     {
-      id: "bb1674-235-a2-8f0a-69n5b2bc21c7",
+      id: "74f352-c102-2f87-0103-ba3da6f0b3",
+      layout: "Header - Two Columns",
+      title: "Untitled Page",
+    },
+    {
+      id: "07e48f5-dd23-0520-66a5-83ebaf8f0bde",
+      layout: "Header - Three Columns",
+      title: "Michael's page",
+    },
+    {
+      id: "1f7b32d-5165-4e82-fb55-5cf2230ffea",
       layout: "Header - Two Columns",
       title: "Dwight's Page",
     },
     {
       id: "he1674-247-a2-8voa9-69cjb222k1c7",
-      layout: "Header - Three Columns",
-      title: "Michael's page",
+      layout: "Header/Footer - Two Columns",
+      title: "Jim's page",
     },
   ],
 };
