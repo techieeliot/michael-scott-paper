@@ -60,13 +60,21 @@ const LayoutSelector: FC = () => {
             <SelectLayoutHeader />
           </Form.Item>
           <Form.Item
+<<<<<<< HEAD
             label="Website Title"
+=======
+            label={<Paragraph>Customize your website&apos;s title</Paragraph>}
+>>>>>>> a83bc07c542ebac4475f3a7f892a33d9d035eebb
             name="title"
             rules={[
               { required: true, message: "Please input your website title!" },
             ]}
           >
+<<<<<<< HEAD
             <Space direction="vertical" style={{ width: "60%" }}>
+=======
+            <Space direction="vertical" style={{ width: "75%" }}>
+>>>>>>> a83bc07c542ebac4475f3a7f892a33d9d035eebb
               <Input
                 size="large"
                 defaultValue="Untitled Page"
@@ -84,7 +92,13 @@ const LayoutSelector: FC = () => {
               },
             ]}
           >
+<<<<<<< HEAD
             <LayoutOptions />
+=======
+            <Content className="site-layout" style={{ background: "#fff" }}>
+              <LayoutOptions />
+            </Content>
+>>>>>>> a83bc07c542ebac4475f3a7f892a33d9d035eebb
           </Form.Item>
           <Form.Item name="footer">
             <ButtonsFooter />
