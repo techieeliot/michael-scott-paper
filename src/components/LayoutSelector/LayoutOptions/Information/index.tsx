@@ -21,8 +21,8 @@ const Information: FC = () => {
           When choosing your layout there are several things you can customize
         </Paragraph>
         <ul>
-          {bullets.map(() => (
-            <li> {bullets}</li>
+          {bullets.map((bullet) => (
+            <li>{bullet}</li>
           ))}
         </ul>
       </Col>
