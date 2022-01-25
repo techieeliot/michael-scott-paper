@@ -1,15 +1,38 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { FC } from "react";
-import { Layout, Row, Col, Form, Input } from "antd";
+import { FC, useEffect, useState } from "react";
+import { Layout, Row, Col, Form, Input, Space, Typography } from "antd";
 import { UserOutlined } from "@ant-design/icons";
+import { useSelector, useDispatch } from "react-redux";
+import { useParams } from "react-router-dom";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutOptions from "./LayoutOptions";
 import ButtonsFooter from "./ButtonsFooter";
+import { RootState } from "../../store/configureStore";
+import { DispatchType } from "../../type";
 
 const { Content } = Layout;
+const { Paragraph } = Typography;
 
 const LayoutSelector: FC = () => {
+  const params = useParams();
+  const [title, setTitle] = useState("Untitled Page");
+  const websiteData = useSelector<RootState>((state) =>
+    state.rootReducer.websiteBuilder.websites.find(
+      (site) => site.id === params.id
+    )
+  );
+
+  useEffect(() => {
+    if (websiteData) {
+      // eslint-disable-next-line dot-notation
+      setTitle(websiteData["title"]);
+    }
+    console.log(title);
+  }, [title, websiteData]);
+
+  const dispatch = useDispatch<DispatchType>();
+
   const handleSubmit = (values: any) => {
     console.log("Success:", values);
   };
@@ -23,8 +46,10 @@ const LayoutSelector: FC = () => {
       <Col span={24} style={{ height: "100vh" }}>
         <Form
           name="basic"
-          labelCol={{ span: 8 }}
-          wrapperCol={{ span: 16 }}
+          labelCol={{ span: 3 }}
+          wrapperCol={{
+            span: 16,
+          }}
           initialValues={{ remember: true }}
           onFinish={handleSubmit}
           onFinishFailed={onFinishFailed}
@@ -35,22 +60,19 @@ const LayoutSelector: FC = () => {
             <SelectLayoutHeader />
           </Form.Item>
           <Form.Item
-            label="Title"
+            label={<Paragraph>Customize your website&apos;s title</Paragraph>}
             name="title"
             rules={[
               { required: true, message: "Please input your website title!" },
             ]}
           >
-            <Content
-              className="site-layout"
-              style={{ padding: "24px 50px", background: "#fff" }}
-            >
+            <Space direction="vertical" style={{ width: "75%" }}>
               <Input
                 size="large"
-                placeholder="Enter a website title"
+                defaultValue="Untitled Page"
                 prefix={<UserOutlined />}
               />
-            </Content>
+            </Space>
           </Form.Item>
           <Form.Item
             name="columns"
@@ -61,10 +83,7 @@ const LayoutSelector: FC = () => {
               },
             ]}
           >
-            <Content
-              className="site-layout"
-              style={{ padding: "24px 50px", background: "#fff" }}
-            >
+            <Content className="site-layout" style={{ background: "#fff" }}>
               <LayoutOptions />
             </Content>
           </Form.Item>
