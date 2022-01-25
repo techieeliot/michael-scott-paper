@@ -8,7 +8,7 @@ import uuid from "react-uuid";
 import { DispatchType } from "../../type";
 import { IWebsite } from "../../interfaces/IWebsite";
 import { RootState } from "../../store/configureStore";
-import { HomeRow, LayoutRow } from "./styles";
+import { HomeRow, LayoutRow, TableRow } from "./styles";
 import { ADD_WEBSITE, REMOVE_WEBSITE } from "../../store/actionTypes";
 
 const { Content, Header } = Layout;
@@ -90,7 +90,7 @@ const Home: FC = () => {
             width: "100%",
           }}
         >
-          <HomeRow>
+          <HomeRow justify="center">
             <Col style={{ padding: "2vh" }}>
               <Title style={{ color: "white", fontSize: "20px" }}>
                 Michael Scott Paper Company
@@ -99,7 +99,7 @@ const Home: FC = () => {
           </HomeRow>
         </Header>
         <Content style={{ width: "100%", margin: "20vh 0" }}>
-          <HomeRow>
+          <HomeRow justify="center">
             <Col span={10}>
               <Button
                 type="primary"
@@ -111,12 +111,12 @@ const Home: FC = () => {
               </Button>
             </Col>
           </HomeRow>
-          <HomeRow>
+          <TableRow justify="center">
             <Col span={18}>
               {/* SEE ISSUE #34 */}
               <Table columns={columns} dataSource={websites as never} />
             </Col>
-          </HomeRow>
+          </TableRow>
         </Content>
       </Col>
     </LayoutRow>
