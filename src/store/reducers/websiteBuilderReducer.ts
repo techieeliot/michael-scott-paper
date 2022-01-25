@@ -39,10 +39,18 @@ const websiteBuilderReducer = (
       };
       break;
 
-    case actionTypes.UPDATE_WEBSITE_LAYOUT:
+    case actionTypes.UPDATE_WEBSITE:
       return {
         ...state,
-        websites: state.websites.find((site) => site.id === action.website),
+        websites: state.websites.find((site) =>
+          site.id === action.website.id
+            ? {
+                ...site,
+                title: action.website.title,
+                layout: action.website.layout,
+              }
+            : site
+        ),
       };
       break;
 
