@@ -3,14 +3,14 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Col, Typography, Table, Button, Space, Tooltip } from "antd";
-import { connect, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { DispatchType } from "../../type";
-import { addWebsite, removeWebsite } from "../../store/ducks/websiteBuilder";
+import { addWebsite } from "../../store/reducers/index";
 import { IWebsite } from "../../interfaces/IWebsite";
 import { RootState } from "../../store/configureStore";
 import { HomeRow, LayoutRow } from "./styles";
-import { ADD_WEBSITE } from "../../store/ducks/actionTypes";
+import { ADD_WEBSITE } from "../../store/actionTypes";
 
 const { Content, Header } = Layout;
 const { Title } = Typography;
@@ -23,7 +23,7 @@ const newWebsite = {
 
 const Home: FC = () => {
   const websites = useSelector<RootState>(
-    (state) => state.websiteBuilder.websites
+    (state) => state.rootReducer.websiteBuilder.websites
   );
   const dispatch = useDispatch<DispatchType>();
 
@@ -115,16 +115,4 @@ const Home: FC = () => {
   );
 };
 
-const mapDispatchToProps = (
-  dispatch: (arg0: {
-    type: string;
-    payload: { newWebsite: unknown };
-  }) => unknown
-) => {
-  return {
-    handleAddSite: () =>
-      dispatch({ type: ADD_WEBSITE, payload: { newWebsite } }),
-  };
-};
-
-export default connect(null, mapDispatchToProps)(Home);
+export default Home;

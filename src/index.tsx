@@ -5,14 +5,7 @@ import { Provider } from "react-redux";
 import "./index.css";
 import App from "./App";
 import store from "./store/configureStore";
-import { saveState } from "./localStorage";
 import reportWebVitals from "./reportWebVitals";
-
-store.subscribe(() => {
-  saveState({
-    websites: store.getState().websiteBuilder.websites,
-  });
-});
 
 ReactDOM.render(
   <BrowserRouter>
