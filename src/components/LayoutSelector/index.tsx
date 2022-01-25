@@ -1,7 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { FC, useEffect, useState } from "react";
-import { Layout, Row, Col, Form, Input, Space, Typography } from "antd";
+import { Row, Col, Form, Input, Space } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -10,9 +9,6 @@ import LayoutOptions from "./LayoutOptions";
 import ButtonsFooter from "./ButtonsFooter";
 import { RootState } from "../../store/configureStore";
 import { DispatchType } from "../../type";
-
-const { Content } = Layout;
-const { Paragraph } = Typography;
 
 const LayoutSelector: FC = () => {
   const params = useParams();
@@ -28,7 +24,6 @@ const LayoutSelector: FC = () => {
       // eslint-disable-next-line dot-notation
       setTitle(websiteData["title"]);
     }
-    console.log(title);
   }, [title, websiteData]);
 
   const dispatch = useDispatch<DispatchType>();
@@ -60,21 +55,13 @@ const LayoutSelector: FC = () => {
             <SelectLayoutHeader />
           </Form.Item>
           <Form.Item
-<<<<<<< HEAD
             label="Website Title"
-=======
-            label={<Paragraph>Customize your website&apos;s title</Paragraph>}
->>>>>>> a83bc07c542ebac4475f3a7f892a33d9d035eebb
             name="title"
             rules={[
               { required: true, message: "Please input your website title!" },
             ]}
           >
-<<<<<<< HEAD
             <Space direction="vertical" style={{ width: "60%" }}>
-=======
-            <Space direction="vertical" style={{ width: "75%" }}>
->>>>>>> a83bc07c542ebac4475f3a7f892a33d9d035eebb
               <Input
                 size="large"
                 defaultValue="Untitled Page"
@@ -92,13 +79,7 @@ const LayoutSelector: FC = () => {
               },
             ]}
           >
-<<<<<<< HEAD
             <LayoutOptions />
-=======
-            <Content className="site-layout" style={{ background: "#fff" }}>
-              <LayoutOptions />
-            </Content>
->>>>>>> a83bc07c542ebac4475f3a7f892a33d9d035eebb
           </Form.Item>
           <Form.Item name="footer">
             <ButtonsFooter />
