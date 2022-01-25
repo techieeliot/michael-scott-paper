@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Row, Col, Card, Radio, Tooltip } from "antd";
+import { Row, Col, Card, Radio, Tooltip, Image } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import Information from "./Information";
 import { RadioGlobalStyle, RadioGroup } from "./styles";
@@ -15,10 +15,12 @@ const LayoutOptions: FC = () => {
   );
   const dispatch = useDispatch<DispatchType>();
 
-  const handleSubmit = (): object => {
+  const handleSubmit = (site): object => {
+    console.log(site);
+
     return dispatch({
       type: UPDATE_WEBSITE,
-      website: newWebsite,
+      website: site,
     });
   };
 
@@ -42,7 +44,7 @@ const LayoutOptions: FC = () => {
               <Card
                 style={{ width: 290 }}
                 cover={
-                  <img
+                  <Image
                     alt="example"
                     // eslint-disable-next-line max-len
                     src="https://user-images.githubusercontent.com/19453294/149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"
