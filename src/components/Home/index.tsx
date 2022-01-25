@@ -50,7 +50,11 @@ const Home: FC = () => {
       key: "title",
       render: (text: string, record: IWebsite) => (
         <Button type="link" size="small">
-          <Link to={`/content/${record.id}`}>{text}</Link>
+          {text === "Untitled Page" ? (
+            <Link to={`/layout/${record.id}`}>{text}</Link>
+          ) : (
+            <Link to={`/content/${record.id}`}>{text}</Link>
+          )}
         </Button>
       ),
     },
