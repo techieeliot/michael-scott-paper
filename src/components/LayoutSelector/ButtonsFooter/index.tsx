@@ -1,10 +1,11 @@
 import { FC } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Layout, Button, Divider, Space } from "antd";
 
 const { Footer } = Layout;
 
 const ButtonsFooter: FC = () => {
+  const params = useParams();
   return (
     <Footer style={{ textAlign: "right", padding: 24, background: "#fff" }}>
       <div
@@ -18,10 +19,10 @@ const ButtonsFooter: FC = () => {
         <Divider />
         <Space size={100}>
           <Button type="primary" shape="round" size="large">
-            <Link to="/">Return Home</Link>
+            <Link to="/">Home</Link>
           </Button>
           <Button type="primary" htmlType="submit" shape="round" size="large">
-            <Link to="/content">Next</Link>
+            <Link to={`/content/${params.id}`}>Next</Link>
           </Button>
         </Space>
       </div>
