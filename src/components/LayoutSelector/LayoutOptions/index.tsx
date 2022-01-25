@@ -33,12 +33,7 @@ const LayoutOptions: FC = () => {
       <RadioGlobalStyle />
       <RadioGroup onChange={handleWebsiteData}>
         <Information />
-        <Row
-          gutter={[12, 48]}
-          justify="space-between"
-          style={{ margin: "5vh auto" }}
-          className="select-row"
-        >
+        <Row gutter={[12, 48]} justify="space-between" className="select-row">
           <Col flex="1 1 25%">
             <Radio value="Header - Two Columns" className="select-column">
               <Card
