@@ -31,7 +31,6 @@ const Home: FC = () => {
       website: newWebsite,
     });
   };
-  // SEE ISSUE #35
   const handleRemoveSite = (
     event: React.MouseEvent<HTMLElement, MouseEvent>,
     website: IWebsite
@@ -69,19 +68,16 @@ const Home: FC = () => {
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
       render: (_text: unknown, record: IWebsite) => (
         <Space size="middle">
-          <Tooltip title="Currently unavailable">
-            <Button type="link" size="small">
-              <Link to={`/layout/${record.id}`}>Layout</Link>
-            </Button>
-            <Button
-              type="link"
-              size="small"
-              // eslint-disable-next-line max-len
-              onClick={(e) => handleRemoveSite(e, record)} // SEE ISSUE #35
-            >
-              Delete
-            </Button>
-          </Tooltip>
+          <Button type="link" size="small">
+            <Link to={`/layout/${record.id}`}>Layout</Link>
+          </Button>
+          <Button
+            type="link"
+            size="small"
+            onClick={(e) => handleRemoveSite(e, record)}
+          >
+            Delete
+          </Button>
         </Space>
       ),
     },

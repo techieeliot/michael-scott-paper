@@ -28,6 +28,15 @@ const LayoutOptions: FC = () => {
     console.log("radio checked", e.target.value);
   };
 
+  const cards = [
+    {
+      layout: "Header - Two Columns",
+    },
+    {
+      layout: "Header - Three Columns",
+    },
+  ],
+
   return (
     <>
       <RadioGlobalStyle />
