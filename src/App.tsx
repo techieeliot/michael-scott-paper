@@ -5,6 +5,7 @@ import LayoutSelector from "./components/LayoutSelector";
 import PageBuilder from "./components/PageBuilder";
 import Home from "./components/Home";
 import "./App.css";
+import PageNotFound from "./components/PageNotFound";
 
 const App: FC = () => (
   <div className="App">
@@ -12,7 +13,8 @@ const App: FC = () => (
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="layout/:id" element={<LayoutSelector />} />
-        <Route path="content" element={<PageBuilder />} />
+        <Route path="content/:id" element={<PageBuilder />} />
+        <Route path="*" element={<PageNotFound />} />
       </Routes>
     </Layout>
   </div>
