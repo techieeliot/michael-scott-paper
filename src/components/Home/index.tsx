@@ -49,9 +49,9 @@ const Home: FC = () => {
       title: "Title",
       dataIndex: "title",
       key: "title",
-      render: (text: string) => (
+      render: (text: string, record: IWebsite) => (
         <Button type="link" size="small">
-          {text}
+          <Link to={`/layout/${record.id}`}>{text}</Link>
         </Button>
       ),
     },
@@ -108,7 +108,7 @@ const Home: FC = () => {
                 onClick={handleAddSite}
                 style={{ width: "100%" }}
               >
-                <Link to="/layout">Add Website</Link>
+                Add Website
               </Button>
             </Col>
           </HomeRow>

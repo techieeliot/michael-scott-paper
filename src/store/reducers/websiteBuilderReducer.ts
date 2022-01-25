@@ -1,16 +1,16 @@
+/* eslint-disable no-case-declarations */
 import * as actionTypes from "../actionTypes";
-import { IWebsite } from "../../interfaces/IWebsite";
 import { WebsiteAction, WebsiteState } from "../../type";
 
 export const initialState: WebsiteState = {
   websites: [
     {
-      id: 98779877,
+      id: "bb1674-235-a2-8f0a-69n5b2bc21c7",
       layout: "Header - Two Columns",
       title: "Dwight's Page",
     },
     {
-      id: 8976987667,
+      id: "he1674-247-a2-8voa9-69cjb222k1c7",
       layout: "Header - Three Columns",
       title: "Michael's page",
     },
@@ -31,26 +31,20 @@ const websiteBuilderReducer = (
       break;
 
     case actionTypes.REMOVE_WEBSITE:
-      // eslint-disable-next-line no-case-declarations
-      const updatedWebsites: IWebsite[] = state.websites.filter(
-        (website: { id: number }) => website.id !== action.website.id
-      );
       return {
         ...state,
-        websites: updatedWebsites,
+        websites: state.websites.filter(
+          (website: { id: number }) => website.id !== action.website.id
+        ),
       };
       break;
 
-    // case actionTypes.UPDATE_LAYOUT:
-    //   // eslint-disable-next-line no-case-declarations
-    //   const updateLayout: IWebsite[] = state.websites.filter(
-    //     (website: { id: number }) => website.id !== action.website.id
-    //   );
-    //   return {
-    //     ...state,
-    //     websites: updatedWebsites,
-    //   };
-    //   break;
+    case actionTypes.UPDATE_WEBSITE_LAYOUT:
+      return {
+        ...state,
+        websites: state.websites.find((site) => site.id === action.website),
+      };
+      break;
 
     default:
       break;

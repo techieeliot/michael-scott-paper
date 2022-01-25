@@ -16,9 +16,9 @@ export const removeWebsite = (website: IWebsite): WebsiteAction => {
   };
 };
 
-export const updateLayout = (website: IWebsite): WebsiteAction => {
+export const updateWebsite = (website: IWebsite): WebsiteAction => {
   return {
-    type: actionTypes.UPDATE_LAYOUT,
+    type: actionTypes.UPDATE_WEBSITE,
     website,
   };
 };

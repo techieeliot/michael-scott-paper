@@ -11,7 +11,7 @@ const App: FC = () => (
     <Layout style={{ height: "100%" }}>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="layout" element={<LayoutSelector />} />
+        <Route path="layout/:id" element={<LayoutSelector />} />
         <Route path="content" element={<PageBuilder />} />
       </Routes>
     </Layout>

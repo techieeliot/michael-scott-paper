@@ -1,12 +1,12 @@
 import { FC } from "react";
-import { Layout, Row, Col, Form } from "antd";
+import { Layout, Row, Col, Form, Input } from "antd";
 import SelectLayoutHeader from "./SelectLayoutHeader";
-import LayoutSelection from "./LayoutOptions";
+import LayoutOptions from "./LayoutOptions";
 import ButtonsFooter from "./ButtonsFooter";
 
 const { Content } = Layout;
 
-const LayoutOptions: FC = () => {
+const LayoutSelector: FC = () => {
   return (
     <Row style={{ textAlign: "left", height: "100vh", background: "#fff" }}>
       <Col span={24} style={{ height: "100vh" }}>
@@ -15,12 +15,15 @@ const LayoutOptions: FC = () => {
           labelCol={{ span: 8 }}
           wrapperCol={{ span: 16 }}
           initialValues={{ remember: true }}
-          // onFinish={}
+          onFinish={}
           autoComplete="off"
           style={{ width: "100%" }}
         >
           <Form.Item id="form-item-header" name="header">
             <SelectLayoutHeader />
+          </Form.Item>
+          <Form.Item>
+            <Input />
           </Form.Item>
           <Form.Item
             name="columns"
@@ -35,7 +38,7 @@ const LayoutOptions: FC = () => {
               className="site-layout"
               style={{ padding: "24px 50px", background: "#fff" }}
             >
-              <LayoutSelection />
+              <LayoutOptions />
             </Content>
           </Form.Item>
           <Form.Item name="footer">
@@ -47,4 +50,4 @@ const LayoutOptions: FC = () => {
   );
 };
 
-export default LayoutOptions;
+export default LayoutSelector;

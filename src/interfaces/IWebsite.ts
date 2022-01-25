@@ -1,5 +1,5 @@
 export interface IWebsite {
-  id: number;
+  id: string;
   layout: string;
   title: string;
 }

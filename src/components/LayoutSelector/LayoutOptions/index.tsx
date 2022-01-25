@@ -1,18 +1,26 @@
 import { FC } from "react";
 import { Row, Col, Card, Radio, Tooltip } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../store/configureStore";
-import { DispatchType } from "../../../type";
 import Information from "./Information";
 import { RadioGlobalStyle, RadioGroup } from "./styles";
+import { RootState } from "../../../store/configureStore";
+import { DispatchType } from "../../../type";
+import { UPDATE_WEBSITE } from "../../../store/actionTypes";
 
 const { Meta } = Card;
 
-const LayoutSelection: FC = () => {
+const LayoutOptions: FC = () => {
   const websites = useSelector<RootState>(
     (state) => state.rootReducer.websiteBuilder.websites
   );
   const dispatch = useDispatch<DispatchType>();
+
+  const handleSubmit = (): object => {
+    return dispatch({
+      type: UPDATE_WEBSITE,
+      website: newWebsite,
+    });
+  };
 
   const handleWebsiteData = (e: React.ChangeEvent<HTMLInputElement>): void => {
     console.log("radio checked", e.target.value);
@@ -97,4 +105,4 @@ const LayoutSelection: FC = () => {
   );
 };
 
-export default LayoutSelection;
+export default LayoutOptions;

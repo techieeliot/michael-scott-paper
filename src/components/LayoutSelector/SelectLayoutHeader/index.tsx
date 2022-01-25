@@ -22,7 +22,9 @@ const SelectLayoutHeader: FC = () => {
           width: "80%",
         }}
       >
-        <Title>Select a layout for your single page website</Title>
+        <Title>
+          Add a name and select a layout for your single page website
+        </Title>
       </div>
     </Header>
   );
