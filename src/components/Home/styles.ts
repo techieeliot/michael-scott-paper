@@ -1,4 +1,4 @@
-import { styled } from "styled-components";
+import styled from "styled-components";
 import { Row } from "antd";
 
 export const LayoutRow = styled(Row)`
@@ -8,8 +8,5 @@ export const LayoutRow = styled(Row)`
 `;
 
 export const HomeRow = styled(Row)`
-  display: flex;
-  justify: center;
   width: 100%;
-  margin: 20vh 0;
 `;

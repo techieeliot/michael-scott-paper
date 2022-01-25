@@ -6,11 +6,10 @@ import { Layout, Col, Typography, Table, Button, Space, Tooltip } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { DispatchType } from "../../type";
-import { addWebsite } from "../../store/reducers/index";
 import { IWebsite } from "../../interfaces/IWebsite";
 import { RootState } from "../../store/configureStore";
 import { HomeRow, LayoutRow } from "./styles";
-import { ADD_WEBSITE } from "../../store/actionTypes";
+import { ADD_WEBSITE, REMOVE_WEBSITE } from "../../store/actionTypes";
 
 const { Content, Header } = Layout;
 const { Title } = Typography;
@@ -28,12 +27,22 @@ const Home: FC = () => {
   const dispatch = useDispatch<DispatchType>();
 
   const handleAddSite = (): object => {
-    return dispatch(addWebsite(newWebsite));
+    return dispatch({
+      type: ADD_WEBSITE,
+      website: newWebsite,
+    });
   };
   // SEE ISSUE #35
-  // const handleRemoveSite = (website: IWebsite): object => {
-  //   return dispatch(removeWebsite(website));
-  // };
+  const handleRemoveSite = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    website: IWebsite
+  ): object => {
+    event.preventDefault();
+    return dispatch({
+      type: REMOVE_WEBSITE,
+      website,
+    });
+  };
 
   const columns = [
     {
@@ -55,14 +64,14 @@ const Home: FC = () => {
       title: "Action",
       key: "action",
       // eslint-disable-next-line @typescript-eslint/no-unused-vars
-      render: (_text: unknown, record: { id: IWebsite }) => (
+      render: (_text: unknown, record: IWebsite) => (
         <Space size="middle">
           <Tooltip title="Currently unavailable">
             <Button
               type="link"
               size="small"
-              // onClick={handleRemoveSite(record.id)} // SEE ISSUE #35
-              disabled
+              // eslint-disable-next-line max-len
+              onClick={(e) => handleRemoveSite(e, record)} // SEE ISSUE #35
             >
               Delete
             </Button>
@@ -73,7 +82,7 @@ const Home: FC = () => {
   ];
 
   return (
-    <LayoutRow style={{}}>
+    <LayoutRow>
       <Col span={24} style={{ height: "100vh" }}>
         <Header
           style={{

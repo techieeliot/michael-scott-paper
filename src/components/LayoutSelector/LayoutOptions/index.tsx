@@ -10,13 +10,12 @@ const { Meta } = Card;
 
 const LayoutSelection: FC = () => {
   const websites = useSelector<RootState>(
-    (state) => state.websiteBuilder.websites
+    (state) => state.rootReducer.websiteBuilder.websites
   );
   const dispatch = useDispatch<DispatchType>();
 
-  const handleWebsiteData = (e: string) => {
+  const handleWebsiteData = (e: React.ChangeEvent<HTMLInputElement>): void => {
     console.log("radio checked", e.target.value);
-    setValue(e.target.value);
   };
 
   return (
@@ -99,14 +98,3 @@ const LayoutSelection: FC = () => {
 };
 
 export default LayoutSelection;
-function useSelector<T>(arg0: (state: any) => any) {
-  throw new Error("Function not implemented.");
-}
-
-function useDispatch<T>() {
-  throw new Error("Function not implemented.");
-}
-
-function use(arg0: string): [any, any] {
-  throw new Error("Function not implemented.");
-}
