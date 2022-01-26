@@ -1,32 +1,25 @@
 import { FC } from "react";
 import { Row } from "antd";
 import { useDispatch, useSelector } from "react-redux";
-import Information from "./Information";
 import { RadioGlobalStyle, RadioGroup } from "./styles";
 import { RootState } from "../../../store/configureStore";
 import { DispatchType } from "../../../type";
-import { UPDATE_WEBSITE } from "../../../store/actionTypes";
+
 import LayoutCard, { ILayoutCard } from "./LayoutCard";
 
 const LayoutOptions: FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const websites = useSelector<RootState>(
     (state) => state.rootReducer.websiteBuilder.websites
   );
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const dispatch = useDispatch<DispatchType>();
   const baseUrl = "https://user-images.githubusercontent.com/19453294/";
 
-  const handleSubmit = (site): object => {
-    console.log(site);
-
-    return dispatch({
-      type: UPDATE_WEBSITE,
-      website: site,
-    });
-  };
-
-  const handleWebsiteData = (e: React.ChangeEvent<HTMLInputElement>): void => {
-    console.log("radio checked", e.target.value);
-  };
+  // eslint-disable-next-line max-len
+  // const handleWebsiteData = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  //   console.log("radio checked", e.target.value);
+  // };
 
   const cards: ILayoutCard[] = [
     {
@@ -52,8 +45,9 @@ const LayoutOptions: FC = () => {
   return (
     <>
       <RadioGlobalStyle />
-      <RadioGroup onChange={handleWebsiteData}>
-        <Information />
+      <RadioGroup
+      // onChange={handleWebsiteData}
+      >
         <Row gutter={[12, 48]} justify="space-between" className="select-row">
           {cards.map((card) => (
             <LayoutCard

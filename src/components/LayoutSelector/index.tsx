@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
-import { FC, useEffect, useState } from "react";
-import { Row, Col, Form, Input, Space } from "antd";
+import { FC, useEffect } from "react";
+import { Row, Col, Form, Input } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
 import { useParams } from "react-router-dom";
@@ -9,32 +9,37 @@ import LayoutOptions from "./LayoutOptions";
 import ButtonsFooter from "./ButtonsFooter";
 import { RootState } from "../../store/configureStore";
 import { DispatchType } from "../../type";
+import Information from "./Information";
+import { UPDATE_WEBSITE } from "../../store/actionTypes";
 
 const LayoutSelector: FC = () => {
   const params = useParams();
-  const [title, setTitle] = useState("Untitled Page");
   const websiteData = useSelector<RootState>((state) =>
     state.rootReducer.websiteBuilder.websites.find(
       (site) => site.id === params.id
     )
   );
-
-  useEffect(() => {
-    if (websiteData) {
-      // eslint-disable-next-line dot-notation
-      setTitle(websiteData["title"]);
-    }
-  }, [title, websiteData]);
-
   const dispatch = useDispatch<DispatchType>();
 
-  const handleSubmit = (values: any) => {
-    console.log("Success:", values);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  const handleSubmit = (siteValues: object): object => {
+    // console.log("Success:", siteValues);
+
+    return dispatch({
+      type: UPDATE_WEBSITE,
+      website: siteValues,
+    });
   };
 
-  const onFinishFailed = (errorInfo: any) => {
-    console.log("Failed:", errorInfo);
-  };
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  // const onFinishFailed = (errorInfo: any) => {
+  //   console.log("Failed:", errorInfo);
+  // };
+
+  useEffect(() => {
+    if (websiteData !== null)
+      localStorage.setItem("webSiteData", JSON.stringify(websiteData));
+  }, [websiteData]);
 
   return (
     <Row style={{ textAlign: "left", height: "100vh", background: "#fff" }}>
@@ -47,7 +52,7 @@ const LayoutSelector: FC = () => {
           }}
           initialValues={{ remember: true }}
           onFinish={handleSubmit}
-          onFinishFailed={onFinishFailed}
+          // onFinishFailed={onFinishFailed}
           autoComplete="off"
           style={{ width: "100%" }}
         >
@@ -61,13 +66,16 @@ const LayoutSelector: FC = () => {
               { required: true, message: "Please input your website title!" },
             ]}
           >
-            <Space direction="vertical" style={{ width: "60%" }}>
+            {websiteData && (
               <Input
                 size="large"
-                defaultValue="Untitled Page"
                 prefix={<UserOutlined />}
+                placeholder="Add a custom page title"
               />
-            </Space>
+            )}
+          </Form.Item>
+          <Form.Item>
+            <Information />
           </Form.Item>
           <Form.Item
             label="Layout"

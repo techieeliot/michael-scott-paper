@@ -14,7 +14,10 @@ const LayoutCard: FC<ILayoutCard> = ({ key, layout, alt, imageUrl }) => {
   return (
     <Col key={key} flex="1 1 25%">
       <Radio value={layout} className="select-column">
-        <Card style={{ width: 290 }} cover={<Image alt={alt} src={imageUrl} />}>
+        <Card
+          style={{ width: 290 }}
+          cover={<Image alt={alt} src={imageUrl} preview={false} />}
+        >
           <Meta description={layout} />
         </Card>
       </Radio>
