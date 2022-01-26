@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { FC, useEffect } from "react";
 import { Row, Col, Form, Input } from "antd";
 import { UserOutlined } from "@ant-design/icons";

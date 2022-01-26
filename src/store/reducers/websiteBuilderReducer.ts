@@ -1,4 +1,3 @@
-/* eslint-disable no-case-declarations */
 import * as actionTypes from "../actionTypes";
 import { WebsiteAction, WebsiteState } from "../../type";
 
@@ -28,7 +27,6 @@ export const initialState: WebsiteState = {
 };
 
 const websiteBuilderReducer = (
-  // eslint-disable-next-line default-param-last
   state: WebsiteState = initialState,
   action: WebsiteAction
 ): WebsiteState => {

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Layout, Col, Typography, Table, Button, Space } from "antd";
@@ -65,7 +63,6 @@ const Home: FC = () => {
     {
       title: "Action",
       key: "action",
-      // eslint-disable-next-line @typescript-eslint/no-unused-vars
       render: (_text: unknown, record: IWebsite) => (
         <Space size="middle">
           <Button type="link" size="small">

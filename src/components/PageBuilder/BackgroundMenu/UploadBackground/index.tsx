@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-non-null-assertion */
-/* eslint-disable @typescript-eslint/no-explicit-any */
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
 import { FC, SetStateAction, useState } from "react";
 import { Empty, Upload } from "antd";
 import { UploadFile } from "antd/lib/upload/interface";
@@ -9,7 +6,7 @@ import { PictureOutlined } from "@ant-design/icons";
 const UploadBackground: FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
-  const onChange = (newFileList: {
+  const onChange = (newFileList: any {
     fileList: SetStateAction<UploadFile<any>[]>;
   }) => {
     setFileList(newFileList.fileList);
