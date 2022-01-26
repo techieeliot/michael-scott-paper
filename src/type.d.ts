@@ -1,22 +1,12 @@
-/* eslint-disable no-multi-assign */
-// holds the TypeScript types
-// these types can be used now in other files without importing
-
-interface Website {
-  [x: string]: any;
-  id: number;
-  layout: string;
-  title: string;
-}
+import IWebsite from "./interfaces/IWebsite";
 
 type WebsiteState = {
-  websites: Website[];
+  websites: IWebsite[];
 };
 
 type WebsiteAction = {
   type: string;
-  website: Website;
+  website: IWebsite;
 };
 
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
 type DispatchType = (args: WebsiteAction) => WebsiteAction;
