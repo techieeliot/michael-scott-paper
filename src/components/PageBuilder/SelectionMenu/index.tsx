@@ -1,16 +1,23 @@
-import { FC } from "react";
-import { Link } from "react-router-dom";
-import { Menu, Radio, Card, Space } from "antd";
+import { FC, useState } from "react";
+import { Link, useParams } from "react-router-dom";
+import { Menu, Radio, Card, Space, Image } from "antd";
 import { LaptopOutlined, UserOutlined, EditOutlined } from "@ant-design/icons";
 
 const { SubMenu, Item } = Menu;
 
 const SelectionMenu: FC = () => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [selectedLayoutPng, setSelectedLayoutPng] = useState(
+    "149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"
+  );
+  const params = useParams();
   const options = [
     { label: "Header", value: "Header" },
     { label: "Column 1", value: "Column 1" },
     { label: "Column 2", value: "Column 2" },
   ];
+  const baseUrl = "https://user-images.githubusercontent.com/19453294/";
+
   return (
     <Menu
       id="selection-menu"
@@ -23,10 +30,10 @@ const SelectionMenu: FC = () => {
         <Card
           style={{ width: "100%" }}
           cover={
-            <img
+            <Image
               alt="layout"
-              // eslint-disable-next-line max-len
-              src="https://user-images.githubusercontent.com/19453294/149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"
+              src={`${baseUrl}${selectedLayoutPng}`}
+              preview={false}
             />
           }
           extra={
@@ -34,7 +41,7 @@ const SelectionMenu: FC = () => {
               <Link to="/">
                 New Page <EditOutlined key="edit" />
               </Link>
-              <Link to="/layout">
+              <Link to={`/layout/${params.id}`}>
                 Edit Layout <EditOutlined key="edit" />
               </Link>
             </Space>
