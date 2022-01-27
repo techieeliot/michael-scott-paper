@@ -5,7 +5,7 @@ const { Header, Content, Footer } = Layout;
 const { Text, Title } = Typography;
 
 const HeaderFooterTwoColumnsLayout: FC = () => {
-  const [text, setText] = useState("hello");
+  // const [text, setText] = useState("hello");
   return (
     <Layout
       className="two-column-layout-layout-one"
