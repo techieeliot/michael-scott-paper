@@ -4,7 +4,7 @@ import { Layout, Row, Col, Typography } from "antd";
 const { Header, Content } = Layout;
 const { Text, Title } = Typography;
 
-const HeaderTwoColumnsLayout: FC = () => {
+const HeaderThreeColumnsLayout: FC = () => {
   return (
     <Layout
       className="two-column-layout-layout-one"
@@ -26,7 +26,14 @@ const HeaderTwoColumnsLayout: FC = () => {
           }}
         >
           <Col span={24}>
-            <Title>Header</Title>
+            <Title
+              editable={{
+                // onChange: {()=>  },
+                triggerType: ["icon", "text"],
+              }}
+            >
+              Header
+            </Title>
           </Col>
         </Row>
       </Header>
@@ -39,13 +46,34 @@ const HeaderTwoColumnsLayout: FC = () => {
       >
         <Row justify="center" style={{ height: "100%" }}>
           <Col id="content-column-one-layout-one" span={8}>
-            <Text>Column 1</Text>
+            <Text
+              editable={{
+                // onChange: {()=>  },
+                triggerType: ["icon", "text"],
+              }}
+            >
+              Column 1
+            </Text>
           </Col>
           <Col id="content-column-two-layout-one" span={8}>
-            <Text>Column 2</Text>
+            <Text
+              editable={{
+                // onChange: {()=>  },
+                triggerType: ["icon", "text"],
+              }}
+            >
+              Column 2
+            </Text>
           </Col>
           <Col id="content-column-three-layout-one" span={8}>
-            <Text>Column 3</Text>
+            <Text
+              editable={{
+                // onChange: {()=>  },
+                triggerType: ["icon", "text"],
+              }}
+            >
+              Column 3
+            </Text>
           </Col>
         </Row>
       </Content>
@@ -53,4 +81,4 @@ const HeaderTwoColumnsLayout: FC = () => {
   );
 };
 
-export default HeaderTwoColumnsLayout;
+export default HeaderThreeColumnsLayout;
