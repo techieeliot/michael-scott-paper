@@ -84,9 +84,13 @@ const LayoutSelector: FC = () => {
             <Form.Item
               id="form-item-header"
               label="header"
-              style={{ width: "100%" }}
+              style={{ width: "100%", margin: "100px auto" }}
             >
-              <SelectLayoutHeader />
+              <Row style={{ padding: "40px auto" }}>
+                <Col md={{ span: 24, offset: 1 }} lg={{ span: 24, offset: 0 }}>
+                  <SelectLayoutHeader />
+                </Col>
+              </Row>
             </Form.Item>
             <Form.Item
               label="Website Title"
@@ -94,17 +98,26 @@ const LayoutSelector: FC = () => {
               rules={[
                 { required: true, message: "Please input your website title!" },
               ]}
+              style={{ width: "80%", margin: "50px 0" }}
             >
-              {websiteData && (
-                <Input
-                  size="large"
-                  prefix={<UserOutlined />}
-                  placeholder="Add a custom page title"
-                />
-              )}
+              <Row>
+                <Col xs={{ span: 20, offset: 2 }} lg={{ span: 12, offset: 2 }}>
+                  {websiteData && (
+                    <Input
+                      size="large"
+                      prefix={<UserOutlined />}
+                      placeholder="Add a custom page title"
+                    />
+                  )}
+                </Col>
+              </Row>
             </Form.Item>
             <Form.Item id="form-item-info" label="information">
-              <Information />
+              <Row>
+                <Col xs={{ span: 20, offset: 2 }} lg={{ span: 12, offset: 1 }}>
+                  <Information />
+                </Col>
+              </Row>
             </Form.Item>
             <Form.Item
               label="Layout"
