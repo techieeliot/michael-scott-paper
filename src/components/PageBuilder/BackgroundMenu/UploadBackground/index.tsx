@@ -2,30 +2,31 @@ import { FC, SetStateAction, useState } from "react";
 import { Empty, Upload } from "antd";
 import { UploadFile } from "antd/lib/upload/interface";
 import { PictureOutlined } from "@ant-design/icons";
+import { JSDocUnknownTag } from "typescript";
 
 const UploadBackground: FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);
 
-  const onChange = (newFileList: any {
-    fileList: SetStateAction<UploadFile<any>[]>;
-  }) => {
+  const onChange = (newFileList: {
+    fileList: SetStateAction<UploadFile<unknown>[]>;
+  }): void => {
     setFileList(newFileList.fileList);
   };
 
-  const onPreview = async (file: UploadFile<any>) => {
+  const onPreview = async (file: UploadFile<unknown>): Promise<unknown> => {
     let src = file.url;
     if (!src) {
       src = await new Promise((resolve) => {
         const reader = new FileReader();
         if (file.originFileObj) reader.readAsDataURL(file.originFileObj);
 
-        reader.onload = () => resolve(reader.result as any);
+        reader.onload = () => resolve(reader.result as string);
       });
     }
     const image = new Image();
-    image.src = src!;
+    image.src = src ?? "";
     const imgWindow = window.open(src);
-    imgWindow?.document.write(image.outerHTML);
+    return imgWindow?.document.write(image.outerHTML);
   };
 
   return (

@@ -7,22 +7,21 @@ import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutOptions from "./LayoutOptions";
 import ButtonsFooter from "./ButtonsFooter";
 import { RootState } from "../../store/configureStore";
-import { DispatchType } from "../../type";
+import { DispatchType } from "../../store/typings/index";
 import Information from "./Information";
-import { UPDATE_WEBSITE } from "../../store/actionTypes";
+import { UPDATE_WEBSITE } from "../../store/actions/actionTypes";
 
 const LayoutSelector: FC = () => {
   const params = useParams();
   const websiteData = useSelector<RootState>((state) =>
     state.rootReducer.websiteBuilder.websites.find(
-      (site) => site.id === params.id
+      (site: { id: string }) => site.id === params.id
     )
   );
   const dispatch = useDispatch<DispatchType>();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = (siteValues: object): object => {
-    // console.log("Success:", siteValues);
+    console.log("Success:", siteValues);
 
     return dispatch({
       type: UPDATE_WEBSITE,
@@ -30,10 +29,10 @@ const LayoutSelector: FC = () => {
     });
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // const onFinishFailed = (errorInfo: any) => {
-  //   console.log("Failed:", errorInfo);
-  // };
+  const onFinishFailed = (errorInfo: object): object => {
+    console.log("Failed:", errorInfo);
+    return {};
+  };
 
   useEffect(() => {
     if (websiteData !== null)

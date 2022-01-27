@@ -1,6 +1,6 @@
-import { IWebsite } from "../../interfaces/IWebsite";
-import { WebsiteAction } from "../../type";
-import * as actionTypes from "../actionTypes";
+import { IWebsite } from "../interfaces/IWebsite";
+import { WebsiteAction } from "../typings/index";
+import * as actionTypes from "./actionTypes";
 
 export const addWebsite = (website: IWebsite): WebsiteAction => {
   return {
