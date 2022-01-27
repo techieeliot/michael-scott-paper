@@ -11,18 +11,19 @@ const Information: FC = () => {
   ];
   return (
     <Row
+      gutter={[12, 48]}
+      justify="space-between"
       style={{
-        margin: "0 auto 24px auto",
         fontSize: "initial",
       }}
     >
-      <Col>
+      <Col style={{ width: "100%" }}>
         <Paragraph>
           When choosing your layout there are several things you can customize
         </Paragraph>
         <ul>
           {bullets.map((bullet) => (
-            <li>{bullet}</li>
+            <li key={bullet}>{bullet}</li>
           ))}
         </ul>
       </Col>

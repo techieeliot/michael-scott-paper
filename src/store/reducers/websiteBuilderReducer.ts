@@ -1,6 +1,5 @@
-/* eslint-disable no-case-declarations */
-import * as actionTypes from "../actionTypes";
-import { WebsiteAction, WebsiteState } from "../../type";
+import * as actionTypes from "../actions/actionTypes";
+import { WebsiteAction, WebsiteState } from "../typings/index";
 
 export const initialState: WebsiteState = {
   websites: [
@@ -36,7 +35,7 @@ const websiteBuilderReducer = (
     case actionTypes.ADD_WEBSITE:
       return {
         ...state,
-        websites: state.websites.concat(action.website),
+        websites: state.websites.concat(action.payload),
       };
       break;
 
@@ -44,7 +43,7 @@ const websiteBuilderReducer = (
       return {
         ...state,
         websites: state.websites.filter(
-          (website: { id: number }) => website.id !== action.website.id
+          (website: { id: number }) => website.id !== action.payload.id
         ),
       };
       break;
@@ -52,12 +51,12 @@ const websiteBuilderReducer = (
     case actionTypes.UPDATE_WEBSITE:
       return {
         ...state,
-        websites: state.websites.find((site) =>
-          site.id === action.website.id
+        websites: state.websites.map((site) =>
+          site.id === action.payload.id
             ? {
                 ...site,
-                title: action.website.title,
-                layout: action.website.layout,
+                title: action.payload.title,
+                layout: action.payload.layout,
               }
             : site
         ),

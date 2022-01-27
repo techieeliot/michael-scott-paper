@@ -6,8 +6,7 @@ import { LaptopOutlined, UserOutlined, EditOutlined } from "@ant-design/icons";
 const { SubMenu, Item } = Menu;
 
 const SelectionMenu: FC = () => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const [selectedLayoutPng, setSelectedLayoutPng] = useState(
+  const [selectedLayoutPng] = useState(
     "149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"
   );
   const params = useParams();

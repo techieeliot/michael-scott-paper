@@ -1,18 +1,18 @@
-import { Key, FC } from "react";
-import { Col, Radio, Card, Image } from "antd";
+import { FC } from "react";
+import { Col, Card, Image, Radio } from "antd";
 
 const { Meta } = Card;
 
 export interface ILayoutCard {
-  key: Key;
+  key: number;
   layout: string;
   alt: string;
   imageUrl: string;
 }
 
-const LayoutCard: FC<ILayoutCard> = ({ key, layout, alt, imageUrl }) => {
+const LayoutCard: FC<ILayoutCard> = ({ layout, alt, imageUrl }) => {
   return (
-    <Col key={key} flex="1 1 25%">
+    <Col key={imageUrl} flex="1 1 25%">
       <Radio value={layout} className="select-column">
         <Card
           style={{ width: 290 }}

@@ -1,5 +1,3 @@
-/* eslint-disable @typescript-eslint/explicit-function-return-type */
-/* eslint-disable jsx-a11y/anchor-is-valid */
 import { FC } from "react";
 import { Link } from "react-router-dom";
 import { Typography, Button, Space } from "antd";

@@ -1,8 +1,11 @@
 import styled, { createGlobalStyle } from "styled-components";
-import { Radio } from "antd";
 
-export const RadioGlobalStyle = createGlobalStyle`
-/* HIDE RADIO */
+import { Radio, Space } from "antd";
+
+export const LayoutSelectorGlobalStyled = createGlobalStyle`
+.ant-form-item-label > label {
+  opacity: 0;
+}
 .select-column .ant-radio {
   position: absolute;
   opacity: 0;
@@ -20,6 +23,13 @@ export const RadioGlobalStyle = createGlobalStyle`
   outline: 2px solid #1890ff;
   margin: 0;
 }
+`;
+
+export const FlexBox = styled(Space)`
+  padding: 24px;
+  margin: 0 auto;
+  min-height: 95%;
+  width: 80%;
 `;
 
 export const RadioGroup = styled(Radio.Group)`

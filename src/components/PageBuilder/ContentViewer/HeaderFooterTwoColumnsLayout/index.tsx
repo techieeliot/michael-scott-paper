@@ -5,6 +5,7 @@ const { Header, Content, Footer } = Layout;
 const { Text, Title } = Typography;
 
 const HeaderFooterTwoColumnsLayout: FC = () => {
+  // const [text, setText] = useState("hello");
   return (
     <Layout
       className="two-column-layout-layout-one"
@@ -26,7 +27,14 @@ const HeaderFooterTwoColumnsLayout: FC = () => {
           }}
         >
           <Col span={24}>
-            <Title>Header</Title>
+            <Title
+              editable={{
+                // onChange: {()=>  },
+                triggerType: ["icon", "text"],
+              }}
+            >
+              Header
+            </Title>
           </Col>
         </Row>
       </Header>
@@ -39,10 +47,24 @@ const HeaderFooterTwoColumnsLayout: FC = () => {
       >
         <Row justify="center" style={{ height: "100%" }}>
           <Col id="content-column-one-layout-one" span={12}>
-            <Text>Column 1</Text>
+            <Text
+              editable={{
+                // onChange: {()=>  },
+                triggerType: ["icon", "text"],
+              }}
+            >
+              Column 1
+            </Text>
           </Col>
           <Col id="content-column-two-layout-one" span={12}>
-            <Text>Column 2</Text>
+            <Text
+              editable={{
+                // onChange: {()=>  },
+                triggerType: ["icon", "text"],
+              }}
+            >
+              Column 2
+            </Text>
           </Col>
         </Row>
       </Content>
@@ -53,7 +75,16 @@ const HeaderFooterTwoColumnsLayout: FC = () => {
             height: "100%",
           }}
         >
-          <Col>Footer</Col>
+          <Col>
+            <Text
+              editable={{
+                // onChange: {()=>  },
+                triggerType: ["icon", "text"],
+              }}
+            >
+              Footer
+            </Text>
+          </Col>
         </Row>
       </Footer>
     </Layout>

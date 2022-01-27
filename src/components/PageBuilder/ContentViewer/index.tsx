@@ -1,8 +1,8 @@
 import { FC } from "react";
 import { Layout, Typography } from "antd";
 import HeaderFooterTwoColumnsLayout from "./HeaderFooterTwoColumnsLayout";
-import HeaderTwoColumnsLayout from "./HeaderTwoColumnsLayout";
-import HeaderThreeColumnsLayout from "./HeaderThreeColumnsLayout";
+import HeaderThreeColumnsLayout from "./HeaderTwoColumnsLayout";
+import HeaderTwoColumnsLayout from "./HeaderThreeColumnsLayout";
 
 const { Content } = Layout;
 const { Paragraph } = Typography;
@@ -27,8 +27,8 @@ const ContentLayout: FC = () => {
         </Paragraph>
       )}
       {false && <HeaderTwoColumnsLayout />}
-      {false && <HeaderThreeColumnsLayout />}
-      {true && <HeaderFooterTwoColumnsLayout />}
+      {true && <HeaderThreeColumnsLayout />}
+      {false && <HeaderFooterTwoColumnsLayout />}
     </Content>
   );
 };
