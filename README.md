@@ -2,7 +2,7 @@
 
 ## Frontend CMS "lite" MVP Project by Eliot Sanford
 
-- The app is a React MVP app that gives the user a way to create an HTML layout with text and background images or colors.
+- The app is a React MVP app that gives the user a way to create and manage content on an HTML website. When complete, functionality is expected to include a chosen layout with text and background images or colors in various sections of the application. In addition, the user will be able to preview the website.
 
 ### [Live link to the deployed application](https://michael-scott-paper.netlify.app/)
 
@@ -34,7 +34,7 @@
 
 ### Checklist of requirements
 
-- [ ] [feature: select from one of three different single page layouts](https://github.com/techieeliot/michael-scott-paper/issues/16)
+- [x] [feature: select from one of three different single page layouts](https://github.com/techieeliot/michael-scott-paper/issues/16)
 
 - [ ] [feature: customize layout background with color or image](https://github.com/techieeliot/michael-scott-paper/issues/10)
 
@@ -46,7 +46,7 @@
 
 - [ ] [feature: pop out to a "preview" mode where they can see their layout outside of the editor.](https://github.com/techieeliot/michael-scott-paper/issues/14)
 
-- [ ] [feature: responsive layout for moble or tablet devices](https://github.com/techieeliot/michael-scott-paper/issues/15)
+- [x] [feature: responsive layout for moble or tablet devices](https://github.com/techieeliot/michael-scott-paper/issues/15)
 
 - [x] Use React (Nice to haves: Redux, TypeScript, and Testing)
 
@@ -63,13 +63,17 @@
     	* TypeScript
     	* React Router
     	* Ant Design
-    	* CSS
+    	* Styled Components
 
-#### API (none used)
+### My Next Steps
 
-    	* API n/a
+As of January 27, 2022, I have created a way for the user to add a website, name the website, and choose a layout. Currently, the user advances to the page builder view, so my next step is to pull down the webpage title and layout to send that information into the header menu and the sidebar. The next step from there is to update the state in the header.
 
----
+After that I would render a layout based on the layout selected by the user. The next step is to create a content builder reducer to allow the user to build out five sections of the page with each of those having content and/or a background.
+
+After state for the content is setup, then I could pull that content into the page and use the left sidebar to select a section and change the contents of that section using the editable sections or the right side bar options of uploading an image or adding color to the background. With content in the sections, I would research and select a WYSIWIG editor to include in the editable content sections.
+
+The final step would include allowing the user to preview the website, which would take some further thought as I arrived at that part. But, I can imagine that I'd disable the editable component sections and set the menus to no longer display.
 
 ### Parting Words
 
