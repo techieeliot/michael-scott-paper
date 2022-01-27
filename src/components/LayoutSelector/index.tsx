@@ -24,7 +24,6 @@ const LayoutSelector: FC = () => {
   const [layoutValue, setLayoutValue] = useState(1);
 
   const handleChange = (e: { target: { value: string } }): void => {
-    console.log("radio checked", e.target.value);
     setLayoutValue(parseInt(e.target.value, 10));
   };
 
@@ -32,18 +31,11 @@ const LayoutSelector: FC = () => {
   const handleSubmit = (id: string, siteValues: IWebsite) => {
     const { title, layout } = siteValues;
     const updatedSiteValues = { id, title, layout };
-    console.log("Success:", updatedSiteValues);
-
     dispatch({
       type: UPDATE_WEBSITE,
       payload: updatedSiteValues,
     });
     navigate(`/content/${params.id}`);
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleFailure = (errorInfo: unknown) => {
-    console.log("Failed:", errorInfo);
   };
 
   const baseUrl = "https://user-images.githubusercontent.com/19453294/";
@@ -71,7 +63,6 @@ const LayoutSelector: FC = () => {
   useEffect(() => {
     if (websiteData !== null)
       localStorage.setItem("webSiteData", JSON.stringify(websiteData));
-    console.log(websiteData);
   }, [websiteData]);
 
   return (
@@ -87,7 +78,6 @@ const LayoutSelector: FC = () => {
             }}
             initialValues={{ remember: true }}
             onFinish={(e) => handleSubmit(params.id, e)}
-            onFinishFailed={handleFailure}
             autoComplete="off"
             style={{ width: "100%" }}
           >

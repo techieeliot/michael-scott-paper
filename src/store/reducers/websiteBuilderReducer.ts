@@ -1,5 +1,4 @@
 import * as actionTypes from "../actions/actionTypes";
-import { IWebsite } from "../interfaces/IWebsite";
 import { WebsiteAction, WebsiteState } from "../typings/index";
 
 export const initialState: WebsiteState = {
