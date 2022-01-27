@@ -1,4 +1,4 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { Layout, Row, Col, Typography } from "antd";
 
 const { Header, Content, Footer } = Layout;
