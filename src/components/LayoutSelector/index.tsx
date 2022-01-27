@@ -20,9 +20,8 @@ const LayoutSelector: FC = () => {
   );
   const dispatch = useDispatch<DispatchType>();
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const handleSubmit = (siteValues: object): object => {
-    // console.log("Success:", siteValues);
+    console.log("Success:", siteValues);
 
     return dispatch({
       type: UPDATE_WEBSITE,
@@ -30,10 +29,10 @@ const LayoutSelector: FC = () => {
     });
   };
 
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  // const onFinishFailed = (errorInfo: any) => {
-  //   console.log("Failed:", errorInfo);
-  // };
+  const onFinishFailed = (errorInfo: object): object => {
+    console.log("Failed:", errorInfo);
+    return {};
+  };
 
   useEffect(() => {
     if (websiteData !== null)
