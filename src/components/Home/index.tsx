@@ -45,6 +45,7 @@ const Home: FC = () => {
       title: "Title",
       dataIndex: "title",
       key: "title",
+      ellipsis: true,
       render: (text: string, record: IWebsite) => (
         <Button type="link" size="small">
           {text === "Untitled Page" ? (
@@ -59,12 +60,14 @@ const Home: FC = () => {
       title: "Layout",
       dataIndex: "layout",
       key: "layout",
+      ellipsis: true,
     },
     {
       title: "Action",
+      dataIndex: "action",
       key: "action",
       render: (_text: unknown, record: IWebsite) => (
-        <Space size="middle">
+        <Space size="middle" direction="vertical">
           <Button type="link" size="small">
             <Link to={`/layout/${record.id}`}>Layout</Link>
           </Button>
@@ -100,7 +103,7 @@ const Home: FC = () => {
         </Header>
         <Content style={{ width: "100%", margin: "20vh 0" }}>
           <HomeRow justify="center">
-            <Col span={10}>
+            <Col xs={20} sm={18} md={12} lg={10}>
               <Button
                 type="primary"
                 size="large"
@@ -112,7 +115,7 @@ const Home: FC = () => {
             </Col>
           </HomeRow>
           <TableRow justify="center">
-            <Col span={18}>
+            <Col xs={20} sm={18} md={12} lg={10}>
               {/* SEE ISSUE #34 */}
               <Table columns={columns} dataSource={websites as never} />
             </Col>
