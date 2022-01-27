@@ -1,31 +1,25 @@
 import { FC } from "react";
-import { Layout, Typography } from "antd";
+import { Col, Layout, Row, Typography } from "antd";
 
 const { Header } = Layout;
 const { Title } = Typography;
 
 const SelectLayoutHeader: FC = () => {
   return (
-    <Header
-      id="selection-header"
-      style={{
-        background: "#fff",
-        margin: "5vh auto 0 auto",
-        height: "auto",
-        width: "100%",
-      }}
-    >
-      <div
+    <Header id="selection-header" style={{ width: "100%", background: "#fff" }}>
+      <Row
+        gutter={[12, 48]}
+        justify="space-between"
         style={{
-          padding: "24px 24px 0 24px",
-          margin: "0 auto",
-          width: "100%",
+          fontSize: "initial",
         }}
       >
-        <Title>
-          Add a custom title and select a layout for your single page website
-        </Title>
-      </div>
+        <Col style={{ width: "100%", background: "#fff" }}>
+          <Title>
+            Add a custom title and select a layout for your single page website
+          </Title>
+        </Col>
+      </Row>
     </Header>
   );
 };

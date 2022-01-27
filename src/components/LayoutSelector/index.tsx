@@ -29,11 +29,6 @@ const LayoutSelector: FC = () => {
     });
   };
 
-  const onFinishFailed = (errorInfo: object): object => {
-    console.log("Failed:", errorInfo);
-    return {};
-  };
-
   useEffect(() => {
     if (websiteData !== null)
       localStorage.setItem("webSiteData", JSON.stringify(websiteData));
@@ -50,11 +45,15 @@ const LayoutSelector: FC = () => {
           }}
           initialValues={{ remember: true }}
           onFinish={handleSubmit}
-          // onFinishFailed={onFinishFailed}
           autoComplete="off"
           style={{ width: "100%" }}
         >
-          <Form.Item id="form-item-header" name="header">
+          <Form.Item
+            id="form-item-header"
+            label="header"
+            name="header"
+            style={{ width: "100%" }}
+          >
             <SelectLayoutHeader />
           </Form.Item>
           <Form.Item
@@ -72,12 +71,12 @@ const LayoutSelector: FC = () => {
               />
             )}
           </Form.Item>
-          <Form.Item>
+          <Form.Item id="form-item-info" label="information" name="information">
             <Information />
           </Form.Item>
           <Form.Item
             label="Layout"
-            name="columns"
+            name="layout"
             rules={[
               {
                 required: true,
