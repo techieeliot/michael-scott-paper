@@ -1,5 +1,5 @@
-import * as actionTypes from "../actionTypes";
-import { WebsiteAction, WebsiteState } from "../../type";
+import * as actionTypes from "../actions/actionTypes";
+import { WebsiteAction, WebsiteState } from "../typings/index";
 
 export const initialState: WebsiteState = {
   websites: [
