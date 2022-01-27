@@ -7,15 +7,15 @@ import SelectLayoutHeader from "./SelectLayoutHeader";
 import LayoutOptions from "./LayoutOptions";
 import ButtonsFooter from "./ButtonsFooter";
 import { RootState } from "../../store/configureStore";
-import { DispatchType } from "../../type";
+import { DispatchType } from "../../store/typings/index";
 import Information from "./Information";
-import { UPDATE_WEBSITE } from "../../store/actionTypes";
+import { UPDATE_WEBSITE } from "../../store/actions/actionTypes";
 
 const LayoutSelector: FC = () => {
   const params = useParams();
   const websiteData = useSelector<RootState>((state) =>
     state.rootReducer.websiteBuilder.websites.find(
-      (site) => site.id === params.id
+      (site: { id: string }) => site.id === params.id
     )
   );
   const dispatch = useDispatch<DispatchType>();

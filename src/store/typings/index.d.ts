@@ -1,4 +1,6 @@
-import IWebsite from "./interfaces/IWebsite";
+import IWebsite from "../interfaces/IWebsite";
+
+declare module "react-uuid";
 
 type WebsiteState = {
   websites: IWebsite[];

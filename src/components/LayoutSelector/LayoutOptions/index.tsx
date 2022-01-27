@@ -3,7 +3,7 @@ import { Row } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import { RadioGlobalStyle, RadioGroup } from "./styles";
 import { RootState } from "../../../store/configureStore";
-import { DispatchType } from "../../../type";
+import { DispatchType } from "../../../store/typings/index";
 
 import LayoutCard, { ILayoutCard } from "./LayoutCard";
 

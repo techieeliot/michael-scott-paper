@@ -3,11 +3,11 @@ import { Link } from "react-router-dom";
 import { Layout, Col, Typography, Table, Button, Space } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
-import { DispatchType } from "../../type";
-import { IWebsite } from "../../interfaces/IWebsite";
+import { DispatchType } from "../../store/typings";
+import { IWebsite } from "../../store/interfaces/IWebsite";
 import { RootState } from "../../store/configureStore";
 import { HomeRow, LayoutRow, TableRow } from "./styles";
-import { ADD_WEBSITE, REMOVE_WEBSITE } from "../../store/actionTypes";
+import { ADD_WEBSITE, REMOVE_WEBSITE } from "../../store/actions/actionTypes";
 
 const { Content, Header } = Layout;
 const { Title } = Typography;
