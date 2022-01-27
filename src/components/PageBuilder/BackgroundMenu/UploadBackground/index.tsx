@@ -2,7 +2,6 @@ import { FC, SetStateAction, useState } from "react";
 import { Empty, Upload } from "antd";
 import { UploadFile } from "antd/lib/upload/interface";
 import { PictureOutlined } from "@ant-design/icons";
-import { JSDocUnknownTag } from "typescript";
 
 const UploadBackground: FC = () => {
   const [fileList, setFileList] = useState<UploadFile[]>([]);

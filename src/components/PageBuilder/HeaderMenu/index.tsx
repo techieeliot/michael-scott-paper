@@ -1,7 +1,8 @@
-import { FC, SetStateAction, useState, useEffect } from "react";
-import { Menu, Input } from "antd";
+import { FC, useState, useEffect } from "react";
+import { Menu, Typography } from "antd";
 
 const { Item } = Menu;
+const { Paragraph } = Typography;
 
 const HeaderMenu: FC = () => {
   const initialTitle = window.localStorage.getItem("title") || "Untitled Page";
@@ -29,18 +30,26 @@ const HeaderMenu: FC = () => {
         key="1"
         style={{
           textAlign: "center",
-          height: "5vh",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
+          background: "white",
+          height: "100%",
+          width: "200px",
         }}
       >
-        <Input
-          onChange={(e: { target: { value: SetStateAction<string> } }) => {
-            setTitle(typeof e.target.value === "string" ? e.target.value : "");
+        <Paragraph
+          style={{
+            background: "white",
+            lineHeight: "initial",
           }}
-          value={title}
-        />
+          editable={{
+            onChange: setTitle,
+            triggerType: ["icon", "text"],
+          }}
+        >
+          {title}
+        </Paragraph>
       </Item>
     </Menu>
   );
