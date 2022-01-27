@@ -26,7 +26,7 @@ const Home: FC = () => {
     };
     return dispatch({
       type: ADD_WEBSITE,
-      website: newWebsite,
+      payload: newWebsite,
     });
   };
   const handleRemoveSite = (
@@ -36,7 +36,7 @@ const Home: FC = () => {
     event.preventDefault();
     return dispatch({
       type: REMOVE_WEBSITE,
-      website,
+      payload: website,
     });
   };
 

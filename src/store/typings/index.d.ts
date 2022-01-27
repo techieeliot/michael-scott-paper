@@ -8,7 +8,7 @@ type WebsiteState = {
 
 type WebsiteAction = {
   type: string;
-  website: IWebsite;
+  payload: IWebsite;
 };
 
 type DispatchType = (args: WebsiteAction) => WebsiteAction;

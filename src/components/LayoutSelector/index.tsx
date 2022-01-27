@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { Row, Col, Form, Input, Button, Divider, Space, Layout } from "antd";
 import { UserOutlined } from "@ant-design/icons";
 import { useSelector, useDispatch } from "react-redux";
-import { Link, Navigate, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import SelectLayoutHeader from "./SelectLayoutHeader";
 import { RootState } from "../../store/configureStore";
 import { DispatchType } from "../../store/typings/index";
@@ -10,15 +10,15 @@ import Information from "./Information";
 import { UPDATE_WEBSITE } from "../../store/actions/actionTypes";
 import { LayoutSelectorGlobalStyled, FlexBox, RadioGroup } from "./styles";
 import LayoutCard, { ILayoutCard } from "./LayoutCard";
+import { IWebsite } from "../../store/interfaces/IWebsite";
 
 const { Footer } = Layout;
 
 const LayoutSelector: FC = () => {
   const params = useParams();
-  const websiteData = useSelector<RootState>((state) =>
-    state.rootReducer.websiteBuilder.websites.find(
-      (site: { id: string }) => site.id === params.id
-    )
+  const navigate = useNavigate();
+  const websiteData = useSelector<RootState>(
+    (state) => state.rootReducer.websiteBuilder.websites
   );
   const dispatch = useDispatch<DispatchType>();
   const [layoutValue, setLayoutValue] = useState(1);
@@ -28,14 +28,17 @@ const LayoutSelector: FC = () => {
     setLayoutValue(parseInt(e.target.value, 10));
   };
 
-  const handleSubmit = (siteValues: unknown): void => {
-    console.log("Success:", siteValues);
+  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
+  const handleSubmit = (id: string, siteValues: IWebsite) => {
+    const { title, layout } = siteValues;
+    const updatedSiteValues = { id, title, layout };
+    console.log("Success:", updatedSiteValues);
 
     dispatch({
       type: UPDATE_WEBSITE,
-      website: siteValues,
+      payload: updatedSiteValues,
     });
-    <Navigate to={`/content/${params.id}`} />;
+    navigate(`/content/${params.id}`);
   };
 
   // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
@@ -83,7 +86,7 @@ const LayoutSelector: FC = () => {
               span: 16,
             }}
             initialValues={{ remember: true }}
-            onFinish={handleSubmit}
+            onFinish={(e) => handleSubmit(params.id, e)}
             onFinishFailed={handleFailure}
             autoComplete="off"
             style={{ width: "100%" }}
