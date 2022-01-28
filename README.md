@@ -85,7 +85,7 @@ Components are built with ready made components from the Ant Design design frame
 
 <img width="1132" alt="Screen Shot 2022-01-28 at 9 55 02 AM" src="https://user-images.githubusercontent.com/19453294/151578964-80357271-118c-4b8a-8904-089c0344dec7.png">
 
-In the Page Builder view, it's important to note that a user can navigate back to Home and Layout Selector using the New Page and Edit Layout links at the top right.
+In the Page Builder view, it's important to note that a user can navigate back to Home and Layout Selector using the New Page and Edit Layout links at the top left.
 
 <img width="286" alt="Screen Shot 2022-01-28 at 9 49 57 AM" src="https://user-images.githubusercontent.com/19453294/151578104-e3ec7a2a-f523-4908-8906-922748922bed.png">
 
