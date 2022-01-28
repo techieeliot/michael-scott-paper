@@ -108,6 +108,7 @@ In my processes, I created issues to keep me on track that I would make pull req
 <br />
 <img width="955" alt="Screen Shot 2022-01-28 at 10 05 11 AM" src="https://user-images.githubusercontent.com/19453294/151580744-d9cdba21-4d18-489c-83ba-e7c233c3aea4.png">
 <br />
+
 ### [Link to the Netlify Site Overview to see the most recent deployment](https://app.netlify.com/sites/michael-scott-paper/overview)
 
 <img width="1238" alt="Screen Shot 2022-01-28 at 11 27 03 AM" src="https://user-images.githubusercontent.com/19453294/151593629-cee1d49a-7491-42d1-bb6e-a3af94202b2c.png">
