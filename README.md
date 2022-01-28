@@ -56,7 +56,7 @@
 
 ### Technologies Used
 
-#### Languages and Frameworks
+#### Languages, Frameworks, and Libraries
 
     	* React
     	* Redux
@@ -64,7 +64,8 @@
     	* React Router
     	* Ant Design
     	* Styled Components
-
+    	* Netlify CI/CD
+        
 ### My Approach
 
 In terms of developing my TypeScript skills for the long-term, my approach was that I needed to get more comfortable with TypeScript in a basic way on a single page first. As I created issues for the assignment and created interfaces to model the data in the store, I came to the realization that I needed to take a step back and create the Home page component—despite it not being a part of the requirements. I believe it provides a smoother user experience to add this page, anyhow, because the user can see how many webpages exist at a high level view from a dashboard of sorts.
@@ -101,7 +102,7 @@ I was in the process of pulling down the title and the layout into the Page Buil
 
 <img width="893" alt="Screen Shot 2022-01-28 at 10 09 14 AM" src="https://user-images.githubusercontent.com/19453294/151581420-e55a5657-4a72-4a15-a6c0-7ad8dc287ed5.png">
 
-In my processes, I was created issues to keep me on track that I would make pull requests against. This methodology helped me draft pull requests with multiple small commits. As I pushed code to the draft pull request, then I would see whether deployment tests passed the Netlify checks and a deployment was successfully compiled in a staging environment preview url. I did not include any integration or unit testing in the code, so at a minimum I smoke tested in staging before promoting the pull request to the main branch. A deployment to production was configured when merging or pushing to main.
+In my processes, I created issues to keep me on track that I would make pull requests against. This methodology helped me draft pull requests with multiple small commits. As I pushed code to the draft pull request, then I would see whether deployment tests passed the Netlify checks and a deployment was successfully compiled in a staging environment preview url. I did not include any integration or unit testing in the code, so at a minimum I smoke tested in staging before promoting the pull request to the main branch. A deployment to production was configured when merging or pushing to main.
 
 <img width="687" alt="Screen Shot 2022-01-28 at 10 03 56 AM" src="https://user-images.githubusercontent.com/19453294/151580535-76333790-92f1-4d84-bc6a-43efebd6312b.png">
 <br />
