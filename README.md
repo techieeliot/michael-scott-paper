@@ -99,6 +99,8 @@ The Page Builder sub-components are not connected to the Redux store in any way,
 
 I was in the process of pulling down the title and the layout into the Page Builder component as time expired. With the layout passed through to the Page Builder view a conditionally rendered component in the Content Viewer component.
 
+<img width="893" alt="Screen Shot 2022-01-28 at 10 09 14 AM" src="https://user-images.githubusercontent.com/19453294/151581420-e55a5657-4a72-4a15-a6c0-7ad8dc287ed5.png">
+
 In my processes, I was created issues to keep me on track that I would make pull requests against. This methodology helped me draft pull requests with multiple small commits. As I pushed code to the draft pull request, then I would see whether deployment tests passed the Netlify checks and a deployment was successfully compiled in a staging environment preview url. I did not include any integration or unit testing in the code, so at a minimum I smoke tested in staging before promoting the pull request to the main branch. A deployment to production was configured when merging or pushing to main.
 
 <img width="687" alt="Screen Shot 2022-01-28 at 10 03 56 AM" src="https://user-images.githubusercontent.com/19453294/151580535-76333790-92f1-4d84-bc6a-43efebd6312b.png">
@@ -109,13 +111,17 @@ In my processes, I was created issues to keep me on track that I would make pull
 
 As of January 27, 2022, I have created a way for the user to add a website, name the website, and choose a layout. I wish I could have documented the code more, but that would be something that I might do next to provide ideas of where and what I was thinking of doing next. Currently, the user advances to the page builder view, so my next step is to pull down the webpage title and layout to send that information into the header menu and the sidebar. The next step from there is to update the state in the header.
 
+<img width="947" alt="Screen Shot 2022-01-28 at 10 12 11 AM" src="https://user-images.githubusercontent.com/19453294/151581861-2c0d355f-a956-4982-9927-ee389804a0d3.png">
+
 After that I would render a layout based on the layout selected by the user. The next step is to create a content builder reducer to allow the user to build out five sections of the page with each of those having content and/or a background.
+
+<img width="884" alt="Screen Shot 2022-01-28 at 10 13 26 AM" src="https://user-images.githubusercontent.com/19453294/151582059-148692d3-72f5-4a87-821b-d5aa8820cce0.png">
 
 After state for the content is setup, then I could pull that content into the page and use the left sidebar to select a section and change the contents of that section using the editable sections or the right side bar options of uploading an image or adding color to the background. With content in the sections, I would research and select a WYSIWYG editor to include in the editable content sections.
 
 The final step would include allowing the user to preview the website, which would take some further thought as I arrived at that part. But, I can imagine that I'd disable the editable component sections and set the menus to no longer display. Most of these next steps are laid out in my open issues in GitHub.
 
-Best practices would have included testing either from the beginning or along the way. I didn't write tests in this iteration, since I felt adding too many new learning experiences would have made the project even more ambitious than it already was.
+Best practices would have included testing either from the beginning or along the way to prevent bugs. Regrettably, I didn't write tests in this iteration, since I felt adding too many new learning experiences in a POC would have made the project even more ambitious than it already was, so I permitted this technical debt in the project for now.
 
 ### Parting Words
 
