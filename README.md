@@ -69,17 +69,41 @@
 
 In terms of developing my TypeScript skills for the long-term, my approach was that I needed to get more comfortable with TypeScript in a basic way on a single page first. As I created issues for the assignment and created interfaces to model the data in the store, I came to the realization that I needed to take a step back and create the Home page component—despite it not being a part of the requirements. I believe it provides a smoother user experience to add this page, anyhow, because the user can see how many their webpages at a high level view from a dashboard of sorts.
 
-When combining the Home component with the Layout Selector component it forms a "todo application". There's CRUD functionality related to the IWebsite Interface. Not only can a website be created in the Home component, but it also can be given a layout/renamed (updated) and deleted using redux dispatched actions. A user can start with an "Untitled Page" to proceed to Layout Selector page, or when a Title is already given, the user can head straight to the Page Builder component. I added the ability to rename the title and select a layout from the three option for the website in the Layout Selector view.
+<img width="843" alt="Screen Shot 2022-01-28 at 9 51 09 AM" src="https://user-images.githubusercontent.com/19453294/151578314-f52cb117-b5ff-404d-b5b3-902844e37294.png">
 
-I used several libraries to help me in this project in addition to Redux. The React Router DOM library to not only route the pages but connect the URL with a unique id created for each website. The React-UUID library creates a lengthy id that is passed into the new website object and sent into the URL for the path of the next page. Components are built with ready made components from the Ant Design design framework. They are purely dumb components with atomic pieces, many of which I made my own with Styled Components. I'm very comfortable with each of these libraries, and it allowed me to focus on the TypeScript aspect of the project.
+When combining the Home component with the Layout Selector component it forms a "todo application". There's CRUD functionality related to the IWebsite Interface. Not only can a website be created in the Home component, but it also can be given a layout/renamed (updated) and deleted using redux dispatched actions. A user can start with an "Untitled Page" to proceed to Layout Selector page, or when a Title is already given, the user can head straight to the Page Builder component. I added the ability to rename the title and select a layout from the three option for the website in the Layout Selector view. Something that is not functionality is that the redux store is not fetching the existing title and layout selection, so I would have added this if given more time. I did add rules into the components that requires a title and selection be provided or they should return to the Home component.
 
-In the Page Builder view, it's important to note that a user can navigate back to Home and Layout Selector using the New Page and Edit Layout links at the top right. In the center content section, the components for the layouts are built but set to be hidden conditionally at present—refactoring the layout components is a must in the future. The other sections of the Page Builder component are built with the title at the header menu, a layout image displayed, a radio selection for the sections of a two-column layout, a background color feature, an image uploader, and editable sections of the content layout.
+<img width="975" alt="Screen Shot 2022-01-28 at 9 52 07 AM" src="https://user-images.githubusercontent.com/19453294/151578486-6164a008-1bbc-4a34-a629-0f84f63165d4.png">
+<br />
+<img width="567" alt="Screen Shot 2022-01-28 at 9 56 31 AM" src="https://user-images.githubusercontent.com/19453294/151579228-7135cd7e-07cb-4032-9544-2f9e8ebd1824.png">
 
-The Page Builder sub-components are not connected to the Redux store in any way, so the state of the website and content interfaces are disconnected and not provided into the components yet. I have provided state locally or with local storage to allow some functionality to be seen at the individual level.
+I used several libraries to help me in this project in addition to Redux. The React Router DOM library to not only route the pages but connect the URL with a unique id created for each website. The React-UUID library creates a lengthy id that is passed into the new website object and sent into the URL for the path of the next page.
+
+<img width="532" alt="Screen Shot 2022-01-28 at 9 53 49 AM" src="https://user-images.githubusercontent.com/19453294/151578761-9ad943b6-9a82-4c74-a2c6-59453fa7c405.png">
+
+Components are built with ready made components from the Ant Design design framework. They are purely dumb components with atomic pieces, many of which I made my own with Styled Components. I'm very comfortable with each of these libraries, and it allowed me to focus on the TypeScript aspect of the project rather than building these features from scratch.
+
+<img width="1132" alt="Screen Shot 2022-01-28 at 9 55 02 AM" src="https://user-images.githubusercontent.com/19453294/151578964-80357271-118c-4b8a-8904-089c0344dec7.png">
+
+In the Page Builder view, it's important to note that a user can navigate back to Home and Layout Selector using the New Page and Edit Layout links at the top right.
+
+<img width="286" alt="Screen Shot 2022-01-28 at 9 49 57 AM" src="https://user-images.githubusercontent.com/19453294/151578104-e3ec7a2a-f523-4908-8906-922748922bed.png">
+
+In the center content section, the components for the layouts are built but set to be hidden conditionally at present—refactoring the layout components is a must in the future. The other sections of the Page Builder component are built with the title at the header menu, a layout image displayed, a radio selection for the sections of a two-column layout, a background color feature, an image uploader, and editable sections of the content layout. The sidebars collapse on click or at a smaller screen breakpoint.
+
+<img width="1432" alt="Screen Shot 2022-01-28 at 10 00 26 AM" src="https://user-images.githubusercontent.com/19453294/151579941-13a536fc-b5c3-4b64-8cef-3967b70c791f.png">
+
+The Page Builder sub-components are not connected to the Redux store in any way, so the state of the website and content interfaces are disconnected and not provided into the components yet. I have provided state locally or with local storage to allow some functionality to be seen at the individual level. The sections of the page do not save the content values but are editable.
+
+<img width="804" alt="Screen Shot 2022-01-28 at 10 03 03 AM" src="https://user-images.githubusercontent.com/19453294/151580357-461137c3-f523-4040-ab96-66a4c877e002.png">
 
 I was in the process of pulling down the title and the layout into the Page Builder component as time expired. With the layout passed through to the Page Builder view a conditionally rendered component in the Content Viewer component.
 
-In my processes, I was created issues to keep me on track that I would make pull requests against. This methodology helped me draft pull requests with multiple small commits. As I pushed code to the draft pull request, then I would see whether tests passed the Netlify checks and a deployment was successfully compiled in a staging environment preview url. I did not include any integration or unit testing in the code, so at a minimum I smoke tested in staging before promoting the pull request to the main branch. A deployment to production was configured when merging or pushing to main.
+In my processes, I was created issues to keep me on track that I would make pull requests against. This methodology helped me draft pull requests with multiple small commits. As I pushed code to the draft pull request, then I would see whether deployment tests passed the Netlify checks and a deployment was successfully compiled in a staging environment preview url. I did not include any integration or unit testing in the code, so at a minimum I smoke tested in staging before promoting the pull request to the main branch. A deployment to production was configured when merging or pushing to main.
+
+<img width="687" alt="Screen Shot 2022-01-28 at 10 03 56 AM" src="https://user-images.githubusercontent.com/19453294/151580535-76333790-92f1-4d84-bc6a-43efebd6312b.png">
+<br />
+<img width="955" alt="Screen Shot 2022-01-28 at 10 05 11 AM" src="https://user-images.githubusercontent.com/19453294/151580744-d9cdba21-4d18-489c-83ba-e7c233c3aea4.png">
 
 ### My Next Steps
 
