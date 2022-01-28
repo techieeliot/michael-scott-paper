@@ -67,7 +67,7 @@
 
 ### My Approach
 
-In terms of developing my TypeScript skills for the long-term, my approach was that I needed to get more comfortable with TypeScript in a basic way on a single page first. As I created issues for the assignment and created interfaces to model the data in the store, I came to the realization that I needed to take a step back and create the Home page component—despite it not being a part of the requirements. I believe it provides a smoother user experience to add this page, anyhow, because the user can see how many their webpages at a high level view from a dashboard of sorts.
+In terms of developing my TypeScript skills for the long-term, my approach was that I needed to get more comfortable with TypeScript in a basic way on a single page first. As I created issues for the assignment and created interfaces to model the data in the store, I came to the realization that I needed to take a step back and create the Home page component—despite it not being a part of the requirements. I believe it provides a smoother user experience to add this page, anyhow, because the user can see how many webpages exist at a high level view from a dashboard of sorts.
 
 <img width="843" alt="Screen Shot 2022-01-28 at 9 51 09 AM" src="https://user-images.githubusercontent.com/19453294/151578314-f52cb117-b5ff-404d-b5b3-902844e37294.png">
 
