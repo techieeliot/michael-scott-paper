@@ -104,13 +104,13 @@ I was in the process of pulling down the title and the layout into the Page Buil
 
 In my processes, I created issues to keep me on track that I would make pull requests against. This methodology helped me draft pull requests with multiple small commits. As I pushed code to the draft pull request, then I would see whether deployment tests passed the Netlify checks and a deployment was successfully compiled in a staging environment preview url. Once I was happy with the preview deployment I promoted it to the main branch, but catching the failed deployments early was helpful to avoid failed builds in production that would have fallen back to the published deployment. I did not include any integration or unit testing in the code, so at a minimum I smoke tested in staging before promoting the pull request to the main branch since these steps mimick a development workflow. A deployment to production was configured when merging or pushing to main.
 
-### [Link to the Netlify Site Overview to see the most recent deployment](https://app.netlify.com/sites/michael-scott-paper/overview)
-
-<img width="1238" alt="Screen Shot 2022-01-28 at 11 27 03 AM" src="https://user-images.githubusercontent.com/19453294/151593629-cee1d49a-7491-42d1-bb6e-a3af94202b2c.png">
-<br />
 <img width="687" alt="Screen Shot 2022-01-28 at 10 03 56 AM" src="https://user-images.githubusercontent.com/19453294/151580535-76333790-92f1-4d84-bc6a-43efebd6312b.png">
 <br />
 <img width="955" alt="Screen Shot 2022-01-28 at 10 05 11 AM" src="https://user-images.githubusercontent.com/19453294/151580744-d9cdba21-4d18-489c-83ba-e7c233c3aea4.png">
+<br />
+### [Link to the Netlify Site Overview to see the most recent deployment](https://app.netlify.com/sites/michael-scott-paper/overview)
+
+<img width="1238" alt="Screen Shot 2022-01-28 at 11 27 03 AM" src="https://user-images.githubusercontent.com/19453294/151593629-cee1d49a-7491-42d1-bb6e-a3af94202b2c.png">
 
 ### My Next Steps
 
