@@ -23,14 +23,10 @@ const LayoutSelector: FC = () => {
     )
   ) as IWebsite;
   const dispatch = useDispatch<DispatchType>();
-  const [layoutValue, setLayoutValue] = useState(1);
+  const [layoutValue, setLayoutValue] = useState(websiteData.layout);
+  const [titleValue, setTitleValue] = useState(websiteData.title);
 
-  const handleChange = (e: { target: { value: string } }): void => {
-    setLayoutValue(parseInt(e.target.value, 10));
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleSubmit = (id: string, siteValues: IWebsite) => {
+  const handleSubmit = (id: string, siteValues: IWebsite): void => {
     const { title, layout } = siteValues;
     const updatedSiteValues = { id, title, layout };
     dispatch({
@@ -109,7 +105,8 @@ const LayoutSelector: FC = () => {
                       size="large"
                       prefix={<UserOutlined />}
                       placeholder="Add a custom page title"
-                      defaultValue={websiteData.title}
+                      onChange={(e) => setTitleValue(e.target.value)}
+                      value={titleValue}
                     />
                   )}
                 </Col>
@@ -133,9 +130,8 @@ const LayoutSelector: FC = () => {
               ]}
             >
               <RadioGroup
-                onChange={() => handleChange}
+                onChange={(e) => setLayoutValue(e.target.value)}
                 value={layoutValue}
-                defaultValue={websiteData.layout}
               >
                 <Row
                   gutter={[12, 48]}
