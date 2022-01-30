@@ -1,5 +1,6 @@
-import { FC } from "react";
-import { Layout, Grid } from "antd";
+import { FC, useState } from "react";
+import { Link } from "react-router-dom";
+import { Layout, Grid, Modal } from "antd";
 import HeaderMenu from "./HeaderMenu";
 import SelectionMenu from "./SelectionMenu";
 import ContentViewer from "./ContentViewer";
@@ -10,6 +11,12 @@ const { useBreakpoint } = Grid;
 
 const PageBuilder: FC = () => {
   const screens = useBreakpoint();
+  const [isModalVisible, setIsModalVisible] = useState(true);
+
+  const handleOk = (): void => {
+    setIsModalVisible(false);
+  };
+
   return (
     <>
       <BlackHeader id="header">
@@ -41,6 +48,18 @@ const PageBuilder: FC = () => {
           <BackgroundMenu />
         </RightSideBar>
       </Layout>
+      <Modal
+        title="Sorry for the inconvenience."
+        visible={isModalVisible}
+        onOk={handleOk}
+        okText={<Link to="/">Ok</Link>}
+        centered
+        cancelButtonProps={{ disabled: true }}
+      >
+        <p>Currently, the Page Builder is unavailable.</p>
+        <p>Please click the button below to return to the home page</p>
+        <p>Come back soon!</p>
+      </Modal>
     </>
   );
 };
