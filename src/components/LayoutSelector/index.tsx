@@ -74,10 +74,11 @@ const LayoutSelector: FC = () => {
             wrapperCol={{
               span: 16,
             }}
-            initialValues={{ remember: true }}
+            initialValues={{ title: titleValue, layout: layoutValue }}
             onFinish={(e) => handleSubmit(params.id, e)}
             autoComplete="off"
             style={{ width: "100%" }}
+            labelWrap
           >
             <Form.Item
               id="form-item-header"
