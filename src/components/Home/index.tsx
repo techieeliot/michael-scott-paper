@@ -10,7 +10,7 @@ import { HomeRow, LayoutRow, TableRow } from "./styles";
 import { ADD_WEBSITE, REMOVE_WEBSITE } from "../../store/actions/actionTypes";
 
 const { Content, Header } = Layout;
-const { Title } = Typography;
+const { Title, Paragraph } = Typography;
 
 const Home: FC = () => {
   const websites = useSelector<RootState>(
@@ -21,8 +21,8 @@ const Home: FC = () => {
   const handleAddSite = (): object => {
     const newWebsite = {
       id: uuid(),
-      layout: "Header - Two Columns",
-      title: "Untitled Page",
+      layout: "",
+      title: "",
     };
     return dispatch({
       type: ADD_WEBSITE,
@@ -48,10 +48,10 @@ const Home: FC = () => {
       ellipsis: true,
       render: (text: string, record: IWebsite) => (
         <Button type="link" size="small">
-          {text === "Untitled Page" ? (
-            <Link to={`/layout/${record.id}`}>{text}</Link>
-          ) : (
+          {text || record.layout ? (
             <Link to={`/content/${record.id}`}>{text}</Link>
+          ) : (
+            <Link to={`/layout/${record.id}`}>{text || "Untitled Page"}</Link>
           )}
         </Button>
       ),
@@ -61,6 +61,17 @@ const Home: FC = () => {
       dataIndex: "layout",
       key: "layout",
       ellipsis: true,
+      render: (text: string, record: IWebsite) => (
+        <Space>
+          {record.layout ? (
+            <Paragraph>{text}</Paragraph>
+          ) : (
+            <Button type="link" size="small">
+              <Link to={`/layout/${record.id}`}>Choose Layout</Link>
+            </Button>
+          )}
+        </Space>
+      ),
     },
     {
       title: "Action",
@@ -68,9 +79,13 @@ const Home: FC = () => {
       key: "action",
       render: (_text: unknown, record: IWebsite) => (
         <Space size="middle" direction="vertical">
-          <Button type="link" size="small">
-            <Link to={`/layout/${record.id}`}>Layout</Link>
-          </Button>
+          {record.layout ? (
+            <Button type="link" size="small">
+              <Link to={`/layout/${record.id}`}>Change Layout</Link>
+            </Button>
+          ) : (
+            ""
+          )}
           <Button
             type="link"
             size="small"

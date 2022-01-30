@@ -17,9 +17,11 @@ const { Footer } = Layout;
 const LayoutSelector: FC = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const websiteData = useSelector<RootState>(
-    (state) => state.rootReducer.websiteBuilder.websites
-  );
+  const websiteData = useSelector<RootState>((state) =>
+    state.rootReducer.websiteBuilder.websites.find(
+      (site) => site.id === params.id
+    )
+  ) as IWebsite;
   const dispatch = useDispatch<DispatchType>();
   const [layoutValue, setLayoutValue] = useState(1);
 
@@ -107,6 +109,7 @@ const LayoutSelector: FC = () => {
                       size="large"
                       prefix={<UserOutlined />}
                       placeholder="Add a custom page title"
+                      defaultValue={websiteData.title}
                     />
                   )}
                 </Col>
@@ -129,7 +132,11 @@ const LayoutSelector: FC = () => {
                 },
               ]}
             >
-              <RadioGroup onChange={() => handleChange} value={layoutValue}>
+              <RadioGroup
+                onChange={() => handleChange}
+                value={layoutValue}
+                defaultValue={websiteData.layout}
+              >
                 <Row
                   gutter={[12, 48]}
                   justify="space-between"

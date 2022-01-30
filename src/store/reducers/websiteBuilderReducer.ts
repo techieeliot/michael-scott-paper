@@ -5,8 +5,8 @@ export const initialState: WebsiteState = {
   websites: [
     {
       id: "74f352-c102-2f87-0103-ba3da6f0b3",
-      layout: "Header - Two Columns",
-      title: "Untitled Page",
+      layout: "",
+      title: "",
     },
     {
       id: "07e48f5-dd23-0520-66a5-83ebaf8f0bde",
