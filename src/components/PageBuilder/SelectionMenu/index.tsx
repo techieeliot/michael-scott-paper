@@ -1,7 +1,12 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Menu, Radio, Card, Space, Image } from "antd";
 import { LaptopOutlined, UserOutlined, EditOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store/configureStore";
+import { UPDATE_WEBSITE } from "../../../store/actions/actionTypes";
+import { IWebsite } from "../../../store/interfaces/IWebsite";
+import { DispatchType } from "../../../store/typings";
 
 const { SubMenu, Item } = Menu;
 
@@ -10,6 +15,29 @@ const SelectionMenu: FC = () => {
     "149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"
   );
   const params = useParams();
+  const websiteData = useSelector<RootState>((state) =>
+    state.rootReducer.websiteBuilder.websites.find(
+      (site) => site.id === params.id
+    )
+  ) as IWebsite;
+  const dispatch = useDispatch<DispatchType>();
+  const [layoutValue, setLayoutValue] = useState(websiteData.layout);
+
+  useEffect(() => {
+    if (layoutValue !== websiteData.layout) {
+      const siteValues = {
+        id: params.id,
+        title: websiteData.title,
+        layout: layoutValue,
+      } as IWebsite;
+
+      dispatch({
+        type: UPDATE_WEBSITE,
+        payload: siteValues,
+      });
+    }
+  }, [dispatch, params.id, layoutValue, websiteData.layout, websiteData.title]);
+
   const options = [
     { label: "Header", value: "Header" },
     { label: "Column 1", value: "Column 1" },
@@ -25,7 +53,7 @@ const SelectionMenu: FC = () => {
       defaultOpenKeys={["sub1", "sub2"]}
       style={{ height: "100%", borderRight: 0 }}
     >
-      <SubMenu key="sub1" icon={<UserOutlined />} title="Header - Two Columns">
+      <SubMenu key="sub1" icon={<UserOutlined />} title={websiteData.layout}>
         <Card
           style={{ width: "100%" }}
           cover={
