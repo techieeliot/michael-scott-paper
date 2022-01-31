@@ -157,7 +157,7 @@ const LayoutSelector: FC = () => {
               >
                 <FlexBox direction="vertical">
                   <Divider />
-                  <Space size={100}>
+                  <Space size={100} wrap>
                     <Button type="primary" shape="round" size="large">
                       <Link to="/">Home</Link>
                     </Button>
