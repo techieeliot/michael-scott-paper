@@ -6,6 +6,8 @@
 
 ### [Live link to the deployed application](https://michael-scott-paper.netlify.app/)
 
+### [Staged preview of the application features under development](https://deploy-preview-52--michael-scott-paper.netlify.app/)
+
 ---
 
 ### How to install and run the project locally
@@ -65,14 +67,14 @@
     	* Ant Design
     	* Styled Components
     	* Netlify CI/CD
-        
+
 ### My Approach
 
 In terms of developing my TypeScript skills for the long-term, my approach was that I needed to get more comfortable with TypeScript in a basic way on a single page first. As I created issues for the assignment and created interfaces to model the data in the store, I came to the realization that I needed to take a step back and create the Home page component—despite it not being a part of the requirements. I believe it provides a smoother user experience to add this page, anyhow, because the user can see how many webpages exist at a high level view from a dashboard of sorts.
 
 <img width="843" alt="Screen Shot 2022-01-28 at 9 51 09 AM" src="https://user-images.githubusercontent.com/19453294/151578314-f52cb117-b5ff-404d-b5b3-902844e37294.png">
 
-When combining the Home component with the Layout Selector component it forms a "todo application". There's CRUD functionality related to the IWebsite Interface. Not only can a website be created in the Home component, but it also can be given a layout/renamed (updated) and deleted using redux dispatched actions. A user can start with an "Untitled Page" to proceed to Layout Selector page, or when a Title is already given, the user can head straight to the Page Builder component. I added the ability to rename the title and select a layout from the three option for the website in the Layout Selector view. Something that is not functional is that the redux store is not fetching the existing title and layout selection, so I would have added this if given more time. I did add rules into the components that requires a title and selection be provided or they should return to the Home component.
+When combining the Home component with the Layout Selector component it forms a "todo application". There's CRUD functionality related to the IWebsite Interface. Not only can a website be created in the Home component, but it also can be given a layout/renamed (updated) and deleted using redux dispatched actions. A user can start with an "Untitled Page" to proceed to Layout Selector page, or when a Title is already given, the user can head straight to the Page Builder component—features not available in production yet ([See staging to view the Page Builder](https://deploy-preview-52--michael-scott-paper.netlify.app/)). I added the ability to rename the title and select a layout from the three option for the website in the Layout Selector view. I did add rules into the components that requires a title and selection be provided or they should return to the Home component.
 
 <img width="975" alt="Screen Shot 2022-01-28 at 9 52 07 AM" src="https://user-images.githubusercontent.com/19453294/151578486-6164a008-1bbc-4a34-a629-0f84f63165d4.png">
 <br />
@@ -86,28 +88,33 @@ Components are built with ready made components from the Ant Design design frame
 
 <img width="1132" alt="Screen Shot 2022-01-28 at 9 55 02 AM" src="https://user-images.githubusercontent.com/19453294/151578964-80357271-118c-4b8a-8904-089c0344dec7.png">
 
-In the Page Builder view, it's important to note that a user can navigate back to Home and Layout Selector using the New Page and Edit Layout links at the top left.
+[In the staging environment look at the Page Builder](https://deploy-preview-52--michael-scott-paper.netlify.app/), it's important to note that a user can navigate back to Home and Layout Selector using the New Page and Edit Layout links at the top left.
 
 <img width="286" alt="Screen Shot 2022-01-28 at 9 49 57 AM" src="https://user-images.githubusercontent.com/19453294/151578104-e3ec7a2a-f523-4908-8906-922748922bed.png">
 
-In the center content section, the components for the layouts are built but set to be hidden conditionally at present—refactoring the layout components is a must in the future. The other sections of the Page Builder component are built with the title at the header menu, a layout image displayed, a radio selection for the sections of a two-column layout, a background color feature, an image uploader, and editable sections of the content layout. The sidebars collapse on click or at a smaller screen breakpoint.
+In the center content section, the components for the layouts are built to be hidden conditionally based on which layout the site currently has. The conditional way of rendering needs to be refactored at a later time. The other sections of the Page Builder component are built with the title at the header menu, a layout image displayed, a radio selection for the sections of a two-column layout, a background color feature, an image uploader, and editable sections of the content layout. The sidebars collapse on click or at a smaller screen breakpoint.
 
 <img width="1432" alt="Screen Shot 2022-01-28 at 10 00 26 AM" src="https://user-images.githubusercontent.com/19453294/151579941-13a536fc-b5c3-4b64-8cef-3967b70c791f.png">
 
-The Page Builder sub-components are not connected to the Redux store in any way, so the state of the website and content interfaces are disconnected and not provided into the components yet. I have provided state locally or with local storage to allow some functionality to be seen at the individual level. The sections of the page do not save the content values but are editable.
+The Page Builder contents are not connected to the Redux store yet, so the state of content interface is disconnected and not provided into the components yet. The website interface data—title and layout—are passed through. I have provided state locally or with local storage to allow some functionality to be seen at the individual level. The sections of the page do not save the content values but are editable.
 
 <img width="804" alt="Screen Shot 2022-01-28 at 10 03 03 AM" src="https://user-images.githubusercontent.com/19453294/151580357-461137c3-f523-4040-ab96-66a4c877e002.png">
 
-I was in the process of pulling down the title and the layout into the Page Builder component as time expired. With the layout passed through to the Page Builder view a conditionally rendered component in the Content Viewer component.
+I was in the process of pulling down the title and the layout into the Page Builder component as time expired. With the layout passed through to the Page Builder view a conditionally rendered component in the Content Viewer component. I went the extra step of working on the site through a few more days and updated the content to add the title and layout selections.
 
 <img width="893" alt="Screen Shot 2022-01-28 at 10 09 14 AM" src="https://user-images.githubusercontent.com/19453294/151581420-e55a5657-4a72-4a15-a6c0-7ad8dc287ed5.png">
 
-In my processes, I created issues to keep me on track that I would make pull requests against. This methodology helped me draft pull requests with multiple small commits. As I pushed code to the draft pull request, then I would see whether deployment tests passed the Netlify checks and a deployment was successfully compiled in a staging environment preview url. Once I was happy with the preview deployment I promoted it to the main branch, but catching the failed deployments early was helpful to avoid failed builds in production that would have fallen back to the published deployment. I did not include any integration or unit testing in the code, so at a minimum I smoke tested in staging before promoting the pull request to the main branch since these steps mimick a development workflow. A deployment to production was configured when merging or pushing to main.
+In my processes, I created issues to keep me on track that I would make pull requests against. This methodology helped me draft pull requests with multiple small commits. As I pushed code to the draft pull request, then I would see whether deployment tests passed the Netlify checks and a deployment was successfully compiled in a staging environment preview url. Once I was happy with the preview deployment I promoted it to the main branch, but catching the failed deployments early was helpful to avoid failed builds in production that would have fallen back to the published deployment. I did not include any integration or unit testing in the code, so at a minimum I smoke tested in staging before promoting the pull request to the main branch since these steps mimic a development workflow. A deployment to production was configured when merging or pushing to main.
+
+### [Link to current dev branch (switch to this branch locally to view features)](https://github.com/techieeliot/michael-scott-paper/tree/dev)
+
+### [Link to my current draft pull request from dev to main](https://github.com/techieeliot/michael-scott-paper/pull/52)
 
 <img width="687" alt="Screen Shot 2022-01-28 at 10 03 56 AM" src="https://user-images.githubusercontent.com/19453294/151580535-76333790-92f1-4d84-bc6a-43efebd6312b.png">
 <br />
 <img width="955" alt="Screen Shot 2022-01-28 at 10 05 11 AM" src="https://user-images.githubusercontent.com/19453294/151580744-d9cdba21-4d18-489c-83ba-e7c233c3aea4.png">
 <br />
+<img width="955" src="https://user-images.githubusercontent.com/19453294/151796869-9c6f4163-3d0a-4f1d-a599-20d3211bdb8e.png">
 
 ### [Link to the Netlify Site Overview to see the most recent deployment](https://app.netlify.com/sites/michael-scott-paper/overview)
 
@@ -115,11 +122,11 @@ In my processes, I created issues to keep me on track that I would make pull req
 
 ### My Next Steps
 
-As of January 27, 2022, I have created a way for the user to add a website, name the website, and choose a layout. I wish I could have documented the code more, but that would be something that I might do next to provide ideas of where and what I was thinking of doing next. Currently, the user advances to the page builder view, so my next step is to pull down the webpage title and layout to send that information into the header menu and the sidebar. The next step from there is to update the state in the header. On edit/save, an action should be dispatched to update the store.
+As of January 27, 2022, I have created a way for the user to add a website, name the website, and choose a layout. I wish I could have documented the code more, but that would be something that I might do next to provide ideas of where and what I was thinking of doing next. Currently, the user advances to the page builder view, so my next step is to pull down the webpage title and layout to send that information into the header menu and the sidebar. The next step from there is to update the state in the header. On edit/save, an action should be dispatched to update the store—both changes are live in the dev branch.
 
 <img width="947" alt="Screen Shot 2022-01-28 at 10 12 11 AM" src="https://user-images.githubusercontent.com/19453294/151581861-2c0d355f-a956-4982-9927-ee389804a0d3.png">
 
-After that I would render a layout based on the layout selected by the user. The next step is to create a content builder reducer to allow the user to build out five sections of the page with each of those having content and/or a background.
+After that I would render a layout based on the layout selected by the user—this feature is also in the dev branch. The next step is to create a content builder reducer to allow the user to build out five sections of the page with each of those having content and/or a background.
 
 <img width="884" alt="Screen Shot 2022-01-28 at 10 13 26 AM" src="https://user-images.githubusercontent.com/19453294/151582059-148692d3-72f5-4a87-821b-d5aa8820cce0.png">
 
