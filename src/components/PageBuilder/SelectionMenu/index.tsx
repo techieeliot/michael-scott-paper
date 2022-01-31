@@ -1,21 +1,66 @@
-import { FC, useState } from "react";
+import { FC, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Menu, Radio, Card, Space, Image } from "antd";
 import { LaptopOutlined, UserOutlined, EditOutlined } from "@ant-design/icons";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store/configureStore";
+import { UPDATE_WEBSITE } from "../../../store/actions/actionTypes";
+import { IWebsite } from "../../../store/interfaces/IWebsite";
+import { DispatchType } from "../../../store/typings";
+import { layoutPngs } from "../../LayoutSelector";
 
 const { SubMenu, Item } = Menu;
 
 const SelectionMenu: FC = () => {
-  const [selectedLayoutPng] = useState(
-    "149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png"
-  );
+  const [selectedLayoutPng, setSelectedLayoutPng] = useState("");
   const params = useParams();
+  const websiteData = useSelector<RootState>((state) =>
+    state.rootReducer.websiteBuilder.websites.find(
+      (site) => site.id === params.id
+    )
+  ) as IWebsite;
+  const dispatch = useDispatch<DispatchType>();
+  const [layoutValue] = useState(websiteData.layout);
+
+  useEffect(() => {
+    if (layoutValue !== websiteData.layout) {
+      const siteValues = {
+        id: params.id,
+        title: websiteData.title,
+        layout: layoutValue,
+      } as IWebsite;
+
+      dispatch({
+        type: UPDATE_WEBSITE,
+        payload: siteValues,
+      });
+    }
+  }, [dispatch, params.id, layoutValue, websiteData.layout, websiteData.title]);
+
+  useEffect(() => {
+    if (websiteData.layout) {
+      switch (websiteData.layout) {
+        case "Header - Two Columns":
+          setSelectedLayoutPng(layoutPngs.headerTwoColumns);
+          break;
+        case "Header - Three Columns":
+          setSelectedLayoutPng(layoutPngs.headerThreeColumns);
+          break;
+        case "Header/Footer - Two Columns":
+          setSelectedLayoutPng(layoutPngs.headerFooterTwoColumns);
+          break;
+
+        default:
+          break;
+      }
+    }
+  }, [websiteData.layout]);
+
   const options = [
     { label: "Header", value: "Header" },
     { label: "Column 1", value: "Column 1" },
     { label: "Column 2", value: "Column 2" },
   ];
-  const baseUrl = "https://user-images.githubusercontent.com/19453294/";
 
   return (
     <Menu
@@ -25,16 +70,10 @@ const SelectionMenu: FC = () => {
       defaultOpenKeys={["sub1", "sub2"]}
       style={{ height: "100%", borderRight: 0 }}
     >
-      <SubMenu key="sub1" icon={<UserOutlined />} title="Header - Two Columns">
+      <SubMenu key="sub1" icon={<UserOutlined />} title={websiteData.layout}>
         <Card
           style={{ width: "100%" }}
-          cover={
-            <Image
-              alt="layout"
-              src={`${baseUrl}${selectedLayoutPng}`}
-              preview={false}
-            />
-          }
+          cover={<Image alt="layout" src={selectedLayoutPng} preview={false} />}
           extra={
             <Space>
               <Link to="/">
