@@ -1,6 +1,15 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { Layout, Col, Typography, Table, Button, Space } from "antd";
+import {
+  Layout,
+  Col,
+  Typography,
+  Table,
+  Button,
+  Space,
+  Popconfirm,
+  message,
+} from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { DispatchType } from "../../store/typings";
@@ -38,6 +47,14 @@ const Home: FC = () => {
       type: REMOVE_WEBSITE,
       payload: website,
     });
+  };
+
+  const handleConfirm = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    website: IWebsite
+  ): void => {
+    handleRemoveSite(event, website);
+    message.success(`${website.title || "Untitled Page"} deleted successfully`);
   };
 
   const columns = [
@@ -86,13 +103,22 @@ const Home: FC = () => {
           ) : (
             ""
           )}
-          <Button
-            type="link"
-            size="small"
-            onClick={(e) => handleRemoveSite(e, record)}
+          <Popconfirm
+            placement="right"
+            title={`Are you sure to delete ${record.title || "Untitled Page"}?`}
+            onConfirm={(e) => handleConfirm(e, record)}
+            onCancel={() =>
+              message.error(
+                `${record.title || "Untitled Page"} will not be deleted`
+              )
+            }
+            okText="Yes"
+            cancelText="No"
           >
-            Delete
-          </Button>
+            <Button type="link" size="small">
+              Delete
+            </Button>
+          </Popconfirm>
         </Space>
       ),
     },
