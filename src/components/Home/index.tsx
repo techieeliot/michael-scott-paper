@@ -1,6 +1,16 @@
 import { FC } from "react";
 import { Link } from "react-router-dom";
-import { Layout, Col, Typography, Table, Button, Space } from "antd";
+import {
+  Layout,
+  Col,
+  Typography,
+  Table,
+  Button,
+  Space,
+  Popconfirm,
+  message,
+  Tooltip,
+} from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
 import { DispatchType } from "../../store/typings";
@@ -10,7 +20,7 @@ import { HomeRow, LayoutRow, TableRow } from "./styles";
 import { ADD_WEBSITE, REMOVE_WEBSITE } from "../../store/actions/actionTypes";
 
 const { Content, Header } = Layout;
-const { Title } = Typography;
+const { Title, Paragraph } = Typography;
 
 const Home: FC = () => {
   const websites = useSelector<RootState>(
@@ -21,8 +31,8 @@ const Home: FC = () => {
   const handleAddSite = (): object => {
     const newWebsite = {
       id: uuid(),
-      layout: "Header - Two Columns",
-      title: "Untitled Page",
+      layout: "",
+      title: "",
     };
     return dispatch({
       type: ADD_WEBSITE,
@@ -40,20 +50,32 @@ const Home: FC = () => {
     });
   };
 
+  const handleConfirm = (
+    event: React.MouseEvent<HTMLElement, MouseEvent>,
+    website: IWebsite
+  ): void => {
+    handleRemoveSite(event, website);
+    message.success(`${website.title || "Untitled Page"} deleted successfully`);
+  };
+
   const columns = [
     {
       title: "Title",
       dataIndex: "title",
       key: "title",
-      ellipsis: true,
+      ellipsis: {
+        showTitle: false,
+      },
       render: (text: string, record: IWebsite) => (
-        <Button type="link" size="small">
-          {text === "Untitled Page" ? (
-            <Link to={`/layout/${record.id}`}>{text}</Link>
-          ) : (
-            <Link to={`/content/${record.id}`}>{text}</Link>
-          )}
-        </Button>
+        <Tooltip placement="topLeft" title={text || "Untitled Page"}>
+          <Button type="link" size="small">
+            {text || record.layout ? (
+              <Link to={`/content/${record.id}`}>{text}</Link>
+            ) : (
+              <Link to={`/layout/${record.id}`}>{text || "Untitled Page"}</Link>
+            )}
+          </Button>
+        </Tooltip>
       ),
     },
     {
@@ -61,6 +83,21 @@ const Home: FC = () => {
       dataIndex: "layout",
       key: "layout",
       ellipsis: true,
+      render: (text: string, record: IWebsite) => (
+        <Space>
+          {record.layout ? (
+            <Tooltip placement="topLeft" title={text}>
+              <Paragraph>{text}</Paragraph>
+            </Tooltip>
+          ) : (
+            <Tooltip placement="topLeft" title="Choose Layout">
+              <Button type="link" size="small">
+                <Link to={`/layout/${record.id}`}>Choose Layout</Link>
+              </Button>
+            </Tooltip>
+          )}
+        </Space>
+      ),
     },
     {
       title: "Action",
@@ -68,16 +105,29 @@ const Home: FC = () => {
       key: "action",
       render: (_text: unknown, record: IWebsite) => (
         <Space size="middle" direction="vertical">
-          <Button type="link" size="small">
-            <Link to={`/layout/${record.id}`}>Layout</Link>
-          </Button>
-          <Button
-            type="link"
-            size="small"
-            onClick={(e) => handleRemoveSite(e, record)}
+          {record.layout ? (
+            <Button type="link" size="small">
+              <Link to={`/layout/${record.id}`}>Change Layout</Link>
+            </Button>
+          ) : (
+            ""
+          )}
+          <Popconfirm
+            placement="right"
+            title={`Are you sure to delete ${record.title || "Untitled Page"}?`}
+            onConfirm={(e) => handleConfirm(e, record)}
+            onCancel={() =>
+              message.error(
+                `${record.title || "Untitled Page"} will not be deleted`
+              )
+            }
+            okText="Yes"
+            cancelText="No"
           >
-            Delete
-          </Button>
+            <Button type="link" size="small">
+              Delete
+            </Button>
+          </Popconfirm>
         </Space>
       ),
     },
@@ -116,8 +166,7 @@ const Home: FC = () => {
           </HomeRow>
           <TableRow justify="center">
             <Col xs={20} sm={18} md={12} lg={10}>
-              {/* SEE ISSUE #34 */}
-              <Table columns={columns} dataSource={websites as never} />
+              <Table columns={columns} dataSource={websites as []} />
             </Col>
           </TableRow>
         </Content>

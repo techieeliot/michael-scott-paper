@@ -17,18 +17,16 @@ const { Footer } = Layout;
 const LayoutSelector: FC = () => {
   const params = useParams();
   const navigate = useNavigate();
-  const websiteData = useSelector<RootState>(
-    (state) => state.rootReducer.websiteBuilder.websites
-  );
+  const websiteData = useSelector<RootState>((state) =>
+    state.rootReducer.websiteBuilder.websites.find(
+      (site) => site.id === params.id
+    )
+  ) as IWebsite;
   const dispatch = useDispatch<DispatchType>();
-  const [layoutValue, setLayoutValue] = useState(1);
+  const [layoutValue, setLayoutValue] = useState(websiteData.layout);
+  const [titleValue, setTitleValue] = useState(websiteData.title);
 
-  const handleChange = (e: { target: { value: string } }): void => {
-    setLayoutValue(parseInt(e.target.value, 10));
-  };
-
-  // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-  const handleSubmit = (id: string, siteValues: IWebsite) => {
+  const handleSubmit = (id: string, siteValues: IWebsite): void => {
     const { title, layout } = siteValues;
     const updatedSiteValues = { id, title, layout };
     dispatch({
@@ -76,10 +74,11 @@ const LayoutSelector: FC = () => {
             wrapperCol={{
               span: 16,
             }}
-            initialValues={{ remember: true }}
+            initialValues={{ title: titleValue, layout: layoutValue }}
             onFinish={(e) => handleSubmit(params.id, e)}
             autoComplete="off"
             style={{ width: "100%" }}
+            labelWrap
           >
             <Form.Item
               id="form-item-header"
@@ -107,6 +106,8 @@ const LayoutSelector: FC = () => {
                       size="large"
                       prefix={<UserOutlined />}
                       placeholder="Add a custom page title"
+                      onChange={(e) => setTitleValue(e.target.value)}
+                      value={titleValue}
                     />
                   )}
                 </Col>
@@ -129,7 +130,10 @@ const LayoutSelector: FC = () => {
                 },
               ]}
             >
-              <RadioGroup onChange={() => handleChange} value={layoutValue}>
+              <RadioGroup
+                onChange={(e) => setLayoutValue(e.target.value)}
+                value={layoutValue}
+              >
                 <Row
                   gutter={[12, 48]}
                   justify="space-between"
@@ -153,7 +157,7 @@ const LayoutSelector: FC = () => {
               >
                 <FlexBox direction="vertical">
                   <Divider />
-                  <Space size={100}>
+                  <Space size={100} wrap>
                     <Button type="primary" shape="round" size="large">
                       <Link to="/">Home</Link>
                     </Button>
