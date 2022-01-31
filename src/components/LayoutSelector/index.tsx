@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { FC, useEffect, useState } from "react";
 import { Row, Col, Form, Input, Button, Divider, Space, Layout } from "antd";
 import { UserOutlined } from "@ant-design/icons";
@@ -13,6 +14,13 @@ import LayoutCard, { ILayoutCard } from "./LayoutCard";
 import { IWebsite } from "../../store/interfaces/IWebsite";
 
 const { Footer } = Layout;
+
+const baseUrl = "https://user-images.githubusercontent.com/19453294/";
+export const layoutPngs = {
+  headerTwoColumns: `${baseUrl}149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png`,
+  headerThreeColumns: `${baseUrl}149674073-f950522d-62ca-442d-9de9-e2731efff94b.png`,
+  headerFooterTwoColumns: `${baseUrl}149674075-d4493e60-d7a3-4286-9287-9819129c8c75.png`,
+};
 
 const LayoutSelector: FC = () => {
   const params = useParams();
@@ -36,25 +44,24 @@ const LayoutSelector: FC = () => {
     navigate(`/content/${params.id}`);
   };
 
-  const baseUrl = "https://user-images.githubusercontent.com/19453294/";
   const cards: ILayoutCard[] = [
     {
       key: 1,
       layout: "Header - Two Columns",
       alt: "one rectangle above two rectangles",
-      imageUrl: `${baseUrl}149674074-5679c4d1-5c86-4e0f-832b-e139ad25d6bd.png`,
+      imageUrl: layoutPngs.headerTwoColumns,
     },
     {
       key: 2,
       layout: "Header - Three Columns",
       alt: "one rectangle above three rectangles",
-      imageUrl: `${baseUrl}149674073-f950522d-62ca-442d-9de9-e2731efff94b.png`,
+      imageUrl: layoutPngs.headerThreeColumns,
     },
     {
       key: 3,
       layout: "Header/Footer - Two Columns",
       alt: "three rows of sections but only the middle row has two rectangles",
-      imageUrl: `${baseUrl}149674075-d4493e60-d7a3-4286-9287-9819129c8c75.png`,
+      imageUrl: layoutPngs.headerFooterTwoColumns,
     },
   ];
 
