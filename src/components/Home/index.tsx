@@ -87,7 +87,7 @@ const Home: FC = () => {
         <Space>
           {record.layout ? (
             <Tooltip placement="topLeft" title={text}>
-              <Paragraph>{text}</Paragraph>
+              {text}
             </Tooltip>
           ) : (
             <Tooltip placement="topLeft" title="Choose Layout">
@@ -103,12 +103,15 @@ const Home: FC = () => {
       title: "Action",
       dataIndex: "action",
       key: "action",
+      ellipsis: true,
       render: (_text: unknown, record: IWebsite) => (
         <Space size="middle" direction="vertical">
           {record.layout ? (
-            <Button type="link" size="small">
-              <Link to={`/layout/${record.id}`}>Change Layout</Link>
-            </Button>
+            <Tooltip placement="topLeft" title="Change Layout">
+              <Button type="link" size="small">
+                <Link to={`/layout/${record.id}`}>Change Layout</Link>
+              </Button>
+            </Tooltip>
           ) : (
             ""
           )}
@@ -124,9 +127,11 @@ const Home: FC = () => {
             okText="Yes"
             cancelText="No"
           >
-            <Button type="link" size="small">
-              Delete
-            </Button>
+            <Tooltip placement="topLeft" title="Change Layout">
+              <Button type="link" size="small">
+                Delete
+              </Button>
+            </Tooltip>
           </Popconfirm>
         </Space>
       ),
