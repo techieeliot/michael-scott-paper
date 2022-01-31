@@ -9,6 +9,7 @@ import {
   Space,
   Popconfirm,
   message,
+  Tooltip,
 } from "antd";
 import { useDispatch, useSelector } from "react-redux";
 import uuid from "react-uuid";
@@ -62,15 +63,19 @@ const Home: FC = () => {
       title: "Title",
       dataIndex: "title",
       key: "title",
-      ellipsis: true,
+      ellipsis: {
+        showTitle: false,
+      },
       render: (text: string, record: IWebsite) => (
-        <Button type="link" size="small">
-          {text || record.layout ? (
-            <Link to={`/content/${record.id}`}>{text}</Link>
-          ) : (
-            <Link to={`/layout/${record.id}`}>{text || "Untitled Page"}</Link>
-          )}
-        </Button>
+        <Tooltip placement="topLeft" title={text || "Untitled Page"}>
+          <Button type="link" size="small">
+            {text || record.layout ? (
+              <Link to={`/content/${record.id}`}>{text}</Link>
+            ) : (
+              <Link to={`/layout/${record.id}`}>{text || "Untitled Page"}</Link>
+            )}
+          </Button>
+        </Tooltip>
       ),
     },
     {
@@ -81,11 +86,15 @@ const Home: FC = () => {
       render: (text: string, record: IWebsite) => (
         <Space>
           {record.layout ? (
-            <Paragraph>{text}</Paragraph>
+            <Tooltip placement="topLeft" title={text}>
+              <Paragraph>{text}</Paragraph>
+            </Tooltip>
           ) : (
-            <Button type="link" size="small">
-              <Link to={`/layout/${record.id}`}>Choose Layout</Link>
-            </Button>
+            <Tooltip placement="topLeft" title="Choose Layout">
+              <Button type="link" size="small">
+                <Link to={`/layout/${record.id}`}>Choose Layout</Link>
+              </Button>
+            </Tooltip>
           )}
         </Space>
       ),
