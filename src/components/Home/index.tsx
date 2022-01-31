@@ -157,8 +157,7 @@ const Home: FC = () => {
           </HomeRow>
           <TableRow justify="center">
             <Col xs={20} sm={18} md={12} lg={10}>
-              {/* SEE ISSUE #34 */}
-              <Table columns={columns} dataSource={websites as never} />
+              <Table columns={columns} dataSource={websites as []} />
             </Col>
           </TableRow>
         </Content>
