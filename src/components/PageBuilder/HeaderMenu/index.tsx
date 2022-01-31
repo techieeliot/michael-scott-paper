@@ -1,17 +1,39 @@
 import { FC, useState, useEffect } from "react";
 import { Menu, Typography } from "antd";
+import { useParams } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { RootState } from "../../../store/configureStore";
+import { IWebsite } from "../../../store/interfaces/IWebsite";
+import { DispatchType } from "../../../store/typings";
+import { UPDATE_WEBSITE } from "../../../store/actions/actionTypes";
 
 const { Item } = Menu;
 const { Paragraph } = Typography;
 
 const HeaderMenu: FC = () => {
-  const initialTitle = window.localStorage.getItem("title") || "Untitled Page";
-
-  const [title, setTitle] = useState<string>(initialTitle);
+  const params = useParams();
+  const websiteData = useSelector<RootState>((state) =>
+    state.rootReducer.websiteBuilder.websites.find(
+      (site) => site.id === params.id
+    )
+  ) as IWebsite;
+  const dispatch = useDispatch<DispatchType>();
+  const [titleValue, setTitleValue] = useState(websiteData.title);
 
   useEffect(() => {
-    return window.localStorage.setItem("title", title);
-  }, [title]);
+    if (titleValue !== websiteData.title) {
+      const siteValues = {
+        id: params.id,
+        title: titleValue,
+        layout: websiteData.layout,
+      } as IWebsite;
+
+      dispatch({
+        type: UPDATE_WEBSITE,
+        payload: siteValues,
+      });
+    }
+  }, [dispatch, params.id, titleValue, websiteData.layout, websiteData.title]);
 
   return (
     <Menu
@@ -44,11 +66,11 @@ const HeaderMenu: FC = () => {
             lineHeight: "initial",
           }}
           editable={{
-            onChange: setTitle,
+            onChange: setTitleValue,
             triggerType: ["icon", "text"],
           }}
         >
-          {title}
+          {titleValue}
         </Paragraph>
       </Item>
     </Menu>
