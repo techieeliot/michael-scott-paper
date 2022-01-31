@@ -20,7 +20,7 @@ import { HomeRow, LayoutRow, TableRow } from "./styles";
 import { ADD_WEBSITE, REMOVE_WEBSITE } from "../../store/actions/actionTypes";
 
 const { Content, Header } = Layout;
-const { Title, Paragraph } = Typography;
+const { Title } = Typography;
 
 const Home: FC = () => {
   const websites = useSelector<RootState>(
